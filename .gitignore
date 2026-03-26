@@ -1,0 +1,19 @@
+# Node
+node_modules/
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+
+# Claude Code
+.claude/
+
+# Logs
+*.log

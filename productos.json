@@ -1,0 +1,10 @@
+[
+  { "id": "P001", "nombre": "Cloro Tradicional", "marca": "Spring Force", "formato": "Bidón 5L", "precio": 4500, "imagen": "imagenes/cloro-5l.jpg", "categoria": "Limpieza" },
+  { "id": "P002", "nombre": "Detergente Líquido Omo", "marca": "Omo", "formato": "Botella 3L", "precio": 7990, "imagen": "imagenes/detergente-3l.jpg", "categoria": "Ropa" },
+  { "id": "P003", "nombre": "Cloro Gel Spring Force", "marca": "Spring Force", "formato": "Botella 1L", "precio": 1290, "imagen": "imagenes/cloro-gel-1l.jpg", "categoria": "Limpieza" },
+  { "id": "P004", "nombre": "Suavizante Aromatel", "marca": "Aromatel", "formato": "Botella 2L", "precio": 3490, "imagen": "imagenes/suavizante-2l.jpg", "categoria": "Ropa" },
+  { "id": "P005", "nombre": "Lavaloza Magistral", "marca": "Magistral", "formato": "Botella 750ml", "precio": 1990, "imagen": "imagenes/lavaloza-750.jpg", "categoria": "Cocina" },
+  { "id": "P006", "nombre": "Limpia Pisos Poett", "marca": "Poett", "formato": "Botella 900ml", "precio": 2290, "imagen": "imagenes/limpia-pisos-900.jpg", "categoria": "Limpieza" },
+  { "id": "P007", "nombre": "Papel Higiénico Elite", "marca": "Elite", "formato": "Pack 12 rollos", "precio": 4990, "imagen": "imagenes/papel-12.jpg", "categoria": "Hogar" },
+  { "id": "P008", "nombre": "Esponja Multiuso", "marca": "Genérico", "formato": "Pack x3", "precio": 890, "imagen": "imagenes/esponja-3.jpg", "categoria": "Cocina" }
+]

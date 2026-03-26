@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Importar Productos — Casa Ahorro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cyan:   #a8eaff;
+      --pink:   #ffb3de;
+      --yellow: #fff0a0;
+      --green:  #b2f5b2;
+      --purple: #d8b4fe;
+      --bg:     #f8f9ff;
+      --white:  #ffffff;
+      --text:   #1e293b;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --radius: 14px;
+      --ok:     #22c55e;
+      --err:    #ef4444;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px 16px 60px;
+    }
+
+    .top-bar {
+      max-width: 860px;
+      margin: 0 auto 32px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .top-bar a {
+      font-size: .85rem;
+      color: var(--muted);
+      text-decoration: none;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      transition: background .15s;
+    }
+    .top-bar a:hover { background: var(--border); }
+    .top-bar h1 { font-size: 1.25rem; font-weight: 700; }
+    .top-bar span { font-size: .8rem; background: var(--cyan); border-radius: 999px; padding: 3px 10px; font-weight: 600; }
+
+    .container { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+    .card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-sub { font-size: .82rem; color: var(--muted); margin-bottom: 16px; }
+
+    /* ── STEPS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 0;
+    }
+    .step {
+      background: linear-gradient(135deg, var(--cyan) 0%, var(--pink) 100%);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .step-num { font-size: 1.5rem; font-weight: 800; line-height: 1; }
+    .step-text { font-size: .82rem; font-weight: 500; margin-top: 4px; color: #1e293b; }
+
+    /* ── COLUMNAS REQUERIDAS ── */
+    .cols-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .col-chip {
+      background: var(--yellow);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+    }
+    .col-chip.opt { background: var(--purple); }
+
+    /* ── DROP ZONE ── */
+    .drop-zone {
+      border: 2.5px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 40px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+      position: relative;
+    }
+    .drop-zone.drag-over { border-color: #38bdf8; background: #f0fbff; }
+    .drop-zone input[type="file"] {
+      position: absolute; inset: 0; opacity: 0; cursor: pointer;
+    }
+    .drop-icon { font-size: 2.5rem; margin-bottom: 8px; }
+    .drop-text { font-size: .9rem; color: var(--muted); }
+    .drop-text strong { color: var(--text); }
+
+    /* ── SEPARADOR ── */
+    .or-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: .8rem;
+      margin: 4px 0;
+    }
+    .or-row::before, .or-row::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── TEXTAREA PEGAR ── */
+    #csvText {
+      width: 100%;
+      height: 130px;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: .78rem;
+      resize: vertical;
+      outline: none;
+      transition: border-color .2s;
+      color: var(--text);
+    }
+    #csvText:focus { border-color: #38bdf8; }
+
+    /* ── MAPEO ── */
+    .map-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 540px) { .map-grid { grid-template-columns: 1fr; } }
+
+    .map-row label { display: block; font-size: .78rem; font-weight: 600; margin-bottom: 5px; color: var(--muted); }
+    .map-row label span { background: var(--yellow); border-radius: 4px; padding: 1px 6px; color: var(--text); }
+    .map-row label span.opt { background: var(--purple); }
+    .map-row select, .map-row input[type="number"] {
+      width: 100%;
+      padding: 8px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: .85rem;
+      font-family: inherit;
+      outline: none;
+      background: var(--white);
+      transition: border-color .2s;
+    }
+    .map-row select:focus, .map-row input:focus { border-color: #38bdf8; }
+
+    /* ── PREVIEW TABLE ── */
+    .preview-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    thead tr { background: linear-gradient(90deg, var(--cyan), var(--pink)); }
+    th { padding: 8px 12px; font-weight: 700; text-align: left; white-space: nowrap; }
+    td { padding: 7px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    td img { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; background: var(--bg); }
+    .badge { background: var(--cyan); border-radius: 999px; padding: 2px 8px; font-size: .72rem; font-weight: 600; white-space: nowrap; }
+
+    /* ── ACTIONS ── */
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+    .btn {
+      padding: 11px 22px;
+      border: none;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: linear-gradient(135deg, #38bdf8, #a78bfa); color: #fff; box-shadow: 0 4px 14px rgba(56,189,248,.35); }
+    .btn-green   { background: #22c55e; color: #fff; box-shadow: 0 4px 14px rgba(34,197,94,.3); }
+    .btn-ghost   { background: var(--white); border: 1.5px solid var(--border); color: var(--text); }
+
+    /* ── OUTPUT ── */
+    #jsonOutput {
+      width: 100%;
+      height: 180px;
+      background: #0f172a;
+      color: #7dd3fc;
+      border: none;
+      border-radius: 10px;
+      padding: 14px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: .75rem;
+      resize: vertical;
+      outline: none;
+    }
+
+    /* ── ALERT ── */
+    .alert {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: .85rem;
+      font-weight: 500;
+      display: none;
+    }
+    .alert.ok  { background: #dcfce7; color: #166534; display: block; }
+    .alert.err { background: #fee2e2; color: #991b1b; display: block; }
+
+    /* ── INSTRUCCIONES FINALES ── */
+    .final-steps { display: flex; flex-direction: column; gap: 10px; }
+    .final-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: var(--bg);
+      border-radius: 10px;
+      padding: 14px;
+    }
+    .final-step-num {
+      min-width: 30px; height: 30px;
+      background: linear-gradient(135deg, var(--cyan), var(--pink));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .85rem;
+    }
+    .final-step-text { font-size: .85rem; line-height: 1.5; }
+    .final-step-text strong { display: block; font-size: .9rem; margin-bottom: 2px; }
+    code {
+      background: #f1f5f9;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-family: monospace;
+      font-size: .82rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="index.html">← Volver al catálogo</a>
+    <h1>📥 Importar Productos</h1>
+    <span>Herramienta interna</span>
+  </div>
+
+  <div class="container">
+
+    <!-- INSTRUCCIONES -->
+    <div class="card">
+      <div class="card-title">🗺️ ¿Cómo funciona?</div>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div class="step-text">Exporta tu hoja como CSV desde Excel, Google Sheets o Airtable</div></div>
+        <div class="step" style="background:linear-gradient(135deg,var(--pink),var(--yellow))"><div class="step-num">2</div><div class="step-text">Sube el archivo o pega el contenido aquí abajo</div></div>
+        <div class="step" style="background:linear-gradient(135deg,var(--yellow),var(--green))"><div class="step-num">3</div><div class="step-text">Mapea tus columnas y previsualiza los productos</div></div>
+        <div class="step" style="background:linear-gradient(135deg,var(--green),var(--purple))"><div class="step-num">4</div><div class="step-text">Descarga el <code>productos.json</code> y reemplaza el archivo</div></div>
+      </div>
+      <div class="cols-grid" style="margin-top:16px;">
+        <span class="col-chip">ID Producto</span>
+        <span class="col-chip">NOMBRE DEL PRODUCTO</span>
+        <span class="col-chip">CATEGORIA</span>
+        <span class="col-chip">PRECIO</span>
+        <span class="col-chip opt">MARCA</span>
+        <span class="col-chip opt">FORMATO / VARIANTE</span>
+        <span class="col-chip opt">IMAGEN 1</span>
+        <span class="col-chip opt">IMAGEN 2</span>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:8px;">
+        <strong style="color:var(--text);">Amarillo</strong> = obligatorio &nbsp;|&nbsp; <strong style="color:var(--text);">Morado</strong> = opcional
+      </p>
+    </div>
+
+    <!-- SUBIR ARCHIVO -->
+    <div class="card">
+      <div class="card-title">📂 Paso 1 — Carga tu CSV</div>
+      <div class="card-sub">Exporta desde tu hoja: <strong>Archivo → Descargar → CSV</strong></div>
+
+      <div class="drop-zone" id="dropZone">
+        <input type="file" id="fileInput" accept=".csv,.tsv,.txt">
+        <div class="drop-icon">📄</div>
+        <div class="drop-text"><strong>Arrastra tu CSV aquí</strong><br>o haz clic para seleccionar</div>
+      </div>
+
+      <div class="or-row">o pega el contenido directamente</div>
+
+      <textarea id="csvText" placeholder="ID Producto,CATEGORIA,NOMBRE DEL PRODUCTO,MARCA,FORMATO,PRECIO,IMAGEN 1&#10;P001,ROPA,Detergente Brik's Azul,Brik's,5 Litros,3490,imagenes/det-azul.jpg&#10;P002,ROPA,Detergente Brik's Naranja,Brik's,5 Litros,3490,imagenes/det-naranja.jpg"></textarea>
+
+      <div id="csvAlert" class="alert"></div>
+
+      <div class="actions" style="margin-top:14px;">
+        <button class="btn btn-primary" onclick="parseCsv()">⚙️ Procesar CSV</button>
+        <button class="btn btn-ghost" onclick="clearAll()">✕ Limpiar</button>
+      </div>
+    </div>
+
+    <!-- MAPEO DE COLUMNAS -->
+    <div class="card" id="mapCard" style="display:none;">
+      <div class="card-title">🔗 Paso 2 — Mapea las columnas</div>
+      <div class="card-sub">Indica qué columna de tu hoja corresponde a cada campo. Si una columna no existe selecciona "— ninguna —".</div>
+      <div class="map-grid" id="mapGrid"></div>
+
+      <div style="margin-top:16px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <label style="font-size:.82rem;font-weight:600;">
+          Separador CSV:
+          <select id="sepSelect" style="margin-left:6px;padding:5px 8px;border:1.5px solid var(--border);border-radius:8px;font-size:.82rem;">
+            <option value=",">Coma ( , )</option>
+            <option value=";">Punto y coma ( ; )</option>
+            <option value="	">Tabulador ( TAB )</option>
+          </select>
+        </label>
+        <button class="btn btn-primary" onclick="generatePreview()">👁 Vista previa</button>
+      </div>
+    </div>
+
+    <!-- PREVIEW -->
+    <div class="card" id="previewCard" style="display:none;">
+      <div class="card-title">👀 Paso 3 — Vista previa <span id="previewCount" style="font-size:.8rem;font-weight:500;color:var(--muted);"></span></div>
+      <div class="card-sub">Revisa que todo esté correcto antes de exportar.</div>
+      <div class="preview-wrap">
+        <table id="previewTable"></table>
+      </div>
+      <div class="actions" style="margin-top:20px;">
+        <button class="btn btn-green" onclick="downloadJson()">⬇️ Descargar productos.json</button>
+        <button class="btn btn-ghost" onclick="copyJson()">📋 Copiar JSON</button>
+      </div>
+    </div>
+
+    <!-- OUTPUT JSON -->
+    <div class="card" id="outputCard" style="display:none;">
+      <div class="card-title">📋 JSON generado</div>
+      <textarea id="jsonOutput" readonly></textarea>
+    </div>
+
+    <!-- INSTRUCCIONES FINALES -->
+    <div class="card" id="finalCard" style="display:none;">
+      <div class="card-title">🚀 Paso 4 — Actualiza el catálogo</div>
+      <div class="final-steps">
+        <div class="final-step">
+          <div class="final-step-num">1</div>
+          <div class="final-step-text">
+            <strong>Reemplaza el archivo</strong>
+            Copia el archivo <code>productos.json</code> descargado a la carpeta del proyecto (reemplaza el anterior).
+          </div>
+        </div>
+        <div class="final-step">
+          <div class="final-step-num">2</div>
+          <div class="final-step-text">
+            <strong>Sube las imágenes</strong>
+            Copia tus fotos a la carpeta <code>imagenes/</code>. Usa los mismos nombres que pusiste en la columna IMAGEN.
+          </div>
+        </div>
+        <div class="final-step">
+          <div class="final-step-num">3</div>
+          <div class="final-step-text">
+            <strong>Sube a GitHub</strong>
+            Abre la terminal en la carpeta del proyecto y ejecuta:<br>
+            <code>git add . && git commit -m "Actualizo productos" && git push</code>
+          </div>
+        </div>
+        <div class="final-step">
+          <div class="final-step-num">4</div>
+          <div class="final-step-text">
+            <strong>Vercel despliega automáticamente</strong>
+            En 30 segundos tu catálogo online estará actualizado. ✅
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /container -->
+
+  <script>
+  // ─── ESTADO ───────────────────────────────
+  let rawHeaders = [];
+  let rawRows    = [];
+  let parsedData = [];
+
+  const FIELDS = [
+    { key: 'id',        label: 'ID Producto',        required: true  },
+    { key: 'nombre',    label: 'Nombre del Producto', required: true  },
+    { key: 'categoria', label: 'Categoría',           required: true  },
+    { key: 'precio',    label: 'Precio',              required: true  },
+    { key: 'marca',     label: 'Marca',               required: false },
+    { key: 'formato',   label: 'Formato / Variante',  required: false },
+    { key: 'imagen',    label: 'Imagen 1',            required: false },
+    { key: 'imagen2',   label: 'Imagen 2 (opcional)', required: false },
+  ];
+
+  // ─── DRAG & DROP ──────────────────────────
+  const dropZone  = document.getElementById('dropZone');
+  const fileInput = document.getElementById('fileInput');
+
+  dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) readFile(file);
+  });
+  fileInput.addEventListener('change', () => { if (fileInput.files[0]) readFile(fileInput.files[0]); });
+
+  function readFile(file) {
+    const reader = new FileReader();
+    reader.onload = e => {
+      document.getElementById('csvText').value = e.target.result;
+      parseCsv();
+    };
+    reader.readAsText(file, 'UTF-8');
+  }
+
+  // ─── PARSEAR CSV ─────────────────────────
+  function parseCsv() {
+    const raw = document.getElementById('csvText').value.trim();
+    const sep = document.getElementById('sepSelect').value;
+    const alert = document.getElementById('csvAlert');
+
+    if (!raw) { showAlert(alert, 'err', 'Pega o sube un archivo CSV primero.'); return; }
+
+    const lines = raw.split(/\r?\n/).filter(l => l.trim());
+    if (lines.length < 2) { showAlert(alert, 'err', 'El CSV necesita al menos una fila de encabezado y una de datos.'); return; }
+
+    rawHeaders = splitCsvLine(lines[0], sep);
+    rawRows    = lines.slice(1).map(l => splitCsvLine(l, sep));
+
+    showAlert(alert, 'ok', `✅ CSV cargado: ${rawHeaders.length} columnas, ${rawRows.length} productos detectados.`);
+
+    buildMapGrid();
+    document.getElementById('mapCard').style.display = 'block';
+    document.getElementById('mapCard').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  function splitCsvLine(line, sep) {
+    const result = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"') { inQ = !inQ; continue; }
+      if (ch === sep && !inQ) { result.push(cur.trim()); cur = ''; continue; }
+      cur += ch;
+    }
+    result.push(cur.trim());
+    return result;
+  }
+
+  // ─── CONSTRUIR MAPEO ─────────────────────
+  function buildMapGrid() {
+    const grid = document.getElementById('mapGrid');
+    grid.innerHTML = '';
+
+    FIELDS.forEach(field => {
+      const div = document.createElement('div');
+      div.className = 'map-row';
+
+      // Auto-detectar columna similar
+      const autoIdx = rawHeaders.findIndex(h =>
+        h.toLowerCase().replace(/[^a-záéíóú]/gi,'').includes(
+          field.label.toLowerCase().split(' ')[0].replace(/[^a-záéíóú]/gi,'')
+        )
+      );
+
+      div.innerHTML = `
+        <label>
+          <span class="${field.required ? '' : 'opt'}">${field.required ? '●' : '○'}</span>
+          ${field.label}
+        </label>
+        <select id="map_${field.key}">
+          <option value="">— ninguna —</option>
+          ${rawHeaders.map((h, i) => `<option value="${i}" ${i === autoIdx && autoIdx !== -1 ? 'selected' : ''}>${h}</option>`).join('')}
+        </select>
+      `;
+      grid.appendChild(div);
+    });
+  }
+
+  // ─── GENERAR PREVIEW ─────────────────────
+  function generatePreview() {
+    const mapping = {};
+    FIELDS.forEach(f => {
+      const val = document.getElementById('map_' + f.key).value;
+      if (val !== '') mapping[f.key] = parseInt(val);
+    });
+
+    if (!('id' in mapping) || !('nombre' in mapping) || !('precio' in mapping)) {
+      alert('Debes mapear al menos: ID, Nombre y Precio.');
+      return;
+    }
+
+    parsedData = rawRows.map((row, i) => {
+      const obj = { _idx: i + 2 }; // fila real en el CSV
+      FIELDS.forEach(f => {
+        if (f.key in mapping) obj[f.key] = row[mapping[f.key]] || '';
+      });
+      if (obj.precio) obj.precio = Number(String(obj.precio).replace(/[^\d]/g, '')) || 0;
+      if (!obj.formato)   obj.formato   = '';
+      if (!obj.marca)     obj.marca     = '';
+      if (!obj.imagen)    obj.imagen    = '';
+      if (!obj.imagen2)   obj.imagen2   = '';
+      if (!obj.categoria) obj.categoria = 'General';
+      return obj;
+    }).filter(o => o.id && o.nombre);
+
+    // Render tabla
+    const table = document.getElementById('previewTable');
+    table.innerHTML = `
+      <thead><tr>
+        <th>#</th><th>ID</th><th>Nombre</th><th>Categoría</th>
+        <th>Marca</th><th>Formato</th><th>Precio</th><th>Imagen</th>
+      </tr></thead>
+      <tbody>
+        ${parsedData.map((p, i) => `
+          <tr>
+            <td style="color:var(--muted)">${i+1}</td>
+            <td><span class="badge">${p.id}</span></td>
+            <td><strong>${p.nombre}</strong></td>
+            <td>${p.categoria}</td>
+            <td>${p.marca}</td>
+            <td>${p.formato}</td>
+            <td style="font-weight:700;color:#7c3aed">$${Number(p.precio).toLocaleString('es-CL')}</td>
+            <td>${p.imagen ? `<img src="${p.imagen}" onerror="this.style.display='none'" alt="">` : '<span style="color:var(--muted);font-size:.75rem">sin img</span>'}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    `;
+
+    document.getElementById('previewCount').textContent = `— ${parsedData.length} productos`;
+    document.getElementById('previewCard').style.display = 'block';
+    document.getElementById('outputCard').style.display  = 'block';
+    document.getElementById('finalCard').style.display   = 'block';
+
+    // Generar JSON
+    const jsonArr = parsedData.map(({ _idx, imagen2, ...p }) => {
+      const obj = { ...p };
+      if (imagen2) obj.imagen2 = imagen2; // incluir si existe
+      return obj;
+    });
+    document.getElementById('jsonOutput').value = JSON.stringify(jsonArr, null, 2);
+
+    document.getElementById('previewCard').scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // ─── DESCARGAR JSON ──────────────────────
+  function downloadJson() {
+    const json = document.getElementById('jsonOutput').value;
+    if (!json) return;
+    const blob = new Blob([json], { type: 'application/json;charset=utf-8' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'productos.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  function copyJson() {
+    const json = document.getElementById('jsonOutput').value;
+    navigator.clipboard.writeText(json).then(() => {
+      const btn = event.target;
+      btn.textContent = '✅ Copiado!';
+      setTimeout(() => btn.textContent = '📋 Copiar JSON', 2000);
+    });
+  }
+
+  function clearAll() {
+    document.getElementById('csvText').value = '';
+    document.getElementById('csvAlert').className = 'alert';
+    ['mapCard','previewCard','outputCard','finalCard'].forEach(id => {
+      document.getElementById(id).style.display = 'none';
+    });
+    rawHeaders = []; rawRows = []; parsedData = [];
+  }
+
+  function showAlert(el, type, msg) {
+    el.className = 'alert ' + type;
+    el.textContent = msg;
+  }
+  </script>
+</body>
+</html>
