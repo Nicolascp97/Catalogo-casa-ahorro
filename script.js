@@ -108,9 +108,9 @@ function bindEvents() {
   $grid.addEventListener('click', e => {
     const btn = e.target.closest('.btn-add');
     if (!btn) return;
-    const id = Number(btn.dataset.id);
+    const id = btn.dataset.id; // string — coincide con el id del JSON ("P001", etc.)
     addToCart(id);
-    showToast('Producto añadido');
+    showToast('Producto añadido ✓');
   });
 
   // Carrito toggle
@@ -142,7 +142,7 @@ function bindEvents() {
   $cartItems.addEventListener('click', e => {
     const btn = e.target.closest('.qty-btn');
     if (!btn) return;
-    const id = Number(btn.dataset.id);
+    const id = btn.dataset.id; // string — mismo tipo que en el JSON
     const action = btn.dataset.action;
     if (action === 'plus') changeQty(id, 1);
     else if (action === 'minus') changeQty(id, -1);
@@ -203,7 +203,10 @@ function saveCart() {
 function loadCart() {
   try {
     const data = localStorage.getItem('casa_ahorro_cart');
-    return data ? JSON.parse(data) : [];
+    if (!data) return [];
+    const parsed = JSON.parse(data);
+    // Filtra items corruptos (id NaN o null que venían de la versión anterior)
+    return parsed.filter(i => i.id != null && i.id !== 'NaN' && !Number.isNaN(i.id));
   } catch (e) {
     return [];
   }
