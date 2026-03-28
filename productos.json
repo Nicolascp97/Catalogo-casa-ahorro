@@ -1,1568 +1,181 @@
 [
-  {
-    "id": "P001",
-    "nombre": "Detergente Líquido Azul",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 3490,
-    "categoria": "Ropa",
-    "imagen": "img/P001.jpg"
-  },
-  {
-    "id": "P002",
-    "nombre": "Detergente Líquido Naranjo",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 3490,
-    "categoria": "Ropa",
-    "imagen": "img/P002.jpg"
-  },
-  {
-    "id": "P003",
-    "nombre": "Detergente Líquido Blanco",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 3490,
-    "categoria": "Ropa",
-    "imagen": "img/P003.jpg"
-  },
-  {
-    "id": "P004",
-    "nombre": "Detergente Líquido Morado",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 3490,
-    "categoria": "Ropa",
-    "imagen": "img/P004.jpg"
-  },
-  {
-    "id": "P005",
-    "nombre": "Detergente Líquido Celeste",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 3490,
-    "categoria": "Ropa",
-    "imagen": "img/P005.jpg"
-  },
-  {
-    "id": "P006",
-    "nombre": "Detergente Líquido Rosado",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P006.jpg"
-  },
-  {
-    "id": "P007",
-    "nombre": "Detergente Líquido Azul",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P007.jpg"
-  },
-  {
-    "id": "P008",
-    "nombre": "Detergente Líquido Verde",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P008.jpg"
-  },
-  {
-    "id": "P009",
-    "nombre": "Detergente Líquido",
-    "marca": "RO",
-    "formato": "5 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P009.jpg"
-  },
-  {
-    "id": "P010",
-    "nombre": "Detergente Líquido Verde",
-    "marca": "New Power",
-    "formato": "3 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P010.jpg"
-  },
-  {
-    "id": "P011",
-    "nombre": "Detergente Líquido Azul",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P011.jpg"
-  },
-  {
-    "id": "P012",
-    "nombre": "Detergente Líquido Blanco",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P012.jpg"
-  },
-  {
-    "id": "P013",
-    "nombre": "Detergente Líquido Rosa",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P013.jpg"
-  },
-  {
-    "id": "P014",
-    "nombre": "Detergente Líquido Verde",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 3000,
-    "categoria": "Ropa",
-    "imagen": "img/P014.jpg"
-  },
-  {
-    "id": "P015",
-    "nombre": "Detergente Líquido Rosa Hipoalergénico",
-    "marca": "R&R",
-    "formato": "3 Litros",
-    "precio": 3900,
-    "categoria": "Ropa",
-    "imagen": "img/P015.jpg"
-  },
-  {
-    "id": "P016",
-    "nombre": "Detergente Líquido Verde",
-    "marca": "BIO",
-    "formato": "3 Litros",
-    "precio": 5800,
-    "categoria": "Ropa",
-    "imagen": "img/P016.jpg"
-  },
-  {
-    "id": "P017",
-    "nombre": "Detergente Líquido Naranjo",
-    "marca": "BIO",
-    "formato": "3 Litros",
-    "precio": 5800,
-    "categoria": "Ropa",
-    "imagen": "img/P017.jpg"
-  },
-  {
-    "id": "P018",
-    "nombre": "Detergente Líquido Verde",
-    "marca": "Arielo",
-    "formato": "3 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P018.jpg"
-  },
-  {
-    "id": "P019",
-    "nombre": "Detergente Líquido Azul",
-    "marca": "Arielo",
-    "formato": "3 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P019.jpg"
-  },
-  {
-    "id": "P020",
-    "nombre": "Suavizante Líquido",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 0,
-    "categoria": "Ropa",
-    "imagen": "img/P020.jpg"
-  },
-  {
-    "id": "P021",
-    "nombre": "Suavizante Líquido",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 0,
-    "categoria": "Ropa",
-    "imagen": "img/P021.jpg"
-  },
-  {
-    "id": "P022",
-    "nombre": "Suavizante Aromatizante",
-    "marca": "Downy",
-    "formato": "450 ML",
-    "precio": 2990,
-    "categoria": "Ropa",
-    "imagen": "img/P022.jpg"
-  },
-  {
-    "id": "P023",
-    "nombre": "Suavizante Aromatizante Primavera",
-    "marca": "Downy",
-    "formato": "450 ML",
-    "precio": 2990,
-    "categoria": "Ropa",
-    "imagen": "img/P023.jpg"
-  },
-  {
-    "id": "P024",
-    "nombre": "Suavizante Aromatizante Lavanda",
-    "marca": "Downy",
-    "formato": "450 ML",
-    "precio": 2990,
-    "categoria": "Ropa",
-    "imagen": "img/P024.jpg"
-  },
-  {
-    "id": "P025",
-    "nombre": "Detergente Líquido Azul",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P025.jpg"
-  },
-  {
-    "id": "P026",
-    "nombre": "Detergente Líquido Blanco",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P026.jpg"
-  },
-  {
-    "id": "P027",
-    "nombre": "Detergente Líquido Rosa",
-    "marca": "Multi Acción",
-    "formato": "3 Litros",
-    "precio": 2500,
-    "categoria": "Ropa",
-    "imagen": "img/P027.jpg"
-  },
-  {
-    "id": "P028",
-    "nombre": "Quitamanchas Ropa Blanca",
-    "marca": "Química Universal",
-    "formato": "500 Gr",
-    "precio": 3500,
-    "categoria": "Ropa",
-    "imagen": "img/P028.jpg"
-  },
-  {
-    "id": "P029",
-    "nombre": "Quitamanchas Ropa Color",
-    "marca": "Arcadia",
-    "formato": "750 ML",
-    "precio": 1990,
-    "categoria": "Ropa",
-    "imagen": "img/P029.jpg"
-  },
-  {
-    "id": "P030",
-    "nombre": "Cloro Ropa Blanca",
-    "marca": "CLORO",
-    "formato": "1 Litro",
-    "precio": 1990,
-    "categoria": "Ropa",
-    "imagen": "img/P030.jpg"
-  },
-  {
-    "id": "P031",
-    "nombre": "Limpia Multi-Espacio Lavanda",
-    "marca": "New Power",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Limpieza",
-    "imagen": "img/P031.jpg"
-  },
-  {
-    "id": "P032",
-    "nombre": "Limpia Multi-Espacio Bambú",
-    "marca": "New Power",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Limpieza",
-    "imagen": "img/P032.jpg"
-  },
-  {
-    "id": "P033",
-    "nombre": "Limpia Multi-Espacio Lavanda",
-    "marca": "Aromax",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Limpieza",
-    "imagen": "img/P033.jpg"
-  },
-  {
-    "id": "P034",
-    "nombre": "Limpia Pisos Naranja",
-    "marca": "Bio Limpieza",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Limpieza",
-    "imagen": "img/P034.jpg"
-  },
-  {
-    "id": "P035",
-    "nombre": "Limpia Pisos Rosas",
-    "marca": "Bio Limpieza",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Limpieza",
-    "imagen": "img/P035.jpg"
-  },
-  {
-    "id": "P036",
-    "nombre": "Limpia Pisos Lavanda",
-    "marca": "Bim",
-    "formato": "1 Litro",
-    "precio": 1200,
-    "categoria": "Limpieza",
-    "imagen": "img/P036.jpg"
-  },
-  {
-    "id": "P037",
-    "nombre": "Limpia Todo",
-    "marca": "Sapolio",
-    "formato": "1 Litro",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P037.jpg"
-  },
-  {
-    "id": "P038",
-    "nombre": "Virutilla Líquida",
-    "marca": "Química Universal",
-    "formato": "1 Litro",
-    "precio": 4500,
-    "categoria": "Limpieza",
-    "imagen": "img/P038.jpg"
-  },
-  {
-    "id": "P039",
-    "nombre": "Elimina Sarro",
-    "marca": "R&R",
-    "formato": "1 Litro",
-    "precio": 1600,
-    "categoria": "Limpieza",
-    "imagen": "img/P039.jpg"
-  },
-  {
-    "id": "P040",
-    "nombre": "Desengrasante Naranja",
-    "marca": "R&R",
-    "formato": "1 Litro",
-    "precio": 1600,
-    "categoria": "Limpieza",
-    "imagen": "img/P040.jpg"
-  },
-  {
-    "id": "P041",
-    "nombre": "Desengrasante",
-    "marca": "LEAL",
-    "formato": "1 Litro",
-    "precio": 1600,
-    "categoria": "Limpieza",
-    "imagen": "img/P041.jpg"
-  },
-  {
-    "id": "P042",
-    "nombre": "Desengrasante Concentrado",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 9000,
-    "categoria": "Limpieza",
-    "imagen": "img/P042.jpg"
-  },
-  {
-    "id": "P043",
-    "nombre": "Desengrasante Industrial",
-    "marca": "NIKOLL",
-    "formato": "5 Litros",
-    "precio": 9000,
-    "categoria": "Limpieza",
-    "imagen": "img/P043.jpg"
-  },
-  {
-    "id": "P044",
-    "nombre": "Elimina Sarro",
-    "marca": "FIFI",
-    "formato": "1 Litro",
-    "precio": 1600,
-    "categoria": "Limpieza",
-    "imagen": "img/P044.jpg"
-  },
-  {
-    "id": "P045",
-    "nombre": "Limpia Vidrios",
-    "marca": "Excell",
-    "formato": "500 ML",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P045.jpg"
-  },
-  {
-    "id": "P046",
-    "nombre": "Limpia Vidrios",
-    "marca": "Sapolio",
-    "formato": "500 ML",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P046.jpg"
-  },
-  {
-    "id": "P047",
-    "nombre": "Limpia Vidrios",
-    "marca": "SPUM",
-    "formato": "5 Litros",
-    "precio": 4500,
-    "categoria": "Limpieza",
-    "imagen": "img/P047.jpg"
-  },
-  {
-    "id": "P048",
-    "nombre": "Limpia Vidrios Lavanda",
-    "marca": "Multi Acción",
-    "formato": "5 Litros",
-    "precio": 4000,
-    "categoria": "Limpieza",
-    "imagen": "img/P048.jpg"
-  },
-  {
-    "id": "P049",
-    "nombre": "Cloro",
-    "marca": "Clorinda",
-    "formato": "1 Litro",
-    "precio": 1500,
-    "categoria": "Limpieza",
-    "imagen": "img/P049.jpg"
-  },
-  {
-    "id": "P050",
-    "nombre": "Cloro",
-    "marca": "Igenix",
-    "formato": "1 Litro",
-    "precio": 1500,
-    "categoria": "Limpieza",
-    "imagen": "img/P050.jpg"
-  },
-  {
-    "id": "P051",
-    "nombre": "Cloro Gel",
-    "marca": "Igenix",
-    "formato": "1 Litro",
-    "precio": 1990,
-    "categoria": "Limpieza",
-    "imagen": "img/P051.jpg"
-  },
-  {
-    "id": "P052",
-    "nombre": "Cloro Gel",
-    "marca": "R&R",
-    "formato": "1 Litro",
-    "precio": 1500,
-    "categoria": "Limpieza",
-    "imagen": "img/P052.jpg"
-  },
-  {
-    "id": "P053",
-    "nombre": "Cloro",
-    "marca": "IMPEKE",
-    "formato": "1 Litro",
-    "precio": 1690,
-    "categoria": "Limpieza",
-    "imagen": "img/P053.jpg"
-  },
-  {
-    "id": "P054",
-    "nombre": "Cloro",
-    "marca": "BIOAROMA",
-    "formato": "5 Litros",
-    "precio": 2600,
-    "categoria": "Limpieza",
-    "imagen": "img/P054.jpg"
-  },
-  {
-    "id": "P055",
-    "nombre": "Cloro",
-    "marca": "CLORO",
-    "formato": "5 Litros",
-    "precio": 2600,
-    "categoria": "Limpieza",
-    "imagen": "img/P055.jpg"
-  },
-  {
-    "id": "P056",
-    "nombre": "Paños Húmedos",
-    "marca": "BRILLEX",
-    "formato": "7 Unidades",
-    "precio": 1500,
-    "categoria": "Limpieza",
-    "imagen": "img/P056.jpg"
-  },
-  {
-    "id": "P057",
-    "nombre": "Toallas Húmedas Desinfectantes",
-    "marca": "IGENIX",
-    "formato": "50 Unidades",
-    "precio": 2500,
-    "categoria": "Limpieza",
-    "imagen": "img/P057.jpg"
-  },
-  {
-    "id": "P058",
-    "nombre": "Escobilla",
-    "marca": "Limpieza",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P058.jpg"
-  },
-  {
-    "id": "P059",
-    "nombre": "Escobilla de Mano",
-    "marca": "Limpieza",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P059.jpg"
-  },
-  {
-    "id": "P060",
-    "nombre": "Cepillo de Mano",
-    "marca": "Limpieza",
-    "formato": "1 Unidad",
-    "precio": 0,
-    "categoria": "Limpieza",
-    "imagen": "img/P060.jpg"
-  },
-  {
-    "id": "P061",
-    "nombre": "Paños de Microfibra",
-    "marca": "Limpieza",
-    "formato": "1 Unidad",
-    "precio": 500,
-    "categoria": "Limpieza",
-    "imagen": "img/P061.jpg"
-  },
-  {
-    "id": "P062",
-    "nombre": "Paño Esponja",
-    "marca": "Limpieza",
-    "formato": "3 Unidades",
-    "precio": 1000,
-    "categoria": "Limpieza",
-    "imagen": "img/P062.jpg"
-  },
-  {
-    "id": "P063",
-    "nombre": "Cloro Gel",
-    "marca": "New Power",
-    "formato": "2 Litros",
-    "precio": 3000,
-    "categoria": "Limpieza",
-    "imagen": "img/P063.jpg"
-  },
-  {
-    "id": "P064",
-    "nombre": "Cloro Gel Ultraconcentrado",
-    "marca": "New Power",
-    "formato": "5 Litros",
-    "precio": 4500,
-    "categoria": "Limpieza",
-    "imagen": "img/P064.jpg"
-  },
-  {
-    "id": "P065",
-    "nombre": "Limpia Parabrisas y Espejos",
-    "marca": "PRIDE",
-    "formato": "500 ML",
-    "precio": 0,
-    "categoria": "Limpieza",
-    "imagen": "img/P065.jpg"
-  },
-  {
-    "id": "P066",
-    "nombre": "Silicona Auto",
-    "marca": "BRILLEX",
-    "formato": "360 ML",
-    "precio": 2500,
-    "categoria": "Limpieza",
-    "imagen": "img/P066.jpg"
-  },
-  {
-    "id": "P067",
-    "nombre": "Silicona Auto",
-    "marca": "KIT",
-    "formato": "360 ML",
-    "precio": 2500,
-    "categoria": "Limpieza",
-    "imagen": "img/P067.jpg"
-  },
-  {
-    "id": "P068",
-    "nombre": "Renovador Espuma",
-    "marca": "KIT",
-    "formato": "360 ML",
-    "precio": 2990,
-    "categoria": "Limpieza",
-    "imagen": "img/P068.jpg"
-  },
-  {
-    "id": "P069",
-    "nombre": "Renovador Líquido",
-    "marca": "PREMIUM",
-    "formato": "1 Litro",
-    "precio": 2990,
-    "categoria": "Limpieza",
-    "imagen": "img/P069.jpg"
-  },
-  {
-    "id": "P070",
-    "nombre": "Shampoo Auto",
-    "marca": "PREMIUM",
-    "formato": "1 Litro",
-    "precio": 1990,
-    "categoria": "Limpieza",
-    "imagen": "img/P070.jpg"
-  },
-  {
-    "id": "P071",
-    "nombre": "Limpia Tapiz",
-    "marca": "PREMIUM",
-    "formato": "500 ML",
-    "precio": 2990,
-    "categoria": "Limpieza",
-    "imagen": "img/P071.jpg"
-  },
-  {
-    "id": "P072",
-    "nombre": "Toallitas Siliconadas Auto",
-    "marca": "WINNEX",
-    "formato": "80 Unidades",
-    "precio": 3990,
-    "categoria": "Limpieza",
-    "imagen": "img/P072.jpg"
-  },
-  {
-    "id": "P073",
-    "nombre": "Limpia Muebles",
-    "marca": "WINNEX",
-    "formato": "250 ML",
-    "precio": 2100,
-    "categoria": "Limpieza",
-    "imagen": "img/P073.jpg"
-  },
-  {
-    "id": "P074",
-    "nombre": "Cera Pintura para Pisos",
-    "marca": "LEAL",
-    "formato": "1 Litro",
-    "precio": 1700,
-    "categoria": "Limpieza",
-    "imagen": "img/P074.jpg"
-  },
-  {
-    "id": "P075",
-    "nombre": "Cera Pintura para Pisos",
-    "marca": "PREMIUM",
-    "formato": "1 Litro",
-    "precio": 1700,
-    "categoria": "Limpieza",
-    "imagen": "img/P075.jpg"
-  },
-  {
-    "id": "P076",
-    "nombre": "Cera Líquida Pisos Flotantes",
-    "marca": "LEAL",
-    "formato": "1 Litro",
-    "precio": 1700,
-    "categoria": "Limpieza",
-    "imagen": "img/P076.jpg"
-  },
-  {
-    "id": "P077",
-    "nombre": "Cera Roja para Pisos",
-    "marca": "Multi Acción",
-    "formato": "2 Litros",
-    "precio": 3000,
-    "categoria": "Limpieza",
-    "imagen": "img/P077.jpg"
-  },
-  {
-    "id": "P078",
-    "nombre": "Jabón Popeye",
-    "marca": "Popeye",
-    "formato": "1 Unidad",
-    "precio": 1500,
-    "categoria": "Limpieza",
-    "imagen": "img/P078.jpg"
-  },
-  {
-    "id": "P079",
-    "nombre": "Lavalozas Concentrado",
-    "marca": "RO",
-    "formato": "5 Litros",
-    "precio": 4500,
-    "categoria": "Cocina",
-    "imagen": "img/P079.jpg"
-  },
-  {
-    "id": "P080",
-    "nombre": "Lavalozas Concentrado",
-    "marca": "Brik's",
-    "formato": "5 Litros",
-    "precio": 5000,
-    "categoria": "Cocina",
-    "imagen": "img/P080.jpg"
-  },
-  {
-    "id": "P081",
-    "nombre": "Lavalozas Recarga Limón",
-    "marca": "VIRGINIA",
-    "formato": "1 Litro",
-    "precio": 1500,
-    "categoria": "Cocina",
-    "imagen": "img/P081.jpg"
-  },
-  {
-    "id": "P082",
-    "nombre": "Lavalozas Concentrado Recarga",
-    "marca": "FUZOL",
-    "formato": "1 Litro",
-    "precio": 1500,
-    "categoria": "Cocina",
-    "imagen": "img/P082.jpg"
-  },
-  {
-    "id": "P083",
-    "nombre": "Lavalozas Ultra Concentrado",
-    "marca": "GOMU GOMU",
-    "formato": "2 Litros",
-    "precio": 2000,
-    "categoria": "Cocina",
-    "imagen": "img/P083.jpg"
-  },
-  {
-    "id": "P084",
-    "nombre": "Lavalozas",
-    "marca": "Brik's",
-    "formato": "2 Litros",
-    "precio": 2690,
-    "categoria": "Cocina",
-    "imagen": "img/P084.jpg"
-  },
-  {
-    "id": "P085",
-    "nombre": "Lavalozas",
-    "marca": "QUIX",
-    "formato": "750 ML",
-    "precio": 2990,
-    "categoria": "Cocina",
-    "imagen": "img/P085.jpg"
-  },
-  {
-    "id": "P086",
-    "nombre": "Limpiador Crema Multiuso",
-    "marca": "Brik's",
-    "formato": "750 ML",
-    "precio": 1690,
-    "categoria": "Cocina",
-    "imagen": "img/P086.jpg"
-  },
-  {
-    "id": "P087",
-    "nombre": "Limpiador Crema Cocina",
-    "marca": "Brik's",
-    "formato": "750 ML",
-    "precio": 1690,
-    "categoria": "Cocina",
-    "imagen": "img/P087.jpg"
-  },
-  {
-    "id": "P088",
-    "nombre": "Servilletas",
-    "marca": "PRO PAPER",
-    "formato": "300 Unidades",
-    "precio": 1450,
-    "categoria": "Cocina",
-    "imagen": "img/P088.jpg"
-  },
-  {
-    "id": "P089",
-    "nombre": "Servilletas",
-    "marca": "BELLEZA",
-    "formato": "300 Unidades",
-    "precio": 1100,
-    "categoria": "Cocina",
-    "imagen": "img/P089.jpg"
-  },
-  {
-    "id": "P090",
-    "nombre": "Toalla Nova",
-    "marca": "ABOLENGO",
-    "formato": "1 Unidad",
-    "precio": 3100,
-    "categoria": "Cocina",
-    "imagen": "img/P090.jpg"
-  },
-  {
-    "id": "P091",
-    "nombre": "Toalla Nova",
-    "marca": "ELITE",
-    "formato": "2 Unidades",
-    "precio": 2690,
-    "categoria": "Cocina",
-    "imagen": "img/P091.jpg"
-  },
-  {
-    "id": "P092",
-    "nombre": "Toalla Nova",
-    "marca": "NOVA",
-    "formato": "3 Unidades",
-    "precio": 1200,
-    "categoria": "Cocina",
-    "imagen": "img/P092.jpg"
-  },
-  {
-    "id": "P093",
-    "nombre": "Bolsas de Basura Pequeña",
-    "marca": "DOM",
-    "formato": "10 Unidades",
-    "precio": 500,
-    "categoria": "Cocina",
-    "imagen": "img/P093.jpg"
-  },
-  {
-    "id": "P094",
-    "nombre": "Bolsas de Basura Mediana",
-    "marca": "DOM",
-    "formato": "10 Unidades",
-    "precio": 1000,
-    "categoria": "Cocina",
-    "imagen": "img/P094.jpg"
-  },
-  {
-    "id": "P095",
-    "nombre": "Bolsas de Basura Grande",
-    "marca": "DOM",
-    "formato": "10 Unidades",
-    "precio": 1500,
-    "categoria": "Cocina",
-    "imagen": "img/P095.jpg"
-  },
-  {
-    "id": "P096",
-    "nombre": "Bolsas de Basura Gigante",
-    "marca": "DOM",
-    "formato": "10 Unidades",
-    "precio": 2000,
-    "categoria": "Cocina",
-    "imagen": "img/P096.jpg"
-  },
-  {
-    "id": "P097",
-    "nombre": "Fósforos",
-    "marca": "TALISMAN",
-    "formato": "10 Unidades",
-    "precio": 690,
-    "categoria": "Cocina",
-    "imagen": "img/P097.jpg"
-  },
-  {
-    "id": "P098",
-    "nombre": "Esponjas Loza",
-    "marca": "ELITE",
-    "formato": "4 Unidades",
-    "precio": 1000,
-    "categoria": "Cocina",
-    "imagen": "img/P098.jpg"
-  },
-  {
-    "id": "P099",
-    "nombre": "Virutilla Fina",
-    "marca": "Premium",
-    "formato": "12 Unidades",
-    "precio": 1000,
-    "categoria": "Cocina",
-    "imagen": "img/P099.jpg"
-  },
-  {
-    "id": "P100",
-    "nombre": "Virutilla Gruesa",
-    "marca": "Premium",
-    "formato": "3 Unidades",
-    "precio": 1200,
-    "categoria": "Cocina",
-    "imagen": "img/P100.jpg"
-  },
-  {
-    "id": "P101",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Cocina",
-    "imagen": "img/P101.jpg"
-  },
-  {
-    "id": "P102",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Cocina",
-    "imagen": "img/P102.jpg"
-  },
-  {
-    "id": "P103",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Cocina",
-    "imagen": "img/P103.jpg"
-  },
-  {
-    "id": "P104",
-    "nombre": "Aromatizante Individual",
-    "marca": "PREMIUM",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Aroma",
-    "imagen": "img/P104.jpg"
-  },
-  {
-    "id": "P105",
-    "nombre": "Aromatizante Naranja",
-    "marca": "PRIDE",
-    "formato": "360 ML",
-    "precio": 6990,
-    "categoria": "Aroma",
-    "imagen": "img/P105.jpg"
-  },
-  {
-    "id": "P106",
-    "nombre": "Aromatizante de Hogar Floral",
-    "marca": "AROM",
-    "formato": "1 Unidad",
-    "precio": 1650,
-    "categoria": "Aroma",
-    "imagen": "img/P106.jpg"
-  },
-  {
-    "id": "P107",
-    "nombre": "Aromatizante de Hogar Bambú",
-    "marca": "AROM",
-    "formato": "1 Unidad",
-    "precio": 1650,
-    "categoria": "Aroma",
-    "imagen": "img/P107.jpg"
-  },
-  {
-    "id": "P108",
-    "nombre": "Aromatizante de Hogar",
-    "marca": "KLEINE",
-    "formato": "1 Unidad",
-    "precio": 1500,
-    "categoria": "Aroma",
-    "imagen": "img/P108.jpg"
-  },
-  {
-    "id": "P109",
-    "nombre": "Aerosol Ambiental",
-    "marca": "BRILLEX",
-    "formato": "1 Unidad",
-    "precio": 1350,
-    "categoria": "Aroma",
-    "imagen": "img/P109.jpg"
-  },
-  {
-    "id": "P110",
-    "nombre": "Aerosol Vainilla",
-    "marca": "SHOPNOW",
-    "formato": "1 Unidad",
-    "precio": 1350,
-    "categoria": "Aroma",
-    "imagen": "img/P110.jpg"
-  },
-  {
-    "id": "P111",
-    "nombre": "Aerosol Damasco",
-    "marca": "SHOPNOW",
-    "formato": "1 Unidad",
-    "precio": 1350,
-    "categoria": "Aroma",
-    "imagen": "img/P111.jpg"
-  },
-  {
-    "id": "P112",
-    "nombre": "Aerosol Océano",
-    "marca": "SHOPNOW",
-    "formato": "1 Unidad",
-    "precio": 1350,
-    "categoria": "Aroma",
-    "imagen": "img/P112.jpg"
-  },
-  {
-    "id": "P113",
-    "nombre": "Aerosol Lavanda",
-    "marca": "SHOPNOW",
-    "formato": "1 Unidad",
-    "precio": 1350,
-    "categoria": "Aroma",
-    "imagen": "img/P113.jpg"
-  },
-  {
-    "id": "P114",
-    "nombre": "Velas Aromáticas",
-    "marca": "CANDLE",
-    "formato": "1 Unidad",
-    "precio": 1500,
-    "categoria": "Aroma",
-    "imagen": "img/P114.jpg"
-  },
-  {
-    "id": "P115",
-    "nombre": "Difusor Aromático Bambú",
-    "marca": "HOME",
-    "formato": "1 Unidad",
-    "precio": 3500,
-    "categoria": "Aroma",
-    "imagen": "img/P115.jpg"
-  },
-  {
-    "id": "P116",
-    "nombre": "Difusor Aromático Naranja-Canela",
-    "marca": "HOME",
-    "formato": "1 Unidad",
-    "precio": 3500,
-    "categoria": "Aroma",
-    "imagen": "img/P116.jpg"
-  },
-  {
-    "id": "P117",
-    "nombre": "Difusor Aromático Peras y Fresas",
-    "marca": "HOME",
-    "formato": "1 Unidad",
-    "precio": 3500,
-    "categoria": "Aroma",
-    "imagen": "img/P117.jpg"
-  },
-  {
-    "id": "P118",
-    "nombre": "Difusor Bambú Hogar",
-    "marca": "HOME",
-    "formato": "1 Unidad",
-    "precio": 6500,
-    "categoria": "Aroma",
-    "imagen": "img/P118.jpg"
-  },
-  {
-    "id": "P119",
-    "nombre": "Difusor Hogar Premium",
-    "marca": "HOME",
-    "formato": "1 Unidad",
-    "precio": 8900,
-    "categoria": "Aroma",
-    "imagen": "img/P119.jpg"
-  },
-  {
-    "id": "P120",
-    "nombre": "Pack Difusores",
-    "marca": "HOME",
-    "formato": "3 Unidades",
-    "precio": 12500,
-    "categoria": "Aroma",
-    "imagen": "img/P120.jpg"
-  },
-  {
-    "id": "P121",
-    "nombre": "Pack Difusores Victoria's Secret",
-    "marca": "HOME",
-    "formato": "3 Unidades",
-    "precio": 12500,
-    "categoria": "Aroma",
-    "imagen": "img/P121.jpg"
-  },
-  {
-    "id": "P122",
-    "nombre": "Desinfectante",
-    "marca": "LYSOFORM",
-    "formato": "1 Unidad",
-    "precio": 3950,
-    "categoria": "Aerosol",
-    "imagen": "img/P122.jpg"
-  },
-  {
-    "id": "P123",
-    "nombre": "Desinfectante",
-    "marca": "LISOFORM",
-    "formato": "1 Unidad",
-    "precio": 3500,
-    "categoria": "Aerosol",
-    "imagen": "img/P123.jpg"
-  },
-  {
-    "id": "P124",
-    "nombre": "Desinfectante",
-    "marca": "IGENIX",
-    "formato": "1 Unidad",
-    "precio": 3290,
-    "categoria": "Aerosol",
-    "imagen": "img/P124.jpg"
-  },
-  {
-    "id": "P125",
-    "nombre": "Insecticida Cucarachas",
-    "marca": "KILLER",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Aerosol",
-    "imagen": "img/P125.jpg"
-  },
-  {
-    "id": "P126",
-    "nombre": "Insecticida Moscas",
-    "marca": "KILLER",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Aerosol",
-    "imagen": "img/P126.jpg"
-  },
-  {
-    "id": "P127",
-    "nombre": "Insecticida Multiinsecto",
-    "marca": "KILLER",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Aerosol",
-    "imagen": "img/P127.jpg"
-  },
-  {
-    "id": "P128",
-    "nombre": "Insecticida",
-    "marca": "BAYGON",
-    "formato": "1 Unidad",
-    "precio": 2990,
-    "categoria": "Aerosol",
-    "imagen": "img/P128.jpg"
-  },
-  {
-    "id": "P129",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Aerosol",
-    "imagen": "img/P129.jpg"
-  },
-  {
-    "id": "P130",
-    "nombre": "Jabón Líquido",
-    "marca": "IO",
-    "formato": "350 ML",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P130.jpg"
-  },
-  {
-    "id": "P131",
-    "nombre": "Jabón Líquido Antibacterial",
-    "marca": "IO",
-    "formato": "350 ML",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P131.jpg"
-  },
-  {
-    "id": "P132",
-    "nombre": "Jabón Líquido Hipoalergénico",
-    "marca": "BABY LEE",
-    "formato": "750 ML",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P132.jpg"
-  },
-  {
-    "id": "P133",
-    "nombre": "Jabón Líquido Dermatológico",
-    "marca": "BABY LEE",
-    "formato": "750 ML",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P133.jpg"
-  },
-  {
-    "id": "P134",
-    "nombre": "Listerine Menta",
-    "marca": "LISTERINE",
-    "formato": "180 ML",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P134.jpg"
-  },
-  {
-    "id": "P135",
-    "nombre": "Listerine Cool Mint",
-    "marca": "LISTERINE",
-    "formato": "180 ML",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P135.jpg"
-  },
-  {
-    "id": "P136",
-    "nombre": "Listerine Blanqueador",
-    "marca": "LISTERINE",
-    "formato": "180 ML",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P136.jpg"
-  },
-  {
-    "id": "P137",
-    "nombre": "Pasta de Dientes",
-    "marca": "PEPSODENT",
-    "formato": "1 Unidad",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P137.jpg"
-  },
-  {
-    "id": "P138",
-    "nombre": "Pasta de Dientes",
-    "marca": "COLGATE",
-    "formato": "1 Unidad",
-    "precio": 1200,
-    "categoria": "Baño",
-    "imagen": "img/P138.jpg"
-  },
-  {
-    "id": "P139",
-    "nombre": "Cepillo de Dientes",
-    "marca": "COLGATE",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P139.jpg"
-  },
-  {
-    "id": "P140",
-    "nombre": "Prestobarba",
-    "marca": "GILLETTE",
-    "formato": "1 Unidad",
-    "precio": 1500,
-    "categoria": "Baño",
-    "imagen": "img/P140.jpg"
-  },
-  {
-    "id": "P141",
-    "nombre": "Shampoo Rizos",
-    "marca": "SEDAL",
-    "formato": "1 Unidad",
-    "precio": 1990,
-    "categoria": "Baño",
-    "imagen": "img/P141.jpg"
-  },
-  {
-    "id": "P142",
-    "nombre": "Shampoo Liso",
-    "marca": "SEDAL",
-    "formato": "1 Unidad",
-    "precio": 1990,
-    "categoria": "Baño",
-    "imagen": "img/P142.jpg"
-  },
-  {
-    "id": "P143",
-    "nombre": "Acondicionador Rizos",
-    "marca": "SEDAL",
-    "formato": "1 Unidad",
-    "precio": 1990,
-    "categoria": "Baño",
-    "imagen": "img/P143.jpg"
-  },
-  {
-    "id": "P144",
-    "nombre": "Acondicionador Liso",
-    "marca": "SEDAL",
-    "formato": "1 Unidad",
-    "precio": 1990,
-    "categoria": "Baño",
-    "imagen": "img/P144.jpg"
-  },
-  {
-    "id": "P145",
-    "nombre": "Shampoo Aceite de Argán",
-    "marca": "HEAD & SHOULDERS",
-    "formato": "1 Unidad",
-    "precio": 3990,
-    "categoria": "Baño",
-    "imagen": "img/P145.jpg"
-  },
-  {
-    "id": "P146",
-    "nombre": "Shampoo Menta",
-    "marca": "HEAD & SHOULDERS",
-    "formato": "1 Unidad",
-    "precio": 3990,
-    "categoria": "Baño",
-    "imagen": "img/P146.jpg"
-  },
-  {
-    "id": "P147",
-    "nombre": "Shampoo Control de Caspa",
-    "marca": "DOVE",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Baño",
-    "imagen": "img/P147.jpg"
-  },
-  {
-    "id": "P148",
-    "nombre": "Shampoo Colágeno",
-    "marca": "DOVE",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Baño",
-    "imagen": "img/P148.jpg"
-  },
-  {
-    "id": "P149",
-    "nombre": "Shampoo-Acondicionador 2 en 1",
-    "marca": "DOVE",
-    "formato": "1 Unidad",
-    "precio": 3390,
-    "categoria": "Baño",
-    "imagen": "img/P149.jpg"
-  },
-  {
-    "id": "P150",
-    "nombre": "Shampoo Plátano Café",
-    "marca": "BALLERINA",
-    "formato": "1 Unidad",
-    "precio": 1990,
-    "categoria": "Baño",
-    "imagen": "img/P150.jpg"
-  },
-  {
-    "id": "P151",
-    "nombre": "Shampoo Keratina",
-    "marca": "BALLERINA",
-    "formato": "1 Unidad",
-    "precio": 1490,
-    "categoria": "Baño",
-    "imagen": "img/P151.jpg"
-  },
-  {
-    "id": "P152",
-    "nombre": "Shampoo Coco",
-    "marca": "BALLERINA",
-    "formato": "1 Unidad",
-    "precio": 1490,
-    "categoria": "Baño",
-    "imagen": "img/P152.jpg"
-  },
-  {
-    "id": "P153",
-    "nombre": "Acondicionador Keratina",
-    "marca": "BALLERINA",
-    "formato": "1 Unidad",
-    "precio": 1490,
-    "categoria": "Baño",
-    "imagen": "img/P153.jpg"
-  },
-  {
-    "id": "P154",
-    "nombre": "Acondicionador Coco",
-    "marca": "BALLERINA",
-    "formato": "1 Unidad",
-    "precio": 1490,
-    "categoria": "Baño",
-    "imagen": "img/P154.jpg"
-  },
-  {
-    "id": "P155",
-    "nombre": "Antitranspirante",
-    "marca": "REXONA",
-    "formato": "1 Unidad",
-    "precio": 2590,
-    "categoria": "Baño",
-    "imagen": "img/P155.jpg"
-  },
-  {
-    "id": "P156",
-    "nombre": "Antitranspirante Mujer",
-    "marca": "NIVEA",
-    "formato": "1 Unidad",
-    "precio": 2390,
-    "categoria": "Baño",
-    "imagen": "img/P156.jpg"
-  },
-  {
-    "id": "P157",
-    "nombre": "Antitranspirante Hombre",
-    "marca": "NIVEA",
-    "formato": "1 Unidad",
-    "precio": 2390,
-    "categoria": "Baño",
-    "imagen": "img/P157.jpg"
-  },
-  {
-    "id": "P158",
-    "nombre": "Antitranspirante",
-    "marca": "DOVE",
-    "formato": "1 Unidad",
-    "precio": 2590,
-    "categoria": "Baño",
-    "imagen": "img/P158.jpg"
-  },
-  {
-    "id": "P159",
-    "nombre": "Antitranspirante",
-    "marca": "AXE",
-    "formato": "1 Unidad",
-    "precio": 2990,
-    "categoria": "Baño",
-    "imagen": "img/P159.jpg"
-  },
-  {
-    "id": "P160",
-    "nombre": "Protectores Diarios",
-    "marca": "NOSOTRAS",
-    "formato": "1 Unidad",
-    "precio": 1690,
-    "categoria": "Baño",
-    "imagen": "img/P160.jpg"
-  },
-  {
-    "id": "P161",
-    "nombre": "Toallas Higiénicas",
-    "marca": "NOSOTRAS",
-    "formato": "1 Unidad",
-    "precio": 2290,
-    "categoria": "Baño",
-    "imagen": "img/P161.jpg"
-  },
-  {
-    "id": "P162",
-    "nombre": "Pétalos de Algodón",
-    "marca": "BEAUTY",
-    "formato": "1 Unidad",
-    "precio": 1300,
-    "categoria": "Baño",
-    "imagen": "img/P162.jpg"
-  },
-  {
-    "id": "P163",
-    "nombre": "Toallas Húmedas Personales",
-    "marca": "BABY CARE",
-    "formato": "1 Unidad",
-    "precio": 990,
-    "categoria": "Baño",
-    "imagen": "img/P163.jpg"
-  },
-  {
-    "id": "P164",
-    "nombre": "Jabón en Barra Antibacterial",
-    "marca": "PROTEX",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P164.jpg"
-  },
-  {
-    "id": "P165",
-    "nombre": "Jabón en Barra Floral",
-    "marca": "LUX",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P165.jpg"
-  },
-  {
-    "id": "P166",
-    "nombre": "Jabón en Barra Hidratante",
-    "marca": "LUX",
-    "formato": "1 Unidad",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P166.jpg"
-  },
-  {
-    "id": "P167",
-    "nombre": "Papel Higiénico Doble Hoja",
-    "marca": "ELITE",
-    "formato": "1 Unidad",
-    "precio": 5990,
-    "categoria": "Baño",
-    "imagen": "img/P167.jpg"
-  },
-  {
-    "id": "P168",
-    "nombre": "Papel Higiénico",
-    "marca": "SUAN",
-    "formato": "1 Unidad",
-    "precio": 1390,
-    "categoria": "Baño",
-    "imagen": "img/P168.jpg"
-  },
-  {
-    "id": "P169",
-    "nombre": "Cótones",
-    "marca": "RECHE",
-    "formato": "100 Unidades",
-    "precio": 1000,
-    "categoria": "Baño",
-    "imagen": "img/P169.jpg"
-  },
-  {
-    "id": "P170",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Baño",
-    "imagen": "img/P170.jpg"
-  },
-  {
-    "id": "P171",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Baño",
-    "imagen": "img/P171.jpg"
-  },
-  {
-    "id": "P172",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Baño",
-    "imagen": "img/P172.jpg"
-  },
-  {
-    "id": "P173",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Baño",
-    "imagen": "img/P173.jpg"
-  },
-  {
-    "id": "P174",
-    "nombre": "(Producto nuevo)",
-    "marca": "",
-    "formato": "",
-    "precio": 0,
-    "categoria": "Baño",
-    "imagen": "img/P174.jpg"
-  }
+  { "id": "P001", "nombre": "Detergente Brik´s Azul", "marca": "Brik´s", "formato": "5 Litros", "precio": 3490, "categoria": "Ropa", "imagen": "imagenes/ROPA/p001.jpg" },
+  { "id": "P002", "nombre": "Detergente Brik´s Naranjo", "marca": "Brik´s", "formato": "5 Litros", "precio": 3490, "categoria": "Ropa", "imagen": "imagenes/ROPA/p002.jpg" },
+  { "id": "P003", "nombre": "Detergente Brik´s Blanco", "marca": "Brik´s", "formato": "5 Litros", "precio": 3490, "categoria": "Ropa", "imagen": "imagenes/ROPA/p003.jpg" },
+  { "id": "P004", "nombre": "Detergente Brik´s Morado", "marca": "Brik´s", "formato": "5 Litros", "precio": 3490, "categoria": "Ropa", "imagen": "imagenes/ROPA/p004.jpg" },
+  { "id": "P005", "nombre": "Detergente Brik´s Celeste", "marca": "Brik´s", "formato": "5 Litros", "precio": 3490, "categoria": "Ropa", "imagen": "imagenes/ROPA/p005.jpg" },
+  { "id": "P006", "nombre": "Detergente Briks Rosado", "marca": "New Power", "formato": "5 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p006.jpg" },
+  { "id": "P007", "nombre": "Detergente New Power Azul", "marca": "New Power", "formato": "5 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p007.jpg" },
+  { "id": "P008", "nombre": "Detergente New Power Verde", "marca": "New Power", "formato": "5 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p008.jpg" },
+  { "id": "P009", "nombre": "Detergente RO", "marca": "RO", "formato": "5 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p009.jpg" },
+  { "id": "P010", "nombre": "Detergente New Power Verde", "marca": "New Power", "formato": "3 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p010.jpg" },
+  { "id": "P011", "nombre": "Detergente Multiaccion Azul", "marca": "Multi Accion", "formato": "3 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p011.jpg" },
+  { "id": "P012", "nombre": "Detergente Multiaccion Blanco", "marca": "Multi Accion", "formato": "3 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p012.jpg" },
+  { "id": "P013", "nombre": "Detergente Multiaccion Rosa", "marca": "Multi Accion", "formato": "3 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p013.jpg" },
+  { "id": "P014", "nombre": "Detergente Multiaccion Verde", "marca": "Multi Accion", "formato": "3 Litros", "precio": 3000, "categoria": "Ropa", "imagen": "imagenes/ROPA/p014.jpg" },
+  { "id": "P015", "nombre": "Detergente Hipoalergénico", "marca": "R & R", "formato": "3 Litros", "precio": 3900, "categoria": "Ropa", "imagen": "imagenes/ROPA/p015.jpg" },
+  { "id": "P016", "nombre": "Detergente BIO Verde", "marca": "BIO", "formato": "3 litros", "precio": 5800, "categoria": "Ropa", "imagen": "imagenes/ROPA/p016.jpg" },
+  { "id": "P017", "nombre": "Detergente BIO Naranjo", "marca": "BIO", "formato": "3 Litros", "precio": 5800, "categoria": "Ropa", "imagen": "imagenes/ROPA/p017.jpg" },
+  { "id": "P018", "nombre": "Detergente Arielo Verde", "marca": "Arielo", "formato": "3 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p018.jpg" },
+  { "id": "P019", "nombre": "Detergente Arielo Azul", "marca": "Arielo", "formato": "3 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p019.jpg" },
+  { "id": "P020", "nombre": "Suavizante BRIKS", "marca": "Brik´s", "formato": "5 Litros", "precio": 0, "categoria": "Ropa", "imagen": "imagenes/ROPA/p020.jpg" },
+  { "id": "P021", "nombre": "Suavizante New Power", "marca": "New Power", "formato": "5 Litros", "precio": 0, "categoria": "Ropa", "imagen": "imagenes/ROPA/p021.jpg" },
+  { "id": "P022", "nombre": "Suavizante Downy Aromatizante", "marca": "Downy", "formato": "450 ML", "precio": 2990, "categoria": "Ropa", "imagen": "imagenes/ROPA/p022.jpg" },
+  { "id": "P023", "nombre": "Suavizante Downy Aromatizante", "marca": "Downy", "formato": "451 ML", "precio": 2990, "categoria": "Ropa", "imagen": "imagenes/ROPA/p023.jpg" },
+  { "id": "P024", "nombre": "Suavizante Downy Aromatizante", "marca": "Downy", "formato": "452 ML", "precio": 2990, "categoria": "Ropa", "imagen": "imagenes/ROPA/p024.jpg" },
+  { "id": "P025", "nombre": "Detergente Multiaccion Liquido Azul", "marca": "Multi Accion", "formato": "3 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p025.jpg" },
+  { "id": "P026", "nombre": "Detergente Multiaccion Liquido", "marca": "Multi Accion", "formato": "3 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p026.jpg" },
+  { "id": "P027", "nombre": "Detergente Multiaccion Liquido", "marca": "Multi Accion", "formato": "3 Litros", "precio": 2500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p027.jpg" },
+  { "id": "P028", "nombre": "Quita Manchas (ropa blanca)", "marca": "Quimica Universal", "formato": "500 Gr", "precio": 3500, "categoria": "Ropa", "imagen": "imagenes/ROPA/p028.jpg" },
+  { "id": "P029", "nombre": "Quita Manchas (ropa color)", "marca": "Arcadia", "formato": "750 ML", "precio": 1990, "categoria": "Ropa", "imagen": "imagenes/ROPA/p029.jpg" },
+  { "id": "P030", "nombre": "Cloro Ropa Blanca", "marca": "CLORO", "formato": "1 Litro", "precio": 1990, "categoria": "Ropa", "imagen": "imagenes/ROPA/p030.jpg" },
+
+  { "id": "P031", "nombre": "Limpia Multi-Espacio New Power (Lavanda)", "marca": "New Power", "formato": "2 Litros", "precio": 2000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p031.jpg" },
+  { "id": "P032", "nombre": "Limpia Multi-Espacio New Power (Bambu)", "marca": "New Power", "formato": "2 Litros", "precio": 2000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p032.jpg" },
+  { "id": "P033", "nombre": "Limpia Multi-Espacio Aromax (Lavanda)", "marca": "Aromax", "formato": "2 Litros", "precio": 2000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p033.jpg" },
+  { "id": "P034", "nombre": "Limpia Piso BIO (Naranja)", "marca": "Bio Limpieza", "formato": "2 Litros", "precio": 2000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p034.jpg" },
+  { "id": "P035", "nombre": "Limpia Piso BIO (Rosas)", "marca": "Bio Limpieza", "formato": "2 Litros", "precio": 2000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p035.jpg" },
+  { "id": "P036", "nombre": "Limpia Piso BIM (Lavanda)", "marca": "Bim", "formato": "1 Litro", "precio": 1200, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p036.jpg" },
+  { "id": "P037", "nombre": "Limpia Todo Sapolio", "marca": "Sapolio", "formato": "1 Litro", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p037.jpg" },
+  { "id": "P038", "nombre": "Virtulilla Liquida", "marca": "Quimica Universal", "formato": "1 Litro", "precio": 4500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p038.jpg" },
+  { "id": "P039", "nombre": "Elimina Sarro", "marca": "R & R", "formato": "1 Litro", "precio": 1600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p039.jpg" },
+  { "id": "P040", "nombre": "Desengrasante (Naranja)", "marca": "R & R", "formato": "1 Litro", "precio": 1600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p040.jpg" },
+  { "id": "P041", "nombre": "Desengrasante Leal", "marca": "LEAL", "formato": "1 Litro", "precio": 1600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p041.jpg" },
+  { "id": "P042", "nombre": "Desengrasante Concentrado New Power", "marca": "New Power", "formato": "5 Litros", "precio": 9000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p042.jpg" },
+  { "id": "P043", "nombre": "Desengrasante Industrial Nikoll", "marca": "NIKOLL", "formato": "5 Litros", "precio": 9000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p043.jpg" },
+  { "id": "P044", "nombre": "Elimina Sarro FIFI", "marca": "FIFI", "formato": "1 Litro", "precio": 1600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p044.jpg" },
+  { "id": "P045", "nombre": "Limpia Vidrios Excell", "marca": "Excell", "formato": "500 Ml", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p045.jpg" },
+  { "id": "P046", "nombre": "Limpia Vidrios Sapolio", "marca": "Sapolio", "formato": "500 Ml", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p046.jpg" },
+  { "id": "P047", "nombre": "Limpia Vidrios Spum", "marca": "SPUM", "formato": "5 Litros", "precio": 4500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p047.jpg" },
+  { "id": "P048", "nombre": "Limpia Vidrios Multiaccion (Lavanda)", "marca": "Multiaccion", "formato": "5 Litros", "precio": 4000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p048.jpg" },
+  { "id": "P049", "nombre": "Cloro Clorinda", "marca": "Clorinda", "formato": "1 Litro", "precio": 1500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p049.jpg" },
+  { "id": "P050", "nombre": "Cloro Igenix", "marca": "Igenix", "formato": "1 Litro", "precio": 1500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p050.jpg" },
+  { "id": "P051", "nombre": "Cloro Gel Igenix", "marca": "Igenix", "formato": "1 Litro", "precio": 1990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p051.jpg" },
+  { "id": "P052", "nombre": "Cloro Gel R & R", "marca": "R Y R", "formato": "1 Litro", "precio": 1500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p052.jpg" },
+  { "id": "P053", "nombre": "Cloro Impeke", "marca": "IMPEKE", "formato": "1 Litro", "precio": 1690, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p053.jpg" },
+  { "id": "P054", "nombre": "Cloro Bioaroma", "marca": "BIOAROMA", "formato": "5 Litros", "precio": 2600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p054.jpg" },
+  { "id": "P055", "nombre": "Cloro Bidón", "marca": "CLORO", "formato": "5 Litros", "precio": 2600, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p055.jpg" },
+  { "id": "P056", "nombre": "Paños Húmedos Brillex", "marca": "BRILLEX", "formato": "7 Unidades", "precio": 1500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p056.jpg" },
+  { "id": "P057", "nombre": "Toallas Húmedas Desinfectantes Igenix", "marca": "IGENIX", "formato": "50 Unidades", "precio": 2500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p057.jpg" },
+  { "id": "P058", "nombre": "Escobilla", "marca": "LIMPIEZA", "formato": "1 Unidad", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p058.jpg" },
+  { "id": "P059", "nombre": "Escobilla de Mano", "marca": "LIMPIEZA", "formato": "", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p059.jpg" },
+  { "id": "P060", "nombre": "Cepillo de Mano", "marca": "LIMPIEZA", "formato": "", "precio": 0, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p060.jpg" },
+  { "id": "P061", "nombre": "Paños de Microfibra", "marca": "LIMPIEZA", "formato": "1 Unidad", "precio": 500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p061.jpg" },
+  { "id": "P062", "nombre": "Paño Esponja", "marca": "LIMPIEZA", "formato": "3 Unidades", "precio": 1000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p062.jpg" },
+  { "id": "P063", "nombre": "Cloro Gel New Power", "marca": "NEW POWER", "formato": "2 Litros", "precio": 3000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p063.jpg" },
+  { "id": "P064", "nombre": "Cloro Gel Ultraconcentrado Multiaccion", "marca": "NEW POWER", "formato": "5 Litros", "precio": 4500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p064.jpg" },
+  { "id": "P065", "nombre": "Limpia Parabrisas y Espejos Pride", "marca": "PRIDE", "formato": "500 Ml", "precio": 0, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p065.jpg" },
+  { "id": "P066", "nombre": "Silicona Auto Brillex", "marca": "BRILLEX", "formato": "360 Ml", "precio": 2500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p066.jpg" },
+  { "id": "P067", "nombre": "Silicona Auto Kit", "marca": "KIT", "formato": "360 ML", "precio": 2500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p067.jpg" },
+  { "id": "P068", "nombre": "Renovador Espuma Kit", "marca": "KIT", "formato": "360 ML", "precio": 2990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p068.jpg" },
+  { "id": "P069", "nombre": "Renovador Liquido Premium", "marca": "PREMIUM", "formato": "1 Litro", "precio": 2990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p069.jpg" },
+  { "id": "P070", "nombre": "Shampoo Auto Premium", "marca": "PREMIUM", "formato": "1 Litro", "precio": 1990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p070.jpg" },
+  { "id": "P071", "nombre": "Limpia Tapiz Premium", "marca": "PREMIUM", "formato": "500 ML", "precio": 2990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p071.jpg" },
+  { "id": "P072", "nombre": "Toallitas Siliconadas Auto Winnex", "marca": "WINNEX", "formato": "80 Unidades", "precio": 3990, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p072.jpg" },
+  { "id": "P073", "nombre": "Limpia Muebles Winnex", "marca": "WINNEX", "formato": "250 ML", "precio": 2100, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p073.jpg" },
+  { "id": "P074", "nombre": "Cera Pintura para Pisos Leal", "marca": "LEAL", "formato": "1 Litro", "precio": 1700, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p074.jpg" },
+  { "id": "P075", "nombre": "Cera Pintura para Pisos Premium", "marca": "PREMIUM", "formato": "1 Litro", "precio": 1700, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p075.jpg" },
+  { "id": "P076", "nombre": "Cera Liquida Pisos Flotantes Leal", "marca": "LEAL", "formato": "1 Litro", "precio": 1700, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p076.jpg" },
+  { "id": "P077", "nombre": "Cera Roja para Pisos Multiaccion", "marca": "MULTIACCION", "formato": "2 Litros", "precio": 3000, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p077.jpg" },
+  { "id": "P078", "nombre": "Jabón Popeye", "marca": "JABON", "formato": "1 Unidad", "precio": 1500, "categoria": "Limpieza", "imagen": "imagenes/LIMPIEZA/p078.jpg" },
+
+  { "id": "P079", "nombre": "Lavalozas Concentrado RO", "marca": "RO", "formato": "5 Litros", "precio": 4500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p079.jpg" },
+  { "id": "P080", "nombre": "Lavalozas Concentrado Briks", "marca": "BRIK´S", "formato": "5 Litros", "precio": 5000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p080.jpg" },
+  { "id": "P081", "nombre": "Lavalozas Recarga Limón Virginia", "marca": "VIRGINIA", "formato": "1 Litro", "precio": 1500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p081.jpg" },
+  { "id": "P082", "nombre": "Lavalozas Concentrado (recarga) Fuzol", "marca": "FUZOL", "formato": "1 Litro", "precio": 1500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p082.jpg" },
+  { "id": "P083", "nombre": "Lavalozas Ultra Concentrado Gomu Gomu", "marca": "GOMU GOMU", "formato": "2 Litros", "precio": 2000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p083.jpg" },
+  { "id": "P084", "nombre": "Lavalozas Briks", "marca": "BRIK´S", "formato": "2 Litros", "precio": 2690, "categoria": "Cocina", "imagen": "imagenes/COCINA/p084.jpg" },
+  { "id": "P085", "nombre": "Lavalozas Quix", "marca": "QUIX", "formato": "750 Ml", "precio": 2990, "categoria": "Cocina", "imagen": "imagenes/COCINA/p085.jpg" },
+  { "id": "P086", "nombre": "Limpiador Crema Briks", "marca": "BRIK´S", "formato": "750 ML", "precio": 1690, "categoria": "Cocina", "imagen": "imagenes/COCINA/p086.jpg" },
+  { "id": "P087", "nombre": "Limpiador Crema Briks", "marca": "BRIK´S", "formato": "750 ML", "precio": 1690, "categoria": "Cocina", "imagen": "imagenes/COCINA/p087.jpg" },
+  { "id": "P088", "nombre": "Servilletas Pro-Paper", "marca": "PRO PAPER", "formato": "300 Unidades", "precio": 1450, "categoria": "Cocina", "imagen": "imagenes/COCINA/p088.jpg" },
+  { "id": "P089", "nombre": "Servilletas Belleza", "marca": "BELLEZA", "formato": "300 Unidades", "precio": 1100, "categoria": "Cocina", "imagen": "imagenes/COCINA/p089.jpg" },
+  { "id": "P090", "nombre": "Toalla Nova XL Abolengo", "marca": "ABOLENGO", "formato": "1 Unidad", "precio": 3100, "categoria": "Cocina", "imagen": "imagenes/COCINA/p090.jpg" },
+  { "id": "P091", "nombre": "Toalla Nova Elite", "marca": "ELITE", "formato": "2 Rollos", "precio": 2690, "categoria": "Cocina", "imagen": "imagenes/COCINA/p091.jpg" },
+  { "id": "P092", "nombre": "Toalla Nova Nova", "marca": "NOVA", "formato": "3 Rollos", "precio": 1200, "categoria": "Cocina", "imagen": "imagenes/COCINA/p092.jpg" },
+  { "id": "P093", "nombre": "Bolsas de Basura Pequeña DOM", "marca": "DOM", "formato": "10 Unidades", "precio": 500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p093.jpg" },
+  { "id": "P094", "nombre": "Bolsas de Basura Mediana DOM", "marca": "DOM", "formato": "10 Unidades", "precio": 1000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p094.jpg" },
+  { "id": "P095", "nombre": "Bolsas de Basura Grande DOM", "marca": "DOM", "formato": "10 Unidades", "precio": 1500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p095.jpg" },
+  { "id": "P096", "nombre": "Bolsas de Basura Gigante DOM", "marca": "DOM", "formato": "10 Unidades", "precio": 2000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p096.jpg" },
+  { "id": "P097", "nombre": "Fosforos Talisman", "marca": "TALISMAN", "formato": "10 Unidades", "precio": 690, "categoria": "Cocina", "imagen": "imagenes/COCINA/p097.jpg" },
+  { "id": "P098", "nombre": "Esponjas Loza", "marca": "ELITE", "formato": "4 Unidades", "precio": 1000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p098.jpg" },
+  { "id": "P099", "nombre": "Virutilla Fina", "marca": "Premium", "formato": "12 Unidades", "precio": 1000, "categoria": "Cocina", "imagen": "imagenes/COCINA/p099.jpg" },
+  { "id": "P100", "nombre": "Virutilla Gruesa", "marca": "Premium", "formato": "3 Unidades", "precio": 1200, "categoria": "Cocina", "imagen": "imagenes/COCINA/p100.jpg" },
+  { "id": "P101", "nombre": "Esponja Colores", "marca": "PREMIUM", "formato": "1 Unidad", "precio": 500, "categoria": "Cocina", "imagen": "imagenes/COCINA/p101.jpg" },
+  { "id": "P102", "nombre": "Virutilla Individual", "marca": "PREMIUM", "formato": "1 Unidad", "precio": 0, "categoria": "Cocina", "imagen": "imagenes/COCINA/p102.jpg" },
+  { "id": "P103", "nombre": "Lavaloza Quix (pequeño)", "marca": "QUIX", "formato": "320 Ml", "precio": 0, "categoria": "Cocina", "imagen": "imagenes/COCINA/p103.jpg" },
+
+  { "id": "P104", "nombre": "Aromatizante Individual", "marca": "PREMIUM", "formato": "1 Unidad", "precio": 1000, "categoria": "Aroma", "imagen": "imagenes/AROMA/p104.jpg" },
+  { "id": "P105", "nombre": "Aromatizante Naranja Pride", "marca": "PRIDE", "formato": "360 ML", "precio": 6990, "categoria": "Aroma", "imagen": "imagenes/AROMA/p105.jpg" },
+  { "id": "P106", "nombre": "Aromatizante de Hogar Arom", "marca": "AROM", "formato": "", "precio": 1650, "categoria": "Aroma", "imagen": "imagenes/AROMA/p106.jpg" },
+  { "id": "P107", "nombre": "Aromatizante de Hogar Arom", "marca": "AROM", "formato": "", "precio": 1650, "categoria": "Aroma", "imagen": "imagenes/AROMA/p107.jpg" },
+  { "id": "P108", "nombre": "Aromatizante de Hogar Kleine", "marca": "KLEINE", "formato": "", "precio": 1500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p108.jpg" },
+  { "id": "P109", "nombre": "Aerosol Brillex", "marca": "BRILLEX", "formato": "", "precio": 1350, "categoria": "Aroma", "imagen": "imagenes/AROMA/p109.jpg" },
+  { "id": "P110", "nombre": "Aerosol Vainilla Shopnow", "marca": "SHOPNOW", "formato": "", "precio": 1350, "categoria": "Aroma", "imagen": "imagenes/AROMA/p110.jpg" },
+  { "id": "P111", "nombre": "Aerosol Damasco Shopnow", "marca": "SHOPNOW", "formato": "", "precio": 1350, "categoria": "Aroma", "imagen": "imagenes/AROMA/p111.jpg" },
+  { "id": "P112", "nombre": "Aerosol Oceano Shopnow", "marca": "SHOPNOW", "formato": "", "precio": 1350, "categoria": "Aroma", "imagen": "imagenes/AROMA/p112.jpg" },
+  { "id": "P113", "nombre": "Aerosol Lavanda Shopnow", "marca": "SHOPNOW", "formato": "", "precio": 1350, "categoria": "Aroma", "imagen": "imagenes/AROMA/p113.jpg" },
+  { "id": "P114", "nombre": "Velas Aromáticas Candle", "marca": "CANDLE", "formato": "1 Unidad", "precio": 1500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p114.jpg" },
+  { "id": "P115", "nombre": "Difusor Aromático Bambu HOME", "marca": "HOME", "formato": "1 Unidad", "precio": 3500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p115.jpg" },
+  { "id": "P116", "nombre": "Difusor Aromático Naranja-Canela HOME", "marca": "HOME", "formato": "1 Unidad", "precio": 3500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p116.jpg" },
+  { "id": "P117", "nombre": "Difusor Aromático Peras y Fresas HOME", "marca": "HOME", "formato": "1 Unidad", "precio": 3500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p117.jpg" },
+  { "id": "P118", "nombre": "Difusor Bambu Hogar HOME", "marca": "HOME", "formato": "1 Unidad", "precio": 6500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p118.jpg" },
+  { "id": "P119", "nombre": "Difusor Hogar HOME", "marca": "HOME", "formato": "1 Unidad", "precio": 8900, "categoria": "Aroma", "imagen": "imagenes/AROMA/p119.jpg" },
+  { "id": "P120", "nombre": "Pack Difusores HOME", "marca": "HOME", "formato": "3 Unidades", "precio": 12500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p120.jpg" },
+  { "id": "P121", "nombre": "Pack Difusores Victoria´s Secret HOME", "marca": "HOME", "formato": "3 Unidades", "precio": 12500, "categoria": "Aroma", "imagen": "imagenes/AROMA/p121.jpg" },
+
+  { "id": "P122", "nombre": "Desinfectante Lysoform", "marca": "LYSOFORM", "formato": "360 G", "precio": 3950, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P122.jpg" },
+  { "id": "P123", "nombre": "Desinfectante Lysoform", "marca": "LISOFORM", "formato": "275 G", "precio": 3500, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P123.jpg" },
+  { "id": "P124", "nombre": "Desinfectante Igenix", "marca": "IGENIX", "formato": "256 G", "precio": 3290, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P124.jpg" },
+  { "id": "P125", "nombre": "Mata Moscas y Zancudos Killer", "marca": "KILLER", "formato": "320 G", "precio": 3390, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P125.jpg" },
+  { "id": "P126", "nombre": "Mata Todo Insecto Killer", "marca": "KILLER", "formato": "320 G", "precio": 3390, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P126.jpg" },
+  { "id": "P127", "nombre": "Mata Arañas y Cucarachas Killer", "marca": "KILLER", "formato": "320 G", "precio": 3390, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P127.jpg" },
+  { "id": "P128", "nombre": "Insecticida Jardín y Hogar Baygon", "marca": "BAYGON", "formato": "391 G", "precio": 2990, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P128.jpg" },
+  { "id": "P129", "nombre": "Mata Moscas, Zancudos y Mosquitos Raid", "marca": "RAID", "formato": "145 G", "precio": 0, "categoria": "Aerosol", "imagen": "imagenes/AEROSOL/P129.jpg" },
+
+  { "id": "P130", "nombre": "Jabón Líquido IO", "marca": "IO", "formato": "350 ML", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/P130.jpg" },
+  { "id": "P131", "nombre": "Jabón Líquido IO", "marca": "IO", "formato": "350 ML", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/P131.jpg" },
+  { "id": "P132", "nombre": "Jabón Líquido Hipoalergénico Ballerina", "marca": "BABY LEE", "formato": "750 Ml", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P132.jpg" },
+  { "id": "P133", "nombre": "Jabón Líquido Dermatológico Baby Lee", "marca": "BABY LEE", "formato": "750 Ml", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P133.jpg" },
+  { "id": "P134", "nombre": "Listerine Azul", "marca": "LISTERINE", "formato": "180 ML", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P134.jpg" },
+  { "id": "P135", "nombre": "Listerine Celeste", "marca": "LISTERINE", "formato": "180 ML", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P135.jpg" },
+  { "id": "P136", "nombre": "Listerine Verde", "marca": "LISTERINE", "formato": "180 ML", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P136.jpg" },
+  { "id": "P137", "nombre": "Pasta de Dientes Pepsodent", "marca": "PEPSODENT", "formato": "1 Unidad", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P137.jpg" },
+  { "id": "P138", "nombre": "Pasta de Dientes Colgate", "marca": "COLGATE", "formato": "1 Unidad", "precio": 1200, "categoria": "Baño", "imagen": "imagenes/BAÑO/P138.jpg" },
+  { "id": "P139", "nombre": "Cepillo de Dientes Colgate", "marca": "COLGATE", "formato": "1 Unidad", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/P139.jpg" },
+  { "id": "P140", "nombre": "Prestobarba Gillette", "marca": "GILLETE", "formato": "1 Unidad", "precio": 1500, "categoria": "Baño", "imagen": "imagenes/BAÑO/P140.jpg" },
+  { "id": "P141", "nombre": "Shampoo Sedal", "marca": "SEDAL", "formato": "1 Unidad", "precio": 1990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P141.jpg" },
+  { "id": "P142", "nombre": "Shampoo Sedal", "marca": "SEDAL", "formato": "1 Unidad", "precio": 1990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P142.jpg" },
+  { "id": "P143", "nombre": "Acondicionador Sedal", "marca": "SEDAL", "formato": "1 Unidad", "precio": 1990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P143.jpg" },
+  { "id": "P144", "nombre": "Acondicionador Sedal", "marca": "SEDAL", "formato": "1 Unidad", "precio": 1990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P144.jpg" },
+  { "id": "P145", "nombre": "Shampoo Head & Shoulders", "marca": "HEAD & SHOULDERS", "formato": "1 Unidad", "precio": 3990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P145.jpg" },
+  { "id": "P146", "nombre": "Shampoo Menta Head & Shoulders", "marca": "HEAD & SHOULDERS", "formato": "1 Unidad", "precio": 3990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P146.jpg" },
+  { "id": "P147", "nombre": "Shampoo Control de Caspa Dove", "marca": "DOVE", "formato": "1 Unidad", "precio": 3390, "categoria": "Baño", "imagen": "imagenes/BAÑO/P147.jpg" },
+  { "id": "P148", "nombre": "Shampoo Colágeno Dove", "marca": "DOVE", "formato": "1 Unidad", "precio": 3390, "categoria": "Baño", "imagen": "imagenes/BAÑO/P148.jpg" },
+  { "id": "P149", "nombre": "Shampoo-Acondicionador Dove", "marca": "DOVE", "formato": "1 Unidad", "precio": 3390, "categoria": "Baño", "imagen": "imagenes/BAÑO/P149.jpg" },
+  { "id": "P150", "nombre": "Acondicionador Dove", "marca": "DOVE", "formato": "1 Unidad", "precio": 3390, "categoria": "Baño", "imagen": "imagenes/BAÑO/P150.jpg" },
+  { "id": "P151", "nombre": "Shampoo Platano Café Ballerina", "marca": "BALLERINA", "formato": "1 Unidad", "precio": 1990, "categoria": "Baño", "imagen": "imagenes/BAÑO/P151.jpg" },
+  { "id": "P152", "nombre": "Shampoo Ballerina", "marca": "BALLERINA", "formato": "1 Unidad", "precio": 1490, "categoria": "Baño", "imagen": "imagenes/BAÑO/P152.jpg" },
+  { "id": "P153", "nombre": "Shampoo Ballerina", "marca": "BALLERINA", "formato": "1 Unidad", "precio": 1490, "categoria": "Baño", "imagen": "imagenes/BAÑO/P153.jpg" },
+  { "id": "P154", "nombre": "Acondicionador Ballerina", "marca": "BALLERINA", "formato": "1 Unidad", "precio": 1490, "categoria": "Baño", "imagen": "imagenes/BAÑO/P154.jpg" },
+  { "id": "P155", "nombre": "Acondicionador Ballerina", "marca": "BALLERINA", "formato": "1 Unidad", "precio": 1490, "categoria": "Baño", "imagen": "imagenes/BAÑO/P155.jpg" },
+  { "id": "P156", "nombre": "Anti-transpirante Rexona", "marca": "REXONA", "formato": "1 Unidad", "precio": 2590, "categoria": "Baño", "imagen": "imagenes/BAÑO/P156.jpg" },
+  { "id": "P157", "nombre": "Anti-transpirante Dama Nivea", "marca": "NIVEA", "formato": "1 Unidad", "precio": 2390, "categoria": "Baño", "imagen": "imagenes/BAÑO/P157.jpg" },
+  { "id": "P158", "nombre": "Anti-transpirante Dama Nivea", "marca": "NIVEA", "formato": "1 Unidad", "precio": 2390, "categoria": "Baño", "imagen": "imagenes/BAÑO/p158.jpg" },
+  { "id": "P159", "nombre": "Anti-transpirante Nivea", "marca": "DOVE", "formato": "1 Unidad", "precio": 2590, "categoria": "Baño", "imagen": "imagenes/BAÑO/p159.jpg" },
+  { "id": "P160", "nombre": "Anti-transpirante Axe", "marca": "AXE", "formato": "1 Unidad", "precio": 2990, "categoria": "Baño", "imagen": "imagenes/BAÑO/p160.jpg" },
+  { "id": "P161", "nombre": "Protectores Diarios Nosotras", "marca": "NOSOTRAS", "formato": "1 Unidad", "precio": 1690, "categoria": "Baño", "imagen": "imagenes/BAÑO/p161.jpg" },
+  { "id": "P162", "nombre": "Toallas Higiénicas Nosotras", "marca": "NOSOTRAS", "formato": "1 Unidad", "precio": 2290, "categoria": "Baño", "imagen": "imagenes/BAÑO/p162.jpg" },
+  { "id": "P163", "nombre": "Pétalos de Algodón Beauty", "marca": "BEAUTY", "formato": "1 Unidad", "precio": 1300, "categoria": "Baño", "imagen": "imagenes/BAÑO/p163.jpg" },
+  { "id": "P164", "nombre": "Toallas Húmedas Personales Baby Care", "marca": "BABY CARE", "formato": "1 Unidad", "precio": 990, "categoria": "Baño", "imagen": "imagenes/BAÑO/p164.jpg" },
+  { "id": "P165", "nombre": "Jabón en Barra Protex", "marca": "PROTEX", "formato": "1 Unidad", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/p165.jpg" },
+  { "id": "P166", "nombre": "Jabón en Barra LUX", "marca": "LUX", "formato": "1 Unidad", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/p166.jpg" },
+  { "id": "P167", "nombre": "Jabón en Barra LUX", "marca": "LUX", "formato": "1 Unidad", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/p167.jpg" },
+  { "id": "P168", "nombre": "Confort ELITE", "marca": "ELITE", "formato": "1 Unidad", "precio": 5990, "categoria": "Baño", "imagen": "imagenes/BAÑO/p168.jpg" },
+  { "id": "P169", "nombre": "Confort SUAN", "marca": "SUAN", "formato": "1 Unidad", "precio": 1390, "categoria": "Baño", "imagen": "imagenes/BAÑO/p169.jpg" },
+  { "id": "P170", "nombre": "Cotones RECHE", "marca": "RECHE", "formato": "100 Unidades", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/p170.jpg" },
+  { "id": "P171", "nombre": "Bloqueador Individual SIMONS", "marca": "SIMONS", "formato": "1 Unidad", "precio": 1000, "categoria": "Baño", "imagen": "imagenes/BAÑO/p171.jpg" },
+  { "id": "P172", "nombre": "Pastillas Inodoro Rommel", "marca": "ROMMEL", "formato": "4 Unidades", "precio": 0, "categoria": "Baño", "imagen": "imagenes/BAÑO/P172.jpg" },
+  { "id": "P173", "nombre": "Aromatizante Inodoro (Lavanda) Arom", "marca": "AROM", "formato": "3 Unidades", "precio": 0, "categoria": "Baño", "imagen": "imagenes/BAÑO/P173.jpg" },
+  { "id": "P174", "nombre": "Gel Inodoro (Limón) Aileda", "marca": "AILEDA", "formato": "20 Discos Gel", "precio": 0, "categoria": "Baño", "imagen": "imagenes/BAÑO/P174.jpg" }
 ]
