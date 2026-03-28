@@ -81,10 +81,12 @@ body {
 }
 
 .brand-logo {
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  flex-shrink: 0;
 }
 
 .brand-name {
