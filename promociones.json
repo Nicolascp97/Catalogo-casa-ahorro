@@ -1,0 +1,38 @@
+[
+  {
+    "id": "PROMO001",
+    "titulo": "¡Pack Imperdible!",
+    "subtitulo": "Dove Acondicionador + Shampoo",
+    "descripcion": "400ml c/u — Promo Ahorro",
+    "precioOferta": 5990,
+    "precioAnterior": 7990,
+    "imagen": "imagenes/PROMO-AHORRO/p222.jpg",
+    "idProducto": "P222",
+    "etiqueta": "Pack Oferta",
+    "colorFondo": "#e8f6fb"
+  },
+  {
+    "id": "PROMO002",
+    "titulo": "¡Súper Combo!",
+    "subtitulo": "Pack Colgate + Cepillo + Jabón IO",
+    "descripcion": "Kit 3 Productos — Promo Ahorro",
+    "precioOferta": 3990,
+    "precioAnterior": 5490,
+    "imagen": "imagenes/PROMO-AHORRO/p221.jpg",
+    "idProducto": "P221",
+    "etiqueta": "Combo",
+    "colorFondo": "#ffe8e8"
+  },
+  {
+    "id": "PROMO003",
+    "titulo": "¡Oferta del Día!",
+    "subtitulo": "Paño Amarillo x10",
+    "descripcion": "10 Unidades — Promo Ahorro",
+    "precioOferta": 1500,
+    "precioAnterior": 2500,
+    "imagen": "imagenes/PROMO-AHORRO/p224.jpg",
+    "idProducto": "P224",
+    "etiqueta": "Oferta",
+    "colorFondo": "#fef5e0"
+  }
+]

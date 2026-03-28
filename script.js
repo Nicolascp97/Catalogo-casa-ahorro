@@ -8,8 +8,9 @@ const WHATSAPP_NUMBER = '56912345678'; // Sin +, sin espacios
 const BUSINESS_NAME   = 'Casa Ahorro';
 
 // ─── ESTADO DEL CARRITO ────────────────────
-let cart    = loadCart();
-let productos = []; // Se carga desde productos.json
+let cart           = loadCart();
+let productos      = []; // Se carga desde productos.json
+let promoProductIds = []; // IDs de productos en promoción
 
 // ─── ELEMENTOS DEL DOM ─────────────────────
 const $grid = document.getElementById('productsGrid');
@@ -54,11 +55,13 @@ function init() {
   renderProducts();
   updateCartUI();
   bindEvents();
+  initCarousel();
 }
 
 // ─── CATEGORÍAS ────────────────────────────
 function renderCategories() {
-  const cats = [...new Set(productos.map(p => p.categoria))];
+  // Excluir "Promo Ahorro" — se agrega como chip especial por buildPromoAhorro()
+  const cats = [...new Set(productos.map(p => p.categoria))].filter(c => c !== 'Promo Ahorro');
   const scroll = $categories.querySelector('.categories-scroll');
   cats.forEach(cat => {
     const btn = document.createElement('button');
@@ -72,7 +75,10 @@ function renderCategories() {
 // ─── RENDERIZAR PRODUCTOS ──────────────────
 function renderProducts() {
   const filtered = productos.filter(p => {
-    const matchCat = activeCategory === 'todos' || p.categoria === activeCategory;
+    let matchCat;
+    if (activeCategory === 'todos')             matchCat = true;
+    else if (activeCategory === 'promo-ahorro') matchCat = p.categoria === 'Promo Ahorro';
+    else                                        matchCat = p.categoria === activeCategory;
     const matchSearch = p.nombre.toLowerCase().includes(searchQuery) ||
                         p.formato.toLowerCase().includes(searchQuery);
     return matchCat && matchSearch;
@@ -94,7 +100,7 @@ function renderProducts() {
         <div class="product-format">${p.formato}</div>
         <div class="product-bottom">
           <span class="product-price">${formatPrice(p.precio)}</span>
-          <button class="btn-add" data-id="${p.id}" aria-label="Añadir ${p.nombre}">+</button>
+          <button class="btn-add" data-id="${p.id}" aria-label="Añadir ${p.nombre} al carrito"><span class="btn-add-icon">+</span><span class="btn-add-text">Agregar</span></button>
         </div>
       </div>
     `;
@@ -335,4 +341,109 @@ function sendWhatsApp() {
 
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
   window.open(url, '_blank');
+}
+
+// ─── HERO CAROUSEL DE PROMOCIONES ──────────────────────────────────────────
+// Lee directamente del array global `productos` (ya cargado antes de init()).
+// Cualquier producto con categoria "Promo Ahorro" aparece automáticamente.
+function initCarousel() {
+  const track         = document.getElementById('promoTrack');
+  const dotsContainer = document.getElementById('promoDots');
+  const section       = document.getElementById('promoCarouselSection');
+  if (!track || !dotsContainer || !section) return;
+
+  const BG_COLORS = [
+    '#e8f6fb', '#e8faf0', '#fef5e0', '#f5e8fb',
+    '#fce8f0', '#e8fbf3', '#fbf3e8', '#ede8fb', '#e8fbfb'
+  ];
+
+  const promos = productos.filter(p => p.categoria === 'Promo Ahorro');
+
+  if (promos.length === 0) { section.style.display = 'none'; return; }
+
+  // ── Chip en barra de categorías ──────────────
+  const scroll   = $categories.querySelector('.categories-scroll');
+  const todosBtn = scroll.querySelector('.cat-chip');
+  if (todosBtn && !scroll.querySelector('[data-category="promo-ahorro"]')) {
+    const chip = document.createElement('button');
+    chip.className = 'cat-chip cat-chip-promo';
+    chip.dataset.category = 'promo-ahorro';
+    chip.textContent = '🏷️ Promo Ahorro';
+    todosBtn.insertAdjacentElement('afterend', chip);
+  }
+
+  // ── Construir slides ─────────────────────────
+  let currentIndex = 0;
+  let autoTimer    = null;
+  const INTERVAL   = 4500;
+
+  track.innerHTML      = '';
+  dotsContainer.innerHTML = '';
+
+  promos.forEach((p, i) => {
+    const slide = document.createElement('div');
+    slide.className = 'promo-slide';
+    slide.style.background = BG_COLORS[i % BG_COLORS.length];
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-label', `Promoción ${i + 1} de ${promos.length}: ${p.nombre}`);
+
+    slide.innerHTML = `
+      <div class="promo-slide-img-wrap">
+        <img src="${p.imagen}" alt="${p.nombre}" loading="lazy"
+             onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23f1f5f9%22 width=%22200%22 height=%22200%22/></svg>'">
+      </div>
+      <div class="promo-slide-content">
+        <span class="promo-badge">Promo Ahorro</span>
+        <div class="promo-titulo">${p.nombre}</div>
+        <div class="promo-descripcion">${p.formato}</div>
+        <div class="promo-price-block">
+          <span class="promo-price-oferta">${formatPrice(p.precio)}</span>
+        </div>
+        <button class="promo-btn-add" data-id="${p.id}"
+                aria-label="Añadir ${p.nombre} al carrito">
+          <span>+</span> Añadir al Carrito
+        </button>
+      </div>`;
+    track.appendChild(slide);
+
+    const dot = document.createElement('button');
+    dot.className = 'promo-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Ir a promoción ${i + 1}`);
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  track.addEventListener('click', e => {
+    const btn = e.target.closest('.promo-btn-add');
+    if (!btn) return;
+    addToCart(btn.dataset.id);
+    showToast('Producto añadido ✓');
+  });
+
+  // ── Navegación y autoplay ────────────────────
+  function goTo(index) {
+    currentIndex = (index + promos.length) % promos.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dotsContainer.querySelectorAll('.promo-dot')
+      .forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoTimer = setInterval(() => goTo(currentIndex + 1), INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+  }
+
+  const wrapper = track.closest('.promo-carousel-wrapper');
+  if (wrapper) {
+    wrapper.addEventListener('mouseenter', stopAutoPlay);
+    wrapper.addEventListener('mouseleave', startAutoPlay);
+    wrapper.addEventListener('touchstart', stopAutoPlay, { passive: true });
+    wrapper.addEventListener('touchend', () => setTimeout(startAutoPlay, 2000), { passive: true });
+  }
+
+  startAutoPlay();
 }
