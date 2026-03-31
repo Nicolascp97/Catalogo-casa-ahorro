@@ -437,13 +437,34 @@ function initCarousel() {
     if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
   }
 
+  // ── Hover pause (desktop) ───────────────────
   const wrapper = track.closest('.promo-carousel-wrapper');
   if (wrapper) {
     wrapper.addEventListener('mouseenter', stopAutoPlay);
     wrapper.addEventListener('mouseleave', startAutoPlay);
-    wrapper.addEventListener('touchstart', stopAutoPlay, { passive: true });
-    wrapper.addEventListener('touchend', () => setTimeout(startAutoPlay, 2000), { passive: true });
   }
+
+  // ── Swipe touch (móvil) ─────────────────────
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+
+  track.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+    stopAutoPlay();
+  }, { passive: true });
+
+  track.addEventListener('touchmove', e => {
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) > 50) {
+      goTo(touchDeltaX < 0 ? currentIndex + 1 : currentIndex - 1);
+    }
+    touchDeltaX = 0;
+    setTimeout(startAutoPlay, 2000);
+  });
 
   startAutoPlay();
 }

@@ -246,7 +246,7 @@ body {
 .product-img-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1 / 1.1;
   background: var(--primary-light);
   overflow: hidden;
 }
@@ -261,7 +261,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 8px;
+  padding: 4px;
   transition: transform .3s;
 }
 
@@ -283,7 +283,7 @@ body {
 }
 
 .product-info {
-  padding: 10px 10px 12px;
+  padding: 8px 8px 10px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -776,7 +776,6 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  min-height: 160px;
   border: 1px solid var(--border);
   box-shadow: var(--shadow-sm);
 }
@@ -785,14 +784,14 @@ body {
   .promo-slide {
     flex-direction: row;
     align-items: stretch;
-    min-height: 180px;
+    min-height: 220px;
   }
 }
 
 /* Contenido del slide (texto, precio, CTA) */
 .promo-slide-content {
   flex: 1;
-  padding: 20px 20px 20px 24px;
+  padding: 16px 18px 18px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -803,7 +802,7 @@ body {
 /* Imagen del slide */
 .promo-slide-img-wrap {
   width: 100%;
-  height: 140px;
+  height: 220px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -814,7 +813,7 @@ body {
 
 @media (min-width: 520px) {
   .promo-slide-img-wrap {
-    width: 180px;
+    width: 260px;
     height: auto;
     order: 2;
   }
@@ -824,7 +823,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  padding: 12px;
+  padding: 6px;
   transition: transform .4s ease;
 }
 
