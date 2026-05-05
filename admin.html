@@ -439,6 +439,18 @@
     }
 
     /* ── Promos Tab ─────────────────────────────────────────────── */
+    .promos-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .promos-info {
+      font-size: .875rem;
+      color: var(--text-muted);
+    }
     .promos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -451,14 +463,22 @@
       box-shadow: var(--shadow-sm);
       padding: 20px;
       transition: border-color .15s;
+      position: relative;
     }
     .promo-card:hover { border-color: var(--border-hover); }
+    .promo-card.is-new { border-color: var(--success); background: #f0fdf4; }
+    .promo-card.is-deleted {
+      opacity: .55;
+      border-color: var(--danger);
+      background: var(--danger-light);
+    }
     .promo-card-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
       margin-bottom: 16px;
     }
+    .promo-card-header-left { display: flex; align-items: center; gap: 8px; }
     .promo-id {
       font-size: .72rem;
       font-weight: 700;
@@ -468,12 +488,21 @@
       padding: 3px 8px;
       border-radius: 999px;
     }
+    .promo-new-badge {
+      font-size: .68rem;
+      font-weight: 700;
+      color: var(--success);
+      background: var(--success-light);
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
     .promo-preview {
-      width: 48px;
-      height: 48px;
+      width: 64px;
+      height: 64px;
       border-radius: var(--radius-sm);
       object-fit: cover;
       border: 1px solid var(--border);
+      flex-shrink: 0;
     }
     .promo-field {
       margin-bottom: 12px;
@@ -488,7 +517,8 @@
       margin-bottom: 4px;
     }
     .promo-field input[type="text"],
-    .promo-field input[type="number"] {
+    .promo-field input[type="number"],
+    .promo-field textarea {
       width: 100%;
       padding: 9px 11px;
       border: 1.5px solid var(--border);
@@ -499,36 +529,76 @@
       background: var(--bg);
       outline: none;
       transition: border-color .15s, box-shadow .15s;
+      resize: vertical;
     }
-    .promo-field input:focus {
+    .promo-field input:focus,
+    .promo-field textarea:focus {
       border-color: var(--cta);
       box-shadow: 0 0 0 3px var(--cta-glow);
     }
     .promo-field-row { display: flex; gap: 10px; }
     .promo-field-row .promo-field { flex: 1; }
-    .color-field-wrap { display: flex; align-items: center; gap: 10px; }
-    .color-swatch {
-      width: 36px;
-      height: 36px;
-      border-radius: var(--radius-sm);
-      border: 1.5px solid var(--border);
-      cursor: pointer;
-      flex-shrink: 0;
-      padding: 0;
+    .promo-products-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 6px;
     }
-    .color-text {
-      flex: 1;
-      padding: 9px 11px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-family: monospace;
-      font-size: .875rem;
-      color: var(--text);
+    .promo-product-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       background: var(--bg);
-      outline: none;
-      transition: border-color .15s, box-shadow .15s;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 7px 10px;
+      font-size: .82rem;
     }
-    .color-text:focus { border-color: var(--cta); box-shadow: 0 0 0 3px var(--cta-glow); }
+    .promo-product-item span { flex: 1; color: var(--text-muted); }
+    .promo-product-item strong { color: var(--text); }
+    .btn-remove-product {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+      transition: color .15s;
+    }
+    .btn-remove-product:hover { color: var(--danger); }
+    .promo-add-product {
+      display: flex;
+      gap: 8px;
+      margin-top: 6px;
+    }
+    .promo-add-product select {
+      flex: 1;
+      padding: 8px 10px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .82rem;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      cursor: pointer;
+    }
+    .promo-add-product select:focus { border-color: var(--cta); }
+    .btn-add-product-to-pack {
+      background: var(--brand-light);
+      border: none;
+      color: var(--brand);
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+    .btn-add-product-to-pack:hover { opacity: .8; }
 
     /* ── Sticky Save Bar ────────────────────────────────────────── */
     #save-bar {
@@ -773,6 +843,18 @@
 
     <!-- ── Tab: Promociones ───────────────────────────────────── -->
     <div class="tab-panel" id="tab-promociones">
+      <div class="promos-toolbar">
+        <div>
+          <p style="font-weight:700;font-size:.95rem;margin-bottom:2px">Packs y Promociones</p>
+          <p class="promos-info" id="promos-count">Productos con categoría "Promo Ahorro"</p>
+        </div>
+        <button class="btn-add" id="btn-add-promo">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          Nueva Promoción
+        </button>
+      </div>
       <div class="promos-grid" id="promos-grid">
         <div class="empty-state"><p>Cargando promociones…</p></div>
       </div>
@@ -808,9 +890,6 @@
   let productos = [];
   let productosOriginal = '';
   let productosSha = '';
-  let promociones = [];
-  let promocionesOriginal = '';
-  let promocionesSha = '';
 
   let searchQuery = '';
   let categoryFilter = '';
@@ -818,7 +897,6 @@
 
   const modifiedIds = new Set();
   const deletedIds = new Set();
-  let promosDirty = false;
   let newProductCounter = 0;
 
   // ── DOM refs ────────────────────────────────────────────────────
@@ -837,6 +915,8 @@
   const btnAddProduct = document.getElementById('btn-add-product');
   const productsTbody = document.getElementById('products-tbody');
   const promosGrid = document.getElementById('promos-grid');
+  const promosCount = document.getElementById('promos-count');
+  const btnAddPromo = document.getElementById('btn-add-promo');
   const saveBar = document.getElementById('save-bar');
   const changesLabel = document.getElementById('changes-label');
   const btnSave = document.getElementById('btn-save');
@@ -897,12 +977,9 @@
 
   async function loadAllData() {
     dashSub.textContent = 'Cargando datos desde GitHub…';
-    const [pRes, proRes] = await Promise.all([
-      api({ action: 'get-file', file: 'productos.json' }),
-      api({ action: 'get-file', file: 'promociones.json' }),
-    ]);
+    const pRes = await api({ action: 'get-file', file: 'productos.json' });
 
-    if (!pRes.ok || !proRes.ok) {
+    if (!pRes.ok) {
       dashSub.textContent = 'Error al cargar los datos. Verificá la configuración.';
       return;
     }
@@ -911,11 +988,8 @@
     productosSha = pRes.sha;
     productosOriginal = JSON.stringify(productos);
 
-    promociones = proRes.data;
-    promocionesSha = proRes.sha;
-    promocionesOriginal = JSON.stringify(promociones);
-
-    dashSub.textContent = `${productos.length} productos · ${promociones.length} promociones`;
+    const promoCount = productos.filter(p => p.categoria === 'Promo Ahorro').length;
+    dashSub.textContent = `${productos.length} productos · ${promoCount} promociones`;
 
     buildCategoryFilter();
     renderProductsTable();
@@ -1063,96 +1137,186 @@
 
   // ── Render promos ───────────────────────────────────────────────
   function renderPromosGrid() {
+    const promos = productos.filter(p => p.categoria === 'Promo Ahorro');
+    if (promosCount) promosCount.textContent = `${promos.length} pack${promos.length !== 1 ? 's' : ''} en el catálogo`;
+
     promosGrid.innerHTML = '';
-    promociones.forEach((promo, idx) => {
-      promosGrid.appendChild(buildPromoCard(promo, idx));
-    });
+    if (promos.length === 0) {
+      promosGrid.innerHTML = `<div class="empty-state"><p>No hay promociones todavía. Creá la primera.</p></div>`;
+      return;
+    }
+    promos.forEach(p => promosGrid.appendChild(buildPromoCard(p)));
   }
 
-  function buildPromoCard(promo, idx) {
+  function buildPromoCard(p) {
     const card = document.createElement('div');
     card.className = 'promo-card';
+    card.dataset.id = p.id;
+    if (p._isNew) card.classList.add('is-new');
+    if (deletedIds.has(p.id)) card.classList.add('is-deleted');
+
+    // Productos disponibles (no-promo) para agregar al pack
+    const nonPromos = productos.filter(x => x.categoria !== 'Promo Ahorro' && !deletedIds.has(x.id));
+    const packIds = Array.isArray(p.productosIncluidos) ? p.productosIncluidos : [];
+    const packItems = packIds.map(id => productos.find(x => x.id === id)).filter(Boolean);
 
     card.innerHTML = `
       <div class="promo-card-header">
-        <span class="promo-id">${escHtml(promo.id)}</span>
-        <img class="promo-preview" src="${escAttr(promo.imagen)}" alt="" onerror="this.style.display='none'" />
+        <div class="promo-card-header-left">
+          <span class="promo-id">${escHtml(p.id)}</span>
+          ${p._isNew ? '<span class="promo-new-badge">Nuevo</span>' : ''}
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <img class="promo-preview" src="${escAttr(p.imagen || '')}" alt="" onerror="this.style.display='none'" />
+          ${deletedIds.has(p.id)
+            ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
+            : `<button class="btn-delete" title="Eliminar pack" data-del="${p.id}">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
+                  <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
+                </svg>
+               </button>`}
+        </div>
       </div>
 
       <div class="promo-field">
-        <label>Título</label>
-        <input type="text" data-pi="${idx}" data-field="titulo" value="${escAttr(promo.titulo)}" />
+        <label>Nombre del pack</label>
+        <input type="text" data-field="nombre" value="${escAttr(p.nombre)}" placeholder="Ej: Pack Limpieza Hogar" />
       </div>
       <div class="promo-field">
-        <label>Subtítulo</label>
-        <input type="text" data-pi="${idx}" data-field="subtitulo" value="${escAttr(promo.subtitulo)}" />
-      </div>
-      <div class="promo-field">
-        <label>Descripción</label>
-        <input type="text" data-pi="${idx}" data-field="descripcion" value="${escAttr(promo.descripcion)}" />
+        <label>Descripción (qué incluye)</label>
+        <textarea data-field="formato" rows="2" placeholder="Ej: Detergente 5L + Lavandina 1L + Esponja">${escHtml(p.formato || '')}</textarea>
       </div>
       <div class="promo-field-row">
         <div class="promo-field">
-          <label>Precio oferta ($)</label>
-          <input type="number" data-pi="${idx}" data-field="precioOferta" value="${promo.precioOferta}" min="0" step="10" />
+          <label>Precio Pack ($)</label>
+          <input type="number" data-field="precio" value="${p.precio || ''}" min="0" step="10" />
         </div>
         <div class="promo-field">
-          <label>Precio anterior ($)</label>
-          <input type="number" data-pi="${idx}" data-field="precioAnterior" value="${promo.precioAnterior}" min="0" step="10" />
-        </div>
-      </div>
-      <div class="promo-field">
-        <label>Etiqueta</label>
-        <input type="text" data-pi="${idx}" data-field="etiqueta" value="${escAttr(promo.etiqueta)}" />
-      </div>
-      <div class="promo-field-row">
-        <div class="promo-field">
-          <label>ID Producto vinculado</label>
-          <input type="text" data-pi="${idx}" data-field="idProducto" value="${escAttr(promo.idProducto)}" />
+          <label>Marca</label>
+          <input type="text" data-field="marca" value="${escAttr(p.marca || '')}" placeholder="Varias" />
         </div>
       </div>
       <div class="promo-field">
         <label>Imagen (path)</label>
-        <input type="text" data-pi="${idx}" data-field="imagen" value="${escAttr(promo.imagen)}" />
+        <input type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" placeholder="imagenes/PROMO-AHORRO/pack001.jpg" />
       </div>
+
       <div class="promo-field">
-        <label>Color de fondo</label>
-        <div class="color-field-wrap">
-          <input type="color" class="color-swatch" data-pi="${idx}" data-field="colorFondo" data-pair="text" value="${promo.colorFondo || '#ffffff'}" />
-          <input type="text" class="color-text" data-pi="${idx}" data-field="colorFondo" data-pair="color" value="${escAttr(promo.colorFondo || '#ffffff')}" maxlength="7" />
+        <label>Productos del pack</label>
+        <div class="promo-products-list" data-pack-list="${p.id}">
+          ${packItems.length === 0
+            ? `<p style="font-size:.8rem;color:var(--text-muted);padding:4px 0">Sin productos vinculados</p>`
+            : packItems.map(item => `
+              <div class="promo-product-item">
+                <strong>${escHtml(item.id)}</strong>
+                <span>${escHtml(item.nombre)} — ${escHtml(item.formato || '')}</span>
+                <button class="btn-remove-product" data-promo="${p.id}" data-remove="${item.id}" title="Quitar">
+                  <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+              </div>`).join('')}
+        </div>
+        <div class="promo-add-product">
+          <select data-pack-select="${p.id}">
+            <option value="">— Agregar producto al pack —</option>
+            ${nonPromos.map(x => `<option value="${x.id}">${escHtml(x.id)} · ${escHtml(x.nombre)} (${escHtml(x.formato || '')})</option>`).join('')}
+          </select>
+          <button class="btn-add-product-to-pack" data-pack-add="${p.id}">+ Agregar</button>
         </div>
       </div>
     `;
 
-    // Bind inputs
-    card.querySelectorAll('input[data-pi]').forEach(input => {
+    // ── Inputs de texto / número ──
+    card.querySelectorAll('input[data-field], textarea[data-field]').forEach(input => {
       input.addEventListener('change', () => {
-        const i = parseInt(input.dataset.pi);
         const field = input.dataset.field;
-        const pair = input.dataset.pair;
-        const isNum = input.type === 'number';
-        const val = isNum ? Number(input.value) : input.value;
-        promociones[i][field] = val;
-
-        // Sync color picker ↔ text
-        if (field === 'colorFondo') {
-          const sibling = card.querySelector(`input[data-pair="${pair === 'color' ? 'text' : 'color'}"]`);
-          if (sibling) sibling.value = val;
-          // Update preview border
-          card.style.borderColor = val;
-        }
-        // Update image preview
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        const val = input.type === 'number' ? Number(input.value) : input.value;
+        productos[idx][field] = val;
+        // Actualizar preview imagen
         if (field === 'imagen') {
           const img = card.querySelector('.promo-preview');
           if (img) { img.src = val; img.style.display = ''; }
         }
-
-        markPromoDirty();
+        markDirty(p.id);
       });
     });
 
+    // ── Agregar producto al pack ──
+    const addBtn = card.querySelector(`[data-pack-add="${p.id}"]`);
+    const addSelect = card.querySelector(`[data-pack-select="${p.id}"]`);
+    if (addBtn && addSelect) {
+      addBtn.addEventListener('click', () => {
+        const selectedId = addSelect.value;
+        if (!selectedId) return;
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        if (!Array.isArray(productos[idx].productosIncluidos)) productos[idx].productosIncluidos = [];
+        if (!productos[idx].productosIncluidos.includes(selectedId)) {
+          productos[idx].productosIncluidos.push(selectedId);
+          markDirty(p.id);
+          renderPromosGrid();
+        }
+      });
+    }
+
+    // ── Quitar producto del pack ──
+    card.querySelectorAll('[data-remove]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const removeId = btn.dataset.remove;
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        productos[idx].productosIncluidos = (productos[idx].productosIncluidos || []).filter(id => id !== removeId);
+        markDirty(p.id);
+        renderPromosGrid();
+      });
+    });
+
+    // ── Eliminar pack ──
+    const delBtn = card.querySelector(`[data-del="${p.id}"]`);
+    if (delBtn) {
+      delBtn.addEventListener('click', () => {
+        deletedIds.add(p.id);
+        markDirty(p.id);
+        renderPromosGrid();
+      });
+    }
+
+    // ── Deshacer eliminación ──
+    const undoBtn = card.querySelector(`[data-undo="${p.id}"]`);
+    if (undoBtn) {
+      undoBtn.addEventListener('click', () => {
+        deletedIds.delete(p.id);
+        markDirty(p.id);
+        renderPromosGrid();
+      });
+    }
+
     return card;
   }
+
+  // ── Nueva promoción ─────────────────────────────────────────────
+  btnAddPromo && btnAddPromo.addEventListener('click', () => {
+    newProductCounter++;
+    const newId = `PACK${String(newProductCounter).padStart(3, '0')}`;
+    const newP = {
+      id: newId,
+      nombre: '',
+      marca: '',
+      formato: '',
+      precio: 0,
+      categoria: 'Promo Ahorro',
+      imagen: '',
+      productosIncluidos: [],
+      _isNew: true,
+    };
+    productos.unshift(newP);
+    markDirty(newId);
+    // Cambiar al tab de promociones si no estamos ahí
+    document.querySelector('[data-tab="promociones"]').click();
+    renderPromosGrid();
+  });
 
   // ── Dirty tracking ──────────────────────────────────────────────
   function markDirty(id) {
@@ -1160,24 +1324,13 @@
     updateSaveBar();
   }
 
-  function markPromoDirty() {
-    promosDirty = true;
-    updateSaveBar();
-  }
-
   function hasChanges() {
-    return modifiedIds.size > 0 || promosDirty;
+    return modifiedIds.size > 0;
   }
 
   function updateSaveBar() {
-    const total = modifiedIds.size + (promosDirty ? 1 : 0);
-    if (total > 0) {
-      const label = modifiedIds.size > 0 && promosDirty
-        ? `${modifiedIds.size} producto(s) y promociones sin guardar`
-        : modifiedIds.size > 0
-          ? `${modifiedIds.size} producto(s) sin guardar`
-          : 'Promociones sin guardar';
-      changesLabel.textContent = label;
+    if (modifiedIds.size > 0) {
+      changesLabel.textContent = `${modifiedIds.size} cambio${modifiedIds.size !== 1 ? 's' : ''} sin guardar`;
       saveBar.classList.add('visible');
     } else {
       saveBar.classList.remove('visible');
@@ -1188,10 +1341,8 @@
   btnDiscard.addEventListener('click', () => {
     if (!confirm('¿Descartar todos los cambios sin guardar?')) return;
     productos = JSON.parse(productosOriginal);
-    promociones = JSON.parse(promocionesOriginal);
     modifiedIds.clear();
     deletedIds.clear();
-    promosDirty = false;
     newProductCounter = 0;
     buildCategoryFilter();
     renderProductsTable();
@@ -1205,51 +1356,33 @@
     btnSave.innerHTML = '<span class="spinner"></span> Guardando…';
     hideBanner();
 
-    const promises = [];
+    const toSave = productos.filter(p => !deletedIds.has(p.id)).map(p => {
+      const clean = { ...p };
+      delete clean._isNew;
+      return clean;
+    });
 
-    if (modifiedIds.size > 0) {
-      const toSave = productos.filter(p => !deletedIds.has(p.id)).map(p => {
-        const clean = { ...p };
-        delete clean._isNew;
-        return clean;
-      });
-      promises.push(api({ action: 'save-file', file: 'productos.json', content: toSave, sha: productosSha }));
-    } else {
-      promises.push(Promise.resolve({ ok: true, _skip: true }));
-    }
+    const result = await api({ action: 'save-file', file: 'productos.json', content: toSave, sha: productosSha });
 
-    if (promosDirty) {
-      promises.push(api({ action: 'save-file', file: 'promociones.json', content: promociones, sha: promocionesSha }));
-    } else {
-      promises.push(Promise.resolve({ ok: true, _skip: true }));
-    }
-
-    const [pRes, proRes] = await Promise.all(promises);
-
-    if (!pRes.ok && !pRes._skip) {
-      showBanner(pRes.message || 'Error al guardar productos. Intentá de nuevo.', 'error');
-      resetSaveBtn();
-      return;
-    }
-    if (!proRes.ok && !proRes._skip) {
-      showBanner(proRes.message || 'Error al guardar promociones. Intentá de nuevo.', 'error');
+    if (!result.ok) {
+      showBanner(result.message || 'Error al guardar. Intentá de nuevo.', 'error');
       resetSaveBtn();
       return;
     }
 
     // Success
-    productosOriginal = JSON.stringify(productos.filter(p => !deletedIds.has(p.id)));
-    promocionesOriginal = JSON.stringify(promociones);
+    productos = toSave;
+    productosOriginal = JSON.stringify(toSave);
     modifiedIds.clear();
     deletedIds.clear();
-    promosDirty = false;
     newProductCounter = 0;
     updateSaveBar();
     resetSaveBtn();
+    buildCategoryFilter();
+    renderProductsTable();
+    renderPromosGrid();
 
     showBanner('✅ Guardado en GitHub. El sitio se actualizará en ~30 segundos…', 'info');
-
-    // After 35s show link to live site
     setTimeout(() => {
       showBanner('✅ Listo. <a href="/" target="_blank">Ver el catálogo en vivo →</a>', 'success');
     }, 35000);
