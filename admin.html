@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    /* ── Design tokens (same as main site) ─────────────────────── */
+    /* ── Design tokens ──────────────────────────────────────────── */
     :root {
       --cta:          #f97316;
       --cta-dark:     #c2410c;
@@ -37,7 +37,7 @@
 
     /* ── Reset & Base ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 15px; }
+    html { font-size: 16px; }
     body {
       font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
       background: var(--bg);
@@ -57,7 +57,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 24px;
+      padding: 0 16px;
       z-index: 100;
     }
     .admin-header::after {
@@ -90,31 +90,33 @@
     .header-user {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-size: 13px;
       color: var(--text-muted);
     }
+    .header-user > span { display: none; }
     .btn-logout {
       background: none;
       border: 1px solid var(--border);
       color: var(--text-muted);
-      padding: 5px 14px;
+      padding: 8px 16px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 14px;
       font-family: inherit;
       cursor: pointer;
+      min-height: 40px;
       transition: all .15s;
     }
     .btn-logout:hover { border-color: var(--danger); color: var(--danger); }
 
     /* ── Main layout ────────────────────────────────────────────── */
     .main {
-      padding-top: calc(var(--header-h) + 24px);
-      padding-bottom: 100px;
+      padding-top: calc(var(--header-h) + 20px);
+      padding-bottom: 120px;
       max-width: 1200px;
       margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     /* ── Login View ─────────────────────────────────────────────── */
@@ -122,33 +124,34 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: calc(100vh - var(--header-h));
-      padding: 20px;
+      min-height: 100vh;
+      padding: 20px 16px;
     }
     .login-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow-lg);
-      padding: 40px;
+      padding: 40px 32px;
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
       text-align: center;
     }
     .login-logo {
-      height: 48px;
-      margin-bottom: 20px;
+      height: 52px;
+      margin-bottom: 24px;
     }
     .login-title {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-weight: 800;
       color: var(--text);
       margin-bottom: 6px;
     }
     .login-sub {
-      font-size: .875rem;
+      font-size: 1rem;
       color: var(--text-muted);
-      margin-bottom: 28px;
+      margin-bottom: 32px;
+      line-height: 1.4;
     }
     .login-field {
       position: relative;
@@ -158,21 +161,22 @@
     .login-field label {
       display: block;
       font-size: .8rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       text-transform: uppercase;
-      letter-spacing: .05em;
+      letter-spacing: .06em;
     }
     .login-field input {
       width: 100%;
-      padding: 12px 14px;
+      padding: 14px 16px;
       border: 1.5px solid var(--border);
       border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: .9rem;
+      font-size: 1rem;
       color: var(--text);
       background: var(--bg);
+      min-height: 52px;
       transition: border-color .15s, box-shadow .15s;
       outline: none;
     }
@@ -183,15 +187,17 @@
     .login-error {
       background: var(--danger-light);
       color: var(--danger);
-      font-size: .82rem;
+      font-size: .875rem;
       font-weight: 600;
-      padding: 10px 14px;
+      padding: 12px 16px;
       border-radius: var(--radius-sm);
-      margin-bottom: 14px;
+      margin-bottom: 16px;
       display: none;
       text-align: left;
     }
     .login-error.show { display: block; }
+
+    /* ── Buttons ────────────────────────────────────────────────── */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -200,15 +206,16 @@
       background: var(--cta);
       color: #fff;
       border: none;
-      padding: 13px 24px;
+      padding: 16px 24px;
       border-radius: 999px;
       font-family: inherit;
-      font-size: .9rem;
+      font-size: 1.125rem;
       font-weight: 700;
       cursor: pointer;
       transition: background .15s, box-shadow .15s, transform .1s;
       box-shadow: 0 4px 16px var(--cta-glow);
       width: 100%;
+      min-height: 56px;
     }
     .btn-primary:hover { background: var(--cta-dark); transform: translateY(-1px); }
     .btn-primary:active { transform: translateY(0); }
@@ -217,39 +224,46 @@
     /* ── Dashboard View ─────────────────────────────────────────── */
     #view-dashboard { display: none; }
     .dash-title {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 800;
       margin-bottom: 4px;
     }
     .dash-sub {
       font-size: .875rem;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    /* ── Tabs ───────────────────────────────────────────────────── */
+    /* ── Tabs — pill style, full-width ──────────────────────────── */
     .tabs {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--border);
+      border-radius: 999px;
+      padding: 4px;
       gap: 4px;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .tab-btn {
-      background: none;
+      background: transparent;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 20px;
+      border-radius: 999px;
       font-family: inherit;
-      font-size: .9rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-muted);
       cursor: pointer;
-      border-bottom: 2.5px solid transparent;
-      margin-bottom: -2px;
-      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
-      transition: color .15s, border-color .15s;
+      min-height: 48px;
+      text-align: center;
+      transition: all .18s;
     }
     .tab-btn:hover { color: var(--text); }
-    .tab-btn.active { color: var(--cta); border-bottom-color: var(--cta); }
+    .tab-btn.active {
+      background: var(--surface);
+      color: var(--cta);
+      box-shadow: 0 1px 4px rgba(15,23,42,.12);
+    }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
@@ -264,11 +278,12 @@
     .toolbar-search {
       position: relative;
       flex: 1;
-      min-width: 200px;
+      min-width: 0;
+      width: 100%;
     }
     .toolbar-search svg {
       position: absolute;
-      left: 12px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-muted);
@@ -276,30 +291,42 @@
     }
     .toolbar-search input {
       width: 100%;
-      padding: 10px 14px 10px 38px;
+      padding: 0 14px 0 44px;
       border: 1.5px solid var(--border);
       border-radius: 999px;
       font-family: inherit;
-      font-size: .875rem;
+      font-size: 1rem;
       background: var(--surface);
       color: var(--text);
       outline: none;
+      height: 52px;
       transition: border-color .15s, box-shadow .15s;
     }
     .toolbar-search input:focus {
       border-color: var(--cta);
       box-shadow: 0 0 0 3px var(--cta-glow);
     }
+    .toolbar-search input::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--text-muted);
+      border-radius: 50%;
+      cursor: pointer;
+      margin-right: 4px;
+      opacity: .5;
+    }
     .toolbar select {
-      padding: 10px 14px;
+      padding: 0 16px;
       border: 1.5px solid var(--border);
       border-radius: 999px;
       font-family: inherit;
-      font-size: .875rem;
+      font-size: 1rem;
       background: var(--surface);
       color: var(--text);
       cursor: pointer;
       outline: none;
+      height: 52px;
       transition: border-color .15s;
     }
     .toolbar select:focus { border-color: var(--cta); }
@@ -312,22 +339,26 @@
     .btn-add {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
-      background: var(--brand);
+      background: var(--cta);
       color: #fff;
       border: none;
-      padding: 10px 18px;
+      padding: 0 20px;
       border-radius: 999px;
       font-family: inherit;
-      font-size: .875rem;
+      font-size: 1rem;
       font-weight: 700;
       cursor: pointer;
+      height: 52px;
       transition: opacity .15s, transform .1s;
       white-space: nowrap;
+      box-shadow: 0 4px 14px var(--cta-glow);
     }
     .btn-add:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-add:active { transform: translateY(0); }
 
-    /* ── Table ──────────────────────────────────────────────────── */
+    /* ── Table (desktop) ────────────────────────────────────────── */
     .table-wrap {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -338,7 +369,7 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: .85rem;
+      font-size: .875rem;
     }
     thead th {
       background: linear-gradient(135deg, #f8f9ff 0%, #fef3c7 100%);
@@ -363,7 +394,8 @@
     tbody tr.is-new { background: #f0fdf4; }
     tbody tr.is-deleted {
       background: var(--danger-light);
-      opacity: .7;
+      border-left: 3px solid var(--danger);
+      opacity: .72;
     }
     tbody tr.is-deleted td input { text-decoration: line-through; color: var(--danger); }
     td {
@@ -383,14 +415,15 @@
       width: 100%;
       border: 1.5px solid transparent;
       border-radius: var(--radius-sm);
-      padding: 6px 8px;
+      padding: 8px 10px;
       font-family: inherit;
-      font-size: .85rem;
+      font-size: 1rem;
       color: var(--text);
       background: transparent;
       transition: border-color .15s, background .15s, box-shadow .15s;
       outline: none;
       min-width: 80px;
+      min-height: 44px;
     }
     .td-input:focus {
       border-color: var(--cta);
@@ -403,13 +436,13 @@
     .td-input.w-xl { min-width: 200px; }
     .td-input[type="number"] { text-align: right; }
 
-    /* ── Delete button ──────────────────────────────────────────── */
+    /* ── Delete / Undo buttons ──────────────────────────────────── */
     .btn-delete {
       background: none;
       border: 1px solid var(--border);
       color: var(--text-muted);
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       cursor: pointer;
       display: inline-flex;
@@ -423,12 +456,12 @@
       background: none;
       border: none;
       color: var(--info);
-      font-size: .78rem;
+      font-size: .875rem;
       font-weight: 700;
       cursor: pointer;
       text-decoration: underline;
       font-family: inherit;
-      padding: 0;
+      padding: 8px 0;
     }
     .btn-undo:hover { color: var(--brand); }
     .actions-cell {
@@ -441,7 +474,7 @@
     /* ── Promos Tab ─────────────────────────────────────────────── */
     .promos-toolbar {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
@@ -453,7 +486,7 @@
     }
     .promos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 16px;
     }
     .promo-card {
@@ -468,8 +501,8 @@
     .promo-card:hover { border-color: var(--border-hover); }
     .promo-card.is-new { border-color: var(--success); background: #f0fdf4; }
     .promo-card.is-deleted {
-      opacity: .55;
-      border-color: var(--danger);
+      opacity: .6;
+      border: 2px solid var(--danger);
       background: var(--danger-light);
     }
     .promo-card-header {
@@ -497,8 +530,8 @@
       border-radius: 999px;
     }
     .promo-preview {
-      width: 64px;
-      height: 64px;
+      width: 56px;
+      height: 56px;
       border-radius: var(--radius-sm);
       object-fit: cover;
       border: 1px solid var(--border);
@@ -514,20 +547,21 @@
       text-transform: uppercase;
       letter-spacing: .05em;
       color: var(--text-muted);
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .promo-field input[type="text"],
     .promo-field input[type="number"],
     .promo-field textarea {
       width: 100%;
-      padding: 9px 11px;
+      padding: 12px 14px;
       border: 1.5px solid var(--border);
       border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: .875rem;
+      font-size: 1rem;
       color: var(--text);
       background: var(--bg);
       outline: none;
+      min-height: 48px;
       transition: border-color .15s, box-shadow .15s;
       resize: vertical;
     }
@@ -551,8 +585,9 @@
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius-sm);
-      padding: 7px 10px;
-      font-size: .82rem;
+      padding: 10px 12px;
+      font-size: .875rem;
+      min-height: 48px;
     }
     .promo-product-item span { flex: 1; color: var(--text-muted); }
     .promo-product-item strong { color: var(--text); }
@@ -561,9 +596,12 @@
       border: none;
       color: var(--text-muted);
       cursor: pointer;
-      padding: 2px;
+      padding: 6px;
       display: flex;
       align-items: center;
+      min-height: 32px;
+      min-width: 32px;
+      justify-content: center;
       transition: color .15s;
     }
     .btn-remove-product:hover { color: var(--danger); }
@@ -574,14 +612,15 @@
     }
     .promo-add-product select {
       flex: 1;
-      padding: 8px 10px;
+      padding: 10px 12px;
       border: 1.5px solid var(--border);
       border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: .82rem;
+      font-size: 1rem;
       background: var(--surface);
       color: var(--text);
       outline: none;
+      min-height: 48px;
       cursor: pointer;
     }
     .promo-add-product select:focus { border-color: var(--cta); }
@@ -589,12 +628,13 @@
       background: var(--brand-light);
       border: none;
       color: var(--brand);
-      padding: 8px 12px;
+      padding: 10px 14px;
       border-radius: var(--radius-sm);
       font-family: inherit;
-      font-size: .82rem;
+      font-size: .875rem;
       font-weight: 700;
       cursor: pointer;
+      min-height: 48px;
       transition: opacity .15s;
       white-space: nowrap;
     }
@@ -604,15 +644,14 @@
     #save-bar {
       position: fixed;
       bottom: 0; left: 0; right: 0;
-      background: rgba(255,255,255,.96);
+      background: rgba(255,255,255,.97);
       backdrop-filter: blur(16px);
       border-top: 1px solid var(--border);
-      padding: 12px 24px;
+      padding: 12px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      gap: 12px;
       z-index: 90;
       transform: translateY(100%);
       transition: transform .25s cubic-bezier(.4,0,.2,1);
@@ -642,28 +681,31 @@
       background: none;
       border: 1.5px solid var(--border);
       color: var(--text-muted);
-      padding: 10px 18px;
+      padding: 0 18px;
       border-radius: 999px;
       font-family: inherit;
       font-size: .875rem;
       font-weight: 600;
       cursor: pointer;
+      height: 48px;
       transition: all .15s;
     }
     .btn-discard:hover { border-color: var(--danger); color: var(--danger); }
     .btn-save {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       background: var(--cta);
       color: #fff;
       border: none;
-      padding: 10px 22px;
+      padding: 0 22px;
       border-radius: 999px;
       font-family: inherit;
       font-size: .875rem;
       font-weight: 700;
       cursor: pointer;
+      height: 48px;
       box-shadow: 0 4px 16px var(--cta-glow);
       transition: background .15s, transform .1s;
     }
@@ -684,7 +726,7 @@
       font-size: .875rem;
       font-weight: 600;
       max-width: 480px;
-      width: calc(100% - 40px);
+      width: calc(100% - 32px);
       text-align: center;
       box-shadow: var(--shadow-md);
       opacity: 0;
@@ -728,14 +770,304 @@
     }
     .empty-state p { font-size: .9rem; margin-top: 8px; }
 
-    /* ── Responsive ─────────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .admin-header { padding: 0 14px; }
-      .main { padding-left: 14px; padding-right: 14px; }
+    /* ══════════════════════════════════════════════════════════════
+       MOBILE — card layout for products table (< 768px)
+    ══════════════════════════════════════════════════════════════ */
+    @media (max-width: 767px) {
+
+      /* ── Toolbar stacks vertically ── */
+      .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .toolbar-search { width: 100%; }
+      .toolbar select { width: 100%; }
+      .count-badge { text-align: center; }
+      .btn-add { width: 100%; }
+
+      /* ── Promos toolbar ── */
+      .promos-toolbar { flex-direction: column; align-items: stretch; }
+      .promos-toolbar .btn-add { width: 100%; }
+
+      /* ── Promo cards: stack side-by-side fields vertically ── */
+      .promos-grid { grid-template-columns: 1fr; }
+      .promo-field-row { flex-direction: column; gap: 0; }
+
+      /* ── Products table → card list ── */
+      .table-wrap {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        overflow-x: unset;
+      }
+
+      #products-table { display: flex; flex-direction: column; gap: 12px; }
+      #products-table thead { display: none; }
+      #products-table tbody { display: contents; }
+
+      /* Each row becomes a card */
+      #products-table tbody tr {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto auto auto;
+        gap: 8px 12px;
+        background: var(--surface);
+        border: 1.5px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Deleted card: red border + dimmed */
+      #products-table tbody tr.is-deleted {
+        border: 2px solid var(--danger) !important;
+        background: var(--danger-light);
+        opacity: .65;
+      }
+      #products-table tbody tr.is-deleted td input {
+        text-decoration: line-through;
+        color: var(--danger);
+      }
+
+      /* New card */
+      #products-table tbody tr.is-new {
+        border-color: var(--success);
+        background: #f0fdf4;
+      }
+
+      /* All tds: flex column with label */
+      #products-table tbody td {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 0;
+      }
+
+      /* Hide pseudo-label on empty-state single td */
+      #products-table tbody td:only-child::before { display: none; }
+
+      /* Shared label style */
+      #products-table tbody td::before {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        color: var(--text-muted);
+        display: block;
+      }
+
+      /* ── td 1: ID — top-left ── */
+      #products-table tbody td:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* ── td 2: Nombre — row 2, full width ── */
+      #products-table tbody td:nth-child(2) {
+        grid-column: 1 / -1;
+        grid-row: 2;
+      }
+      #products-table tbody td:nth-child(2)::before { content: 'Nombre'; }
+
+      /* ── td 3: Marca — row 4 left ── */
+      #products-table tbody td:nth-child(3) {
+        grid-column: 1;
+        grid-row: 4;
+      }
+      #products-table tbody td:nth-child(3)::before { content: 'Marca'; }
+
+      /* ── td 4: Formato — row 4 right ── */
+      #products-table tbody td:nth-child(4) {
+        grid-column: 2;
+        grid-row: 4;
+      }
+      #products-table tbody td:nth-child(4)::before { content: 'Formato'; }
+
+      /* ── td 5: Precio — row 3 left, large display ── */
+      #products-table tbody td:nth-child(5) {
+        grid-column: 1;
+        grid-row: 3;
+      }
+      #products-table tbody td:nth-child(5)::before { content: 'Precio ($)'; }
+
+      /* ── td 6: Categoría — row 3 right ── */
+      #products-table tbody td:nth-child(6) {
+        grid-column: 2;
+        grid-row: 3;
+      }
+      #products-table tbody td:nth-child(6)::before { content: 'Categoría'; }
+
+      /* ── td 7: Imagen — row 5, full width ── */
+      #products-table tbody td:nth-child(7) {
+        grid-column: 1 / -1;
+        grid-row: 5;
+      }
+      #products-table tbody td:nth-child(7)::before { content: 'Imagen (path)'; }
+
+      /* ── td 8: Actions — top-right ── */
+      #products-table tbody td:nth-child(8) {
+        grid-column: 2;
+        grid-row: 1;
+        align-items: flex-end;
+        justify-content: flex-start;
+      }
+
+      /* All card inputs: full width, 48px min-height, 16px font */
+      #products-table tbody .td-input {
+        width: 100%;
+        height: 48px;
+        font-size: 1rem !important;
+        min-width: 0;
+        max-width: 100%;
+        border: 1.5px solid var(--border);
+        background: var(--bg);
+        border-radius: var(--radius-sm);
+        text-align: left;
+      }
+      #products-table tbody .td-input:focus {
+        border-color: var(--cta);
+        background: var(--surface);
+        box-shadow: 0 0 0 3px var(--cta-glow);
+      }
+
+      /* Precio input: bigger, orange accent */
+      #products-table tbody td:nth-child(5) .td-input {
+        font-size: 1.25rem !important;
+        font-weight: 700;
+        color: var(--cta);
+        text-align: left;
+        height: 52px;
+      }
+
+      /* ── Save bar — full-width on mobile ── */
+      #save-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 14px 16px calc(14px + env(safe-area-inset-bottom, 0px));
+      }
+      .save-bar-info {
+        justify-content: center;
+        font-size: 1rem;
+      }
+      .changes-label { font-size: 1rem; font-weight: 700; }
+      .save-bar-actions {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .btn-save {
+        width: 100%;
+        font-size: 1rem;
+        height: 54px;
+      }
+      .btn-discard {
+        width: 100%;
+        text-align: center;
+        height: 48px;
+      }
+
+      /* ── Header: hide label on mobile ── */
       .header-badge { display: none; }
-      .login-card { padding: 28px 20px; }
-      .toolbar { gap: 8px; }
-      .save-bar-info .changes-label { font-size: .8rem; }
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       DESKTOP — restore full table at 768px+
+    ══════════════════════════════════════════════════════════════ */
+    @media (min-width: 768px) {
+      .admin-header { padding: 0 24px; }
+      .header-user > span { display: inline; }
+      .main { padding-left: 24px; padding-right: 24px; }
+
+      .toolbar { flex-direction: row; flex-wrap: wrap; }
+      .toolbar-search { flex: 1; min-width: 200px; width: auto; }
+      .toolbar select { width: auto; }
+      .btn-add { width: auto; }
+
+      .promos-toolbar { flex-direction: row; align-items: center; }
+      .promos-toolbar .btn-add { width: auto; }
+
+      .promo-field-row { flex-direction: row; }
+
+      /* Restore table layout */
+      .table-wrap {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-sm);
+        overflow-x: auto;
+      }
+      #products-table { display: table; }
+      #products-table thead { display: table-header-group; }
+      #products-table tbody { display: table-row-group; }
+      #products-table tbody tr {
+        display: table-row;
+        background: unset;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        box-shadow: none;
+        grid-template-columns: unset;
+      }
+      #products-table tbody tr.is-deleted {
+        border: none !important;
+        border-bottom: 1px solid var(--border) !important;
+        background: var(--danger-light);
+        border-left: 3px solid var(--danger) !important;
+        opacity: .72;
+      }
+      #products-table tbody td {
+        display: table-cell;
+        padding: 8px 10px;
+        vertical-align: middle;
+        flex-direction: unset;
+        gap: unset;
+      }
+      #products-table tbody td::before { display: none; }
+      #products-table tbody .td-input {
+        height: auto;
+        min-height: 44px;
+        font-size: 1rem !important;
+        border: 1.5px solid transparent;
+        background: transparent;
+        text-align: left;
+      }
+      #products-table tbody .td-input[type="number"] { text-align: right; }
+      #products-table tbody td:nth-child(5) .td-input {
+        font-size: 1rem !important;
+        font-weight: 400;
+        color: var(--text);
+        height: auto;
+      }
+
+      /* Reset all mobile grid placements */
+      #products-table tbody td:nth-child(1),
+      #products-table tbody td:nth-child(2),
+      #products-table tbody td:nth-child(3),
+      #products-table tbody td:nth-child(4),
+      #products-table tbody td:nth-child(5),
+      #products-table tbody td:nth-child(6),
+      #products-table tbody td:nth-child(7),
+      #products-table tbody td:nth-child(8) {
+        grid-column: unset;
+        grid-row: unset;
+        align-items: unset;
+        justify-content: unset;
+        flex-direction: unset;
+      }
+
+      #save-bar {
+        flex-direction: row;
+        padding: 12px 24px;
+      }
+      .save-bar-info { font-size: .875rem; }
+      .changes-label { font-size: .875rem; font-weight: 600; }
+      .save-bar-actions { flex-direction: row; }
+      .btn-save { width: auto; font-size: .875rem; height: 48px; }
+      .btn-discard { width: auto; height: 48px; }
     }
   </style>
 </head>
@@ -1076,7 +1408,7 @@
           ${deletedIds.has(p.id)
             ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
             : `<button class="btn-delete" title="Eliminar" data-del="${p.id}">
-                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
                   <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
                 </svg>
@@ -1171,7 +1503,7 @@
           ${deletedIds.has(p.id)
             ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
             : `<button class="btn-delete" title="Eliminar pack" data-del="${p.id}">
-                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                   <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
                   <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
                 </svg>
@@ -1206,13 +1538,13 @@
         <label>Productos del pack</label>
         <div class="promo-products-list" data-pack-list="${p.id}">
           ${packItems.length === 0
-            ? `<p style="font-size:.8rem;color:var(--text-muted);padding:4px 0">Sin productos vinculados</p>`
+            ? `<p style="font-size:.875rem;color:var(--text-muted);padding:4px 0">Sin productos vinculados</p>`
             : packItems.map(item => `
               <div class="promo-product-item">
                 <strong>${escHtml(item.id)}</strong>
                 <span>${escHtml(item.nombre)} — ${escHtml(item.formato || '')}</span>
                 <button class="btn-remove-product" data-promo="${p.id}" data-remove="${item.id}" title="Quitar">
-                  <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
                 </button>
               </div>`).join('')}
         </div>
