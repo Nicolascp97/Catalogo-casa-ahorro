@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Casa Ahorro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Design tokens (same as main site) ─────────────────────── */
+    :root {
+      --cta:          #f97316;
+      --cta-dark:     #c2410c;
+      --cta-glow:     rgba(249,115,22,.22);
+      --info:         #0369a1;
+      --info-light:   #e0f2fe;
+      --brand:        #7c3aed;
+      --brand-light:  #ede9fe;
+      --success:      #16a34a;
+      --success-light:#dcfce7;
+      --danger:       #dc2626;
+      --danger-light: #fee2e2;
+      --bg:           #fafafa;
+      --surface:      #ffffff;
+      --border:       #e2e8f0;
+      --border-hover: #cbd5e1;
+      --text:         #0f172a;
+      --text-muted:   #64748b;
+      --header-h:     58px;
+      --radius:       14px;
+      --radius-sm:    9px;
+      --shadow-sm:    0 1px 3px rgba(15,23,42,.06);
+      --shadow-md:    0 4px 16px rgba(15,23,42,.09);
+      --shadow-lg:    0 12px 40px rgba(15,23,42,.12);
+    }
+
+    /* ── Reset & Base ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 15px; }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────────────────── */
+    .admin-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--header-h);
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 100;
+    }
+    .admin-header::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--cta) 0%, var(--brand) 100%);
+      border-radius: 0 0 2px 2px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-logo {
+      height: 32px;
+      width: auto;
+    }
+    .header-badge {
+      background: linear-gradient(135deg, var(--cta), var(--brand));
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+    .header-user {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .btn-logout {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-logout:hover { border-color: var(--danger); color: var(--danger); }
+
+    /* ── Main layout ────────────────────────────────────────────── */
+    .main {
+      padding-top: calc(var(--header-h) + 24px);
+      padding-bottom: 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    /* ── Login View ─────────────────────────────────────────────── */
+    #view-login {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - var(--header-h));
+      padding: 20px;
+    }
+    .login-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 40px;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+    .login-logo {
+      height: 48px;
+      margin-bottom: 20px;
+    }
+    .login-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .login-sub {
+      font-size: .875rem;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+    }
+    .login-field {
+      position: relative;
+      margin-bottom: 16px;
+      text-align: left;
+    }
+    .login-field label {
+      display: block;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    .login-field input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .9rem;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+    }
+    .login-field input:focus {
+      border-color: var(--cta);
+      box-shadow: 0 0 0 3px var(--cta-glow);
+    }
+    .login-error {
+      background: var(--danger-light);
+      color: var(--danger);
+      font-size: .82rem;
+      font-weight: 600;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+      display: none;
+      text-align: left;
+    }
+    .login-error.show { display: block; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--cta);
+      color: #fff;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s, box-shadow .15s, transform .1s;
+      box-shadow: 0 4px 16px var(--cta-glow);
+      width: 100%;
+    }
+    .btn-primary:hover { background: var(--cta-dark); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ── Dashboard View ─────────────────────────────────────────── */
+    #view-dashboard { display: none; }
+    .dash-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .dash-sub {
+      font-size: .875rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* ── Tabs ───────────────────────────────────────────────────── */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 10px 20px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-bottom: 2.5px solid transparent;
+      margin-bottom: -2px;
+      border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+      transition: color .15s, border-color .15s;
+    }
+    .tab-btn:hover { color: var(--text); }
+    .tab-btn.active { color: var(--cta); border-bottom-color: var(--cta); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Toolbar ────────────────────────────────────────────────── */
+    .toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .toolbar-search {
+      position: relative;
+      flex: 1;
+      min-width: 200px;
+    }
+    .toolbar-search svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .toolbar-search input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .toolbar-search input:focus {
+      border-color: var(--cta);
+      box-shadow: 0 0 0 3px var(--cta-glow);
+    }
+    .toolbar select {
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+      transition: border-color .15s;
+    }
+    .toolbar select:focus { border-color: var(--cta); }
+    .count-badge {
+      font-size: .8rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      padding: 0 4px;
+    }
+    .btn-add {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+      white-space: nowrap;
+    }
+    .btn-add:hover { opacity: .88; transform: translateY(-1px); }
+
+    /* ── Table ──────────────────────────────────────────────────── */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .85rem;
+    }
+    thead th {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fef3c7 100%);
+      padding: 12px 14px;
+      text-align: left;
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-muted);
+      white-space: nowrap;
+      border-bottom: 1.5px solid var(--border);
+      position: sticky;
+      top: 0;
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background .1s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #fafbff; }
+    tbody tr.is-new { background: #f0fdf4; }
+    tbody tr.is-deleted {
+      background: var(--danger-light);
+      opacity: .7;
+    }
+    tbody tr.is-deleted td input { text-decoration: line-through; color: var(--danger); }
+    td {
+      padding: 8px 10px;
+      vertical-align: middle;
+    }
+    .td-id {
+      font-size: .75rem;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--brand);
+      white-space: nowrap;
+    }
+
+    /* ── Table Inputs ───────────────────────────────────────────── */
+    .td-input {
+      width: 100%;
+      border: 1.5px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: .85rem;
+      color: var(--text);
+      background: transparent;
+      transition: border-color .15s, background .15s, box-shadow .15s;
+      outline: none;
+      min-width: 80px;
+    }
+    .td-input:focus {
+      border-color: var(--cta);
+      background: var(--surface);
+      box-shadow: 0 0 0 3px var(--cta-glow);
+    }
+    .td-input.w-sm { min-width: 70px; max-width: 100px; }
+    .td-input.w-md { min-width: 120px; }
+    .td-input.w-lg { min-width: 160px; }
+    .td-input.w-xl { min-width: 200px; }
+    .td-input[type="number"] { text-align: right; }
+
+    /* ── Delete button ──────────────────────────────────────────── */
+    .btn-delete {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .btn-delete:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-light); }
+    .btn-undo {
+      background: none;
+      border: none;
+      color: var(--info);
+      font-size: .78rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      font-family: inherit;
+      padding: 0;
+    }
+    .btn-undo:hover { color: var(--brand); }
+    .actions-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    /* ── Promos Tab ─────────────────────────────────────────────── */
+    .promos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+    .promo-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      padding: 20px;
+      transition: border-color .15s;
+    }
+    .promo-card:hover { border-color: var(--border-hover); }
+    .promo-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .promo-id {
+      font-size: .72rem;
+      font-weight: 700;
+      font-family: monospace;
+      color: var(--brand);
+      background: var(--brand-light);
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+    .promo-preview {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .promo-field {
+      margin-bottom: 12px;
+    }
+    .promo-field label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .promo-field input[type="text"],
+    .promo-field input[type="number"] {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: .875rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .promo-field input:focus {
+      border-color: var(--cta);
+      box-shadow: 0 0 0 3px var(--cta-glow);
+    }
+    .promo-field-row { display: flex; gap: 10px; }
+    .promo-field-row .promo-field { flex: 1; }
+    .color-field-wrap { display: flex; align-items: center; gap: 10px; }
+    .color-swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .color-text {
+      flex: 1;
+      padding: 9px 11px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: monospace;
+      font-size: .875rem;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .color-text:focus { border-color: var(--cta); box-shadow: 0 0 0 3px var(--cta-glow); }
+
+    /* ── Sticky Save Bar ────────────────────────────────────────── */
+    #save-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      z-index: 90;
+      transform: translateY(100%);
+      transition: transform .25s cubic-bezier(.4,0,.2,1);
+    }
+    #save-bar.visible { transform: translateY(0); }
+    .save-bar-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .875rem;
+    }
+    .changes-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--cta);
+      border-radius: 50%;
+      animation: pulse-dot 1.5s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.8); }
+    }
+    .changes-label { font-weight: 600; color: var(--text); }
+    .save-bar-actions { display: flex; gap: 10px; align-items: center; }
+    .btn-discard {
+      background: none;
+      border: 1.5px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .15s;
+    }
+    .btn-discard:hover { border-color: var(--danger); color: var(--danger); }
+    .btn-save {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cta);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 16px var(--cta-glow);
+      transition: background .15s, transform .1s;
+    }
+    .btn-save:hover { background: var(--cta-dark); transform: translateY(-1px); }
+    .btn-save:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+
+    /* ── Toast / Status Banner ──────────────────────────────────── */
+    #status-banner {
+      position: fixed;
+      bottom: 74px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--info-light);
+      border: 1.5px solid var(--info);
+      color: var(--info);
+      border-radius: var(--radius);
+      padding: 12px 20px;
+      font-size: .875rem;
+      font-weight: 600;
+      max-width: 480px;
+      width: calc(100% - 40px);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transition: opacity .2s, transform .2s;
+      z-index: 95;
+      pointer-events: none;
+    }
+    #status-banner.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    #status-banner.success-banner {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: var(--success);
+    }
+    #status-banner.error-banner {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+    #status-banner a { color: inherit; font-weight: 700; }
+
+    /* ── Spinner ────────────────────────────────────────────────── */
+    .spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Empty state ────────────────────────────────────────────── */
+    .empty-state {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state p { font-size: .9rem; margin-top: 8px; }
+
+    /* ── Responsive ─────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .admin-header { padding: 0 14px; }
+      .main { padding-left: 14px; padding-right: 14px; }
+      .header-badge { display: none; }
+      .login-card { padding: 28px 20px; }
+      .toolbar { gap: 8px; }
+      .save-bar-info .changes-label { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══════════════════════════════════════════════════ -->
+<header class="admin-header">
+  <div class="header-brand">
+    <img src="logo.png" alt="Casa Ahorro" class="header-logo" />
+    <span class="header-badge">Admin</span>
+  </div>
+  <div class="header-user" id="header-user" style="display:none">
+    <span>Panel de gestión</span>
+    <button class="btn-logout" id="btn-logout">Cerrar sesión</button>
+  </div>
+</header>
+
+<!-- ═══ LOGIN VIEW ════════════════════════════════════════════════ -->
+<div id="view-login">
+  <div class="login-card">
+    <img src="logo.png" alt="Casa Ahorro" class="login-logo" />
+    <h1 class="login-title">Bienvenido</h1>
+    <p class="login-sub">Ingresa tu contraseña para administrar el catálogo</p>
+
+    <form id="login-form" autocomplete="off">
+      <div class="login-field">
+        <label for="password-input">Contraseña</label>
+        <input
+          type="password"
+          id="password-input"
+          placeholder="••••••••••"
+          required
+          autocomplete="current-password"
+        />
+      </div>
+      <div class="login-error" id="login-error">Contraseña incorrecta. Intentá de nuevo.</div>
+      <button type="submit" class="btn-primary" id="login-btn">Entrar</button>
+    </form>
+  </div>
+</div>
+
+<!-- ═══ DASHBOARD VIEW ════════════════════════════════════════════ -->
+<div id="view-dashboard">
+  <div class="main">
+    <h1 class="dash-title">Gestión del Catálogo</h1>
+    <p class="dash-sub" id="dash-sub">Cargando datos…</p>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="productos">
+        🛒 Productos
+      </button>
+      <button class="tab-btn" data-tab="promociones">
+        ⭐ Promociones
+      </button>
+    </div>
+
+    <!-- ── Tab: Productos ──────────────────────────────────────── -->
+    <div class="tab-panel active" id="tab-productos">
+      <div class="toolbar">
+        <div class="toolbar-search">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input type="search" id="search-input" placeholder="Buscar por nombre, marca…" />
+        </div>
+        <select id="cat-filter">
+          <option value="">Todas las categorías</option>
+        </select>
+        <span class="count-badge" id="count-badge"></span>
+        <button class="btn-add" id="btn-add-product">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          Nuevo producto
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table id="products-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Marca</th>
+              <th>Formato</th>
+              <th>Precio ($)</th>
+              <th>Categoría</th>
+              <th>Imagen (path)</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="products-tbody">
+            <tr>
+              <td colspan="8">
+                <div class="empty-state">
+                  <p>Cargando productos…</p>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── Tab: Promociones ───────────────────────────────────── -->
+    <div class="tab-panel" id="tab-promociones">
+      <div class="promos-grid" id="promos-grid">
+        <div class="empty-state"><p>Cargando promociones…</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STICKY SAVE BAR ══════════════════════════════════════════ -->
+<div id="save-bar">
+  <div class="save-bar-info">
+    <span class="changes-dot"></span>
+    <span class="changes-label" id="changes-label">0 cambios sin guardar</span>
+  </div>
+  <div class="save-bar-actions">
+    <button class="btn-discard" id="btn-discard">Descartar cambios</button>
+    <button class="btn-save" id="btn-save">
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+        <polyline points="17 21 17 13 7 13 7 21"/>
+        <polyline points="7 3 7 8 15 8"/>
+      </svg>
+      Guardar y publicar
+    </button>
+  </div>
+</div>
+
+<!-- ═══ STATUS BANNER ════════════════════════════════════════════ -->
+<div id="status-banner"></div>
+
+<script>
+  // ── State ───────────────────────────────────────────────────────
+  let authToken = sessionStorage.getItem('admin_token') || '';
+  let productos = [];
+  let productosOriginal = '';
+  let productosSha = '';
+  let promociones = [];
+  let promocionesOriginal = '';
+  let promocionesSha = '';
+
+  let searchQuery = '';
+  let categoryFilter = '';
+  let debounceTimer = null;
+
+  const modifiedIds = new Set();
+  const deletedIds = new Set();
+  let promosDirty = false;
+  let newProductCounter = 0;
+
+  // ── DOM refs ────────────────────────────────────────────────────
+  const viewLogin = document.getElementById('view-login');
+  const viewDashboard = document.getElementById('view-dashboard');
+  const loginForm = document.getElementById('login-form');
+  const loginBtn = document.getElementById('login-btn');
+  const loginError = document.getElementById('login-error');
+  const passwordInput = document.getElementById('password-input');
+  const headerUser = document.getElementById('header-user');
+  const btnLogout = document.getElementById('btn-logout');
+  const dashSub = document.getElementById('dash-sub');
+  const searchInput = document.getElementById('search-input');
+  const catFilter = document.getElementById('cat-filter');
+  const countBadge = document.getElementById('count-badge');
+  const btnAddProduct = document.getElementById('btn-add-product');
+  const productsTbody = document.getElementById('products-tbody');
+  const promosGrid = document.getElementById('promos-grid');
+  const saveBar = document.getElementById('save-bar');
+  const changesLabel = document.getElementById('changes-label');
+  const btnSave = document.getElementById('btn-save');
+  const btnDiscard = document.getElementById('btn-discard');
+  const statusBanner = document.getElementById('status-banner');
+
+  // ── API helper ──────────────────────────────────────────────────
+  async function api(body) {
+    const res = await fetch('/api/admin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${authToken}`,
+      },
+      body: JSON.stringify(body),
+    });
+    return res.json();
+  }
+
+  // ── Auth ────────────────────────────────────────────────────────
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const pwd = passwordInput.value.trim();
+    if (!pwd) return;
+
+    loginBtn.disabled = true;
+    loginBtn.innerHTML = '<span class="spinner"></span> Verificando…';
+    loginError.classList.remove('show');
+
+    authToken = pwd;
+    const result = await api({ action: 'verify-auth' }).catch(() => ({ ok: false }));
+
+    if (result.ok) {
+      sessionStorage.setItem('admin_token', authToken);
+      showDashboard();
+    } else {
+      authToken = '';
+      loginError.classList.add('show');
+      loginBtn.disabled = false;
+      loginBtn.textContent = 'Entrar';
+      passwordInput.focus();
+    }
+  });
+
+  btnLogout.addEventListener('click', () => {
+    if (hasChanges() && !confirm('¿Salir sin guardar los cambios?')) return;
+    sessionStorage.removeItem('admin_token');
+    location.reload();
+  });
+
+  // ── Dashboard init ──────────────────────────────────────────────
+  async function showDashboard() {
+    viewLogin.style.display = 'none';
+    viewDashboard.style.display = 'block';
+    headerUser.style.display = 'flex';
+    await loadAllData();
+  }
+
+  async function loadAllData() {
+    dashSub.textContent = 'Cargando datos desde GitHub…';
+    const [pRes, proRes] = await Promise.all([
+      api({ action: 'get-file', file: 'productos.json' }),
+      api({ action: 'get-file', file: 'promociones.json' }),
+    ]);
+
+    if (!pRes.ok || !proRes.ok) {
+      dashSub.textContent = 'Error al cargar los datos. Verificá la configuración.';
+      return;
+    }
+
+    productos = pRes.data;
+    productosSha = pRes.sha;
+    productosOriginal = JSON.stringify(productos);
+
+    promociones = proRes.data;
+    promocionesSha = proRes.sha;
+    promocionesOriginal = JSON.stringify(promociones);
+
+    dashSub.textContent = `${productos.length} productos · ${promociones.length} promociones`;
+
+    buildCategoryFilter();
+    renderProductsTable();
+    renderPromosGrid();
+  }
+
+  // ── Category filter ─────────────────────────────────────────────
+  function buildCategoryFilter() {
+    const cats = [...new Set(productos.map(p => p.categoria))].filter(Boolean).sort();
+    catFilter.innerHTML = '<option value="">Todas las categorías</option>';
+    cats.forEach(cat => {
+      const opt = document.createElement('option');
+      opt.value = cat;
+      opt.textContent = cat;
+      catFilter.appendChild(opt);
+    });
+  }
+
+  // ── Tabs ────────────────────────────────────────────────────────
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+    });
+  });
+
+  // ── Search & filter ─────────────────────────────────────────────
+  searchInput.addEventListener('input', () => {
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => {
+      searchQuery = searchInput.value.toLowerCase();
+      renderProductsTable();
+    }, 300);
+  });
+
+  catFilter.addEventListener('change', () => {
+    categoryFilter = catFilter.value;
+    renderProductsTable();
+  });
+
+  function filteredProducts() {
+    return productos.filter(p => {
+      if (categoryFilter && p.categoria !== categoryFilter) return false;
+      if (searchQuery) {
+        const hay = `${p.nombre} ${p.marca} ${p.categoria} ${p.id}`.toLowerCase();
+        if (!hay.includes(searchQuery)) return false;
+      }
+      return true;
+    });
+  }
+
+  // ── Render products table ───────────────────────────────────────
+  function renderProductsTable() {
+    const list = filteredProducts();
+    countBadge.textContent = `Mostrando ${list.length} de ${productos.length}`;
+
+    if (list.length === 0) {
+      productsTbody.innerHTML = `<tr><td colspan="8"><div class="empty-state"><p>No se encontraron productos con ese filtro.</p></div></td></tr>`;
+      return;
+    }
+
+    productsTbody.innerHTML = '';
+    list.forEach(p => productsTbody.appendChild(buildProductRow(p)));
+  }
+
+  function buildProductRow(p) {
+    const tr = document.createElement('tr');
+    tr.dataset.id = p.id;
+    if (p._isNew) tr.classList.add('is-new');
+    if (deletedIds.has(p.id)) tr.classList.add('is-deleted');
+
+    tr.innerHTML = `
+      <td><span class="td-id">${escHtml(p.id)}</span></td>
+      <td><input class="td-input w-lg" type="text" data-field="nombre" value="${escAttr(p.nombre)}" /></td>
+      <td><input class="td-input w-md" type="text" data-field="marca" value="${escAttr(p.marca || '')}" /></td>
+      <td><input class="td-input w-md" type="text" data-field="formato" value="${escAttr(p.formato || '')}" /></td>
+      <td><input class="td-input w-sm" type="number" data-field="precio" value="${p.precio || ''}" min="0" step="10" /></td>
+      <td><input class="td-input w-md" type="text" data-field="categoria" value="${escAttr(p.categoria || '')}" /></td>
+      <td><input class="td-input w-xl" type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" /></td>
+      <td>
+        <div class="actions-cell">
+          ${deletedIds.has(p.id)
+            ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
+            : `<button class="btn-delete" title="Eliminar" data-del="${p.id}">
+                <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                  <polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/>
+                  <path d="M10 11v6M14 11v6M9 6V4h6v2"/>
+                </svg>
+               </button>`}
+        </div>
+      </td>
+    `;
+
+    // Input change tracking
+    tr.querySelectorAll('.td-input').forEach(input => {
+      input.addEventListener('change', () => {
+        const field = input.dataset.field;
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        const val = field === 'precio' ? Number(input.value) : input.value;
+        productos[idx][field] = val;
+        markDirty(p.id);
+      });
+    });
+
+    // Delete
+    const delBtn = tr.querySelector('[data-del]');
+    if (delBtn) {
+      delBtn.addEventListener('click', () => {
+        deletedIds.add(p.id);
+        markDirty(p.id);
+        renderProductsTable();
+      });
+    }
+
+    // Undo delete
+    const undoBtn = tr.querySelector('[data-undo]');
+    if (undoBtn) {
+      undoBtn.addEventListener('click', () => {
+        deletedIds.delete(p.id);
+        markDirty(p.id);
+        renderProductsTable();
+      });
+    }
+
+    return tr;
+  }
+
+  // ── Add new product ─────────────────────────────────────────────
+  btnAddProduct.addEventListener('click', () => {
+    newProductCounter++;
+    const newId = `NEW${String(newProductCounter).padStart(3, '0')}`;
+    const newP = { id: newId, nombre: '', marca: '', formato: '', precio: 0, categoria: '', imagen: '', _isNew: true };
+    productos.unshift(newP);
+    markDirty(newId);
+    searchInput.value = '';
+    searchQuery = '';
+    catFilter.value = '';
+    categoryFilter = '';
+    renderProductsTable();
+    productsTbody.querySelector('input')?.focus();
+  });
+
+  // ── Render promos ───────────────────────────────────────────────
+  function renderPromosGrid() {
+    promosGrid.innerHTML = '';
+    promociones.forEach((promo, idx) => {
+      promosGrid.appendChild(buildPromoCard(promo, idx));
+    });
+  }
+
+  function buildPromoCard(promo, idx) {
+    const card = document.createElement('div');
+    card.className = 'promo-card';
+
+    card.innerHTML = `
+      <div class="promo-card-header">
+        <span class="promo-id">${escHtml(promo.id)}</span>
+        <img class="promo-preview" src="${escAttr(promo.imagen)}" alt="" onerror="this.style.display='none'" />
+      </div>
+
+      <div class="promo-field">
+        <label>Título</label>
+        <input type="text" data-pi="${idx}" data-field="titulo" value="${escAttr(promo.titulo)}" />
+      </div>
+      <div class="promo-field">
+        <label>Subtítulo</label>
+        <input type="text" data-pi="${idx}" data-field="subtitulo" value="${escAttr(promo.subtitulo)}" />
+      </div>
+      <div class="promo-field">
+        <label>Descripción</label>
+        <input type="text" data-pi="${idx}" data-field="descripcion" value="${escAttr(promo.descripcion)}" />
+      </div>
+      <div class="promo-field-row">
+        <div class="promo-field">
+          <label>Precio oferta ($)</label>
+          <input type="number" data-pi="${idx}" data-field="precioOferta" value="${promo.precioOferta}" min="0" step="10" />
+        </div>
+        <div class="promo-field">
+          <label>Precio anterior ($)</label>
+          <input type="number" data-pi="${idx}" data-field="precioAnterior" value="${promo.precioAnterior}" min="0" step="10" />
+        </div>
+      </div>
+      <div class="promo-field">
+        <label>Etiqueta</label>
+        <input type="text" data-pi="${idx}" data-field="etiqueta" value="${escAttr(promo.etiqueta)}" />
+      </div>
+      <div class="promo-field-row">
+        <div class="promo-field">
+          <label>ID Producto vinculado</label>
+          <input type="text" data-pi="${idx}" data-field="idProducto" value="${escAttr(promo.idProducto)}" />
+        </div>
+      </div>
+      <div class="promo-field">
+        <label>Imagen (path)</label>
+        <input type="text" data-pi="${idx}" data-field="imagen" value="${escAttr(promo.imagen)}" />
+      </div>
+      <div class="promo-field">
+        <label>Color de fondo</label>
+        <div class="color-field-wrap">
+          <input type="color" class="color-swatch" data-pi="${idx}" data-field="colorFondo" data-pair="text" value="${promo.colorFondo || '#ffffff'}" />
+          <input type="text" class="color-text" data-pi="${idx}" data-field="colorFondo" data-pair="color" value="${escAttr(promo.colorFondo || '#ffffff')}" maxlength="7" />
+        </div>
+      </div>
+    `;
+
+    // Bind inputs
+    card.querySelectorAll('input[data-pi]').forEach(input => {
+      input.addEventListener('change', () => {
+        const i = parseInt(input.dataset.pi);
+        const field = input.dataset.field;
+        const pair = input.dataset.pair;
+        const isNum = input.type === 'number';
+        const val = isNum ? Number(input.value) : input.value;
+        promociones[i][field] = val;
+
+        // Sync color picker ↔ text
+        if (field === 'colorFondo') {
+          const sibling = card.querySelector(`input[data-pair="${pair === 'color' ? 'text' : 'color'}"]`);
+          if (sibling) sibling.value = val;
+          // Update preview border
+          card.style.borderColor = val;
+        }
+        // Update image preview
+        if (field === 'imagen') {
+          const img = card.querySelector('.promo-preview');
+          if (img) { img.src = val; img.style.display = ''; }
+        }
+
+        markPromoDirty();
+      });
+    });
+
+    return card;
+  }
+
+  // ── Dirty tracking ──────────────────────────────────────────────
+  function markDirty(id) {
+    modifiedIds.add(id);
+    updateSaveBar();
+  }
+
+  function markPromoDirty() {
+    promosDirty = true;
+    updateSaveBar();
+  }
+
+  function hasChanges() {
+    return modifiedIds.size > 0 || promosDirty;
+  }
+
+  function updateSaveBar() {
+    const total = modifiedIds.size + (promosDirty ? 1 : 0);
+    if (total > 0) {
+      const label = modifiedIds.size > 0 && promosDirty
+        ? `${modifiedIds.size} producto(s) y promociones sin guardar`
+        : modifiedIds.size > 0
+          ? `${modifiedIds.size} producto(s) sin guardar`
+          : 'Promociones sin guardar';
+      changesLabel.textContent = label;
+      saveBar.classList.add('visible');
+    } else {
+      saveBar.classList.remove('visible');
+    }
+  }
+
+  // ── Discard ─────────────────────────────────────────────────────
+  btnDiscard.addEventListener('click', () => {
+    if (!confirm('¿Descartar todos los cambios sin guardar?')) return;
+    productos = JSON.parse(productosOriginal);
+    promociones = JSON.parse(promocionesOriginal);
+    modifiedIds.clear();
+    deletedIds.clear();
+    promosDirty = false;
+    newProductCounter = 0;
+    buildCategoryFilter();
+    renderProductsTable();
+    renderPromosGrid();
+    updateSaveBar();
+  });
+
+  // ── Save ─────────────────────────────────────────────────────────
+  btnSave.addEventListener('click', async () => {
+    btnSave.disabled = true;
+    btnSave.innerHTML = '<span class="spinner"></span> Guardando…';
+    hideBanner();
+
+    const promises = [];
+
+    if (modifiedIds.size > 0) {
+      const toSave = productos.filter(p => !deletedIds.has(p.id)).map(p => {
+        const clean = { ...p };
+        delete clean._isNew;
+        return clean;
+      });
+      promises.push(api({ action: 'save-file', file: 'productos.json', content: toSave, sha: productosSha }));
+    } else {
+      promises.push(Promise.resolve({ ok: true, _skip: true }));
+    }
+
+    if (promosDirty) {
+      promises.push(api({ action: 'save-file', file: 'promociones.json', content: promociones, sha: promocionesSha }));
+    } else {
+      promises.push(Promise.resolve({ ok: true, _skip: true }));
+    }
+
+    const [pRes, proRes] = await Promise.all(promises);
+
+    if (!pRes.ok && !pRes._skip) {
+      showBanner(pRes.message || 'Error al guardar productos. Intentá de nuevo.', 'error');
+      resetSaveBtn();
+      return;
+    }
+    if (!proRes.ok && !proRes._skip) {
+      showBanner(proRes.message || 'Error al guardar promociones. Intentá de nuevo.', 'error');
+      resetSaveBtn();
+      return;
+    }
+
+    // Success
+    productosOriginal = JSON.stringify(productos.filter(p => !deletedIds.has(p.id)));
+    promocionesOriginal = JSON.stringify(promociones);
+    modifiedIds.clear();
+    deletedIds.clear();
+    promosDirty = false;
+    newProductCounter = 0;
+    updateSaveBar();
+    resetSaveBtn();
+
+    showBanner('✅ Guardado en GitHub. El sitio se actualizará en ~30 segundos…', 'info');
+
+    // After 35s show link to live site
+    setTimeout(() => {
+      showBanner('✅ Listo. <a href="/" target="_blank">Ver el catálogo en vivo →</a>', 'success');
+    }, 35000);
+  });
+
+  function resetSaveBtn() {
+    btnSave.disabled = false;
+    btnSave.innerHTML = `
+      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+        <polyline points="17 21 17 13 7 13 7 21"/>
+        <polyline points="7 3 7 8 15 8"/>
+      </svg>
+      Guardar y publicar`;
+  }
+
+  // ── Banner ───────────────────────────────────────────────────────
+  function showBanner(msg, type = 'info') {
+    statusBanner.innerHTML = msg;
+    statusBanner.className = '';
+    statusBanner.classList.add('show');
+    if (type === 'error') statusBanner.classList.add('error-banner');
+    if (type === 'success') statusBanner.classList.add('success-banner');
+  }
+
+  function hideBanner() {
+    statusBanner.classList.remove('show');
+  }
+
+  // ── beforeunload guard ──────────────────────────────────────────
+  window.addEventListener('beforeunload', (e) => {
+    if (hasChanges()) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+  });
+
+  // ── Utils ────────────────────────────────────────────────────────
+  function escHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+  function escAttr(str) {
+    return String(str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+
+  // ── Auto-login if session token exists ───────────────────────────
+  (async () => {
+    if (authToken) {
+      const result = await api({ action: 'verify-auth' }).catch(() => ({ ok: false }));
+      if (result.ok) {
+        showDashboard();
+      } else {
+        sessionStorage.removeItem('admin_token');
+        authToken = '';
+      }
+    }
+  })();
+</script>
+</body>
+</html>

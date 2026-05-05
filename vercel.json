@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "functions": {
+    "api/admin.js": { "maxDuration": 10 }
+  },
   "headers": [
     {
       "source": "/productos.json",
