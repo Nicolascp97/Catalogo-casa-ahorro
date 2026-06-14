@@ -141,7 +141,8 @@
     "formato": "3 litros",
     "precio": 4800,
     "categoria": "Ropa",
-    "imagen": "imagenes/ROPA/p016.jpg"
+    "imagen": "imagenes/ROPA/p016.jpg",
+    "agotado": true
   },
   {
     "id": "P017",
@@ -150,7 +151,8 @@
     "formato": "3 Litros",
     "precio": 4800,
     "categoria": "Ropa",
-    "imagen": "imagenes/ROPA/p017.jpg"
+    "imagen": "imagenes/ROPA/p017.jpg",
+    "agotado": true
   },
   {
     "id": "P018",
@@ -175,7 +177,7 @@
     "nombre": "Suavizante BRIKS",
     "marca": "Brik´s",
     "formato": "5 Litros",
-    "precio": 0,
+    "precio": 4000,
     "categoria": "Ropa",
     "imagen": "imagenes/ROPA/p020.jpg"
   },
