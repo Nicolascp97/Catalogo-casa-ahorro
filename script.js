@@ -88,19 +88,21 @@ function renderProducts() {
   $emptyState.style.display = filtered.length === 0 ? 'block' : 'none';
 
   filtered.forEach(p => {
+    const agotado = !!p.agotado;
     const card = document.createElement('div');
     card.className = 'product-card';
     card.innerHTML = `
       <div class="product-img-wrap">
         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy"
              onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23f1f5f9%22 width=%22200%22 height=%22200%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2394a3b8%22 font-family=%22sans-serif%22 font-size=%2214%22>Sin imagen</text></svg>'">
+        ${agotado ? '<span class="agotado-badge">Agotado</span>' : ''}
       </div>
       <div class="product-info">
         <div class="product-name">${p.nombre}</div>
         <div class="product-format">${p.formato}</div>
         <div class="product-bottom">
           <span class="product-price">${formatPrice(p.precio)}</span>
-          <button class="btn-add" data-id="${p.id}" aria-label="Añadir ${p.nombre} al carrito"><span class="btn-add-icon">+</span><span class="btn-add-text">Agregar</span></button>
+          <button class="btn-add" data-id="${p.id}" ${agotado ? 'disabled' : ''} aria-label="Añadir ${p.nombre} al carrito"><span class="btn-add-icon">${agotado ? '' : '+'}</span><span class="btn-add-text">${agotado ? 'Agotado' : 'Agregar'}</span></button>
         </div>
       </div>
     `;
@@ -113,7 +115,7 @@ function bindEvents() {
   // Añadir al carrito (delegación)
   $grid.addEventListener('click', e => {
     const btn = e.target.closest('.btn-add');
-    if (!btn) return;
+    if (!btn || btn.disabled) return;
     const id = btn.dataset.id; // string — coincide con el id del JSON ("P001", etc.)
     addToCart(id);
     showToast('Producto añadido ✓');
@@ -311,7 +313,7 @@ function sendWhatsApp() {
 
   // Fecha y hora del pedido
   const now = new Date();
-  const fecha = now.toLocaleDateString('es-CL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  const fecha = now.toLocaleDateString('es-CL', { day: '2-digit', month: '2-digit', year: 'numeric' }); 
   const hora  = now.toLocaleTimeString('es-CL', { hour: '2-digit', minute: '2-digit' });
 
   let msg = `🛒 *PEDIDO — ${BUSINESS_NAME.toUpperCase()}*\n`;

@@ -3,25 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Casa Ahorro - Artículos de limpieza para el hogar. Pide por WhatsApp.">
+  <meta name="description" content="Casa Ahorro - Artículos de limpieza al mejor precio. Pide por WhatsApp con envío a domicilio en Litueche.">
   <title>Casa Ahorro | Catálogo de Limpieza</title>
+
+  <!-- Font: Plus Jakarta Sans (display + body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            cta: { DEFAULT: '#f97316', dark: '#c2410c' },
+            info: { DEFAULT: '#0369a1', light: '#e0f2fe' },
+            brand: { DEFAULT: '#7c3aed', light: '#ede9fe' },
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
   <link rel="icon" href="logo.png" type="image/png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="font-body bg-[#fafafa] text-[#0f172a]">
 
-  <!-- Header -->
-  <header class="header">
-    <div class="header-inner">
-      <div class="brand">
-        <img src="logo.png" alt="Casa Ahorro" class="brand-logo">
-        <span class="brand-name">Casa Ahorro</span>
-      </div>
-      <button class="cart-btn" id="cartToggle" aria-label="Abrir carrito">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- ═══════════════ HEADER ═══════════════ -->
+  <header class="v2-header" id="v2header">
+    <div class="v2-header-inner">
+      <a class="v2-brand" href="#">
+        <img src="logo.png" alt="Casa Ahorro" width="44" height="44" fetchpriority="high" class="v2-brand-logo">
+        <div>
+          <span class="v2-brand-name">Casa Ahorro</span>
+          <span class="v2-brand-tag">Litueche, Chile</span>
+        </div>
+      </a>
+      <button class="v2-cart-btn" id="cartToggle" aria-label="Abrir carrito">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
         </svg>
@@ -30,16 +60,76 @@
     </div>
   </header>
 
-  <!-- Search -->
-  <section class="search-section">
-    <div class="container">
-      <input type="text" class="search-input" id="searchInput" placeholder="Buscar productos...">
+  <!-- ═══════════════ PAS HERO BANNER ═══════════════ -->
+  <section class="v2-hero" id="v2hero">
+    <div class="v2-hero-inner">
+      <!-- PROBLEMA -->
+      <p class="v2-hero-eyebrow">
+        <span class="v2-hero-dot"></span>
+        ¿Cansado de pagar de más por limpiar tu hogar?
+      </p>
+      <!-- SOLUCIÓN -->
+      <h1 class="v2-hero-headline font-display">
+        Todo lo que necesitás,<br>
+        <span class="v2-hero-accent">al precio justo.</span>
+      </h1>
+      <!-- AGITACIÓN → Beneficios que resuelven -->
+      <div class="v2-hero-benefits">
+        <span class="v2-benefit"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Envío a domicilio</span>
+        <span class="v2-benefit"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Pago al recibir</span>
+        <span class="v2-benefit"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Precios directos</span>
+        <span class="v2-benefit"><svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Stock permanente</span>
+      </div>
+      <!-- CONVERSIÓN directa -->
+      <a href="#promoCarouselSection" class="v2-hero-cta" id="v2HeroCta">
+        Ver promociones del día
+        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+      </a>
+    </div>
+    <!-- Decoración geométrica -->
+    <div class="v2-hero-deco" aria-hidden="true">
+      <div class="v2-deco-circle v2-deco-1"></div>
+      <div class="v2-deco-circle v2-deco-2"></div>
     </div>
   </section>
 
-  <!-- Hero Carousel de Promociones -->
+  <!-- ═══════════════ PRUEBA SOCIAL ═══════════════ -->
+  <div class="v2-social-proof" id="v2proof">
+    <div class="v2-social-inner">
+      <div class="v2-proof-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <span>+500 pedidos entregados</span>
+      </div>
+      <div class="v2-proof-sep" aria-hidden="true">·</div>
+      <div class="v2-proof-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0369a1" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <span>Litueche y alrededores</span>
+      </div>
+      <div class="v2-proof-sep" aria-hidden="true">·</div>
+      <div class="v2-proof-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span>Entrega rápida</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ SEARCH ═══════════════ -->
+  <section class="v2-search-section">
+    <div class="v2-container">
+      <div class="v2-search-wrap">
+        <svg class="v2-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="search-input" id="searchInput" placeholder="Buscar producto, marca o formato...">
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ HERO CAROUSEL PROMOS ═══════════════ -->
   <section class="promo-carousel-section" id="promoCarouselSection">
     <div class="promo-carousel-wrapper">
+      <div class="v2-section-label">
+        <span class="v2-label-badge">🔥 Promo Ahorro</span>
+        <p class="v2-label-hint">Deslizá para ver más</p>
+      </div>
       <div class="promo-carousel-track-outer">
         <div class="promo-carousel-track" id="promoTrack"></div>
       </div>
@@ -47,34 +137,38 @@
     </div>
   </section>
 
-  <!-- Category Filters -->
+  <!-- ═══════════════ CATEGORIES ═══════════════ -->
   <section class="categories" id="categories">
     <div class="categories-scroll">
       <button class="cat-chip active" data-category="todos">Todos</button>
-      <!-- Chips se generan dinámicamente -->
     </div>
   </section>
 
-  <!-- Products Grid -->
-  <main class="container">
-    <div class="products-grid" id="productsGrid">
-      <!-- Tarjetas generadas por JS -->
-    </div>
+  <!-- ═══════════════ PRODUCTS GRID ═══════════════ -->
+  <main class="v2-container" id="v2main">
+    <div class="products-grid" id="productsGrid"></div>
     <p class="empty-state" id="emptyState" style="display:none;">No se encontraron productos.</p>
   </main>
 
-  <!-- Cart Overlay -->
+  <!-- ═══════════════ CART OVERLAY ═══════════════ -->
   <div class="cart-overlay" id="cartOverlay"></div>
 
-  <!-- Cart Sidebar -->
+  <!-- ═══════════════ CART SIDEBAR ═══════════════ -->
   <aside class="cart-sidebar" id="cartSidebar">
     <div class="cart-header">
-      <h2>Tu Pedido</h2>
+      <div class="v2-cart-header-left">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <h2>Tu Pedido</h2>
+      </div>
       <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">&times;</button>
     </div>
 
     <div class="cart-body" id="cartBody">
-      <p class="cart-empty" id="cartEmpty">Tu carrito está vacío</p>
+      <div class="cart-empty" id="cartEmpty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <p>Tu carrito está vacío</p>
+        <span>Agregá productos para empezar</span>
+      </div>
       <ul class="cart-items" id="cartItems"></ul>
     </div>
 
@@ -89,7 +183,7 @@
           <span id="cartTotal">$0</span>
         </div>
       </div>
-      <textarea class="cart-notes" id="cartNotes" placeholder="Notas adicionales, dirección de envío..." rows="3"></textarea>
+      <textarea class="cart-notes" id="cartNotes" placeholder="Notas, dirección de entrega..." rows="3"></textarea>
       <button class="btn-whatsapp" id="btnWhatsapp">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -99,22 +193,198 @@
     </div>
   </aside>
 
-  <!-- Botón flotante WhatsApp (visible cuando hay items en el carrito) -->
+  <!-- ═══════════════ FAB WHATSAPP ═══════════════ -->
   <button class="fab-whatsapp" id="fabWhatsapp" aria-label="Enviar pedido por WhatsApp" style="display:none;">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
     <span class="fab-label">Enviar pedido</span>
     <span class="fab-total" id="fabTotal"></span>
   </button>
 
-  <!-- Toast -->
+  <!-- ═══════════════ TOAST ═══════════════ -->
   <div class="toast" id="toast"></div>
 
-  <footer class="footer">
-    <p>Casa Ahorro &copy; 2026 — Litueche, Chile</p>
+  <!-- ═══════════════ PRODUCT MODAL ═══════════════ -->
+  <div class="pmodal-overlay" id="pmodalOverlay" role="dialog" aria-modal="true" aria-labelledby="pmodalName">
+    <div class="pmodal-sheet" id="pmodalSheet">
+      <button class="pmodal-close" id="pmodalClose" aria-label="Cerrar">&times;</button>
+      <div class="pmodal-img-wrap">
+        <img id="pmodalImg" src="" alt="" width="320" height="320" loading="lazy">
+      </div>
+      <div class="pmodal-body">
+        <span class="pmodal-category" id="pmodalCategory"></span>
+        <h2 class="pmodal-name" id="pmodalName"></h2>
+        <p class="pmodal-format" id="pmodalFormat"></p>
+        <div class="pmodal-price-row">
+          <span class="pmodal-price" id="pmodalPrice"></span>
+        </div>
+        <button class="pmodal-btn-add" id="pmodalBtnAdd">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Agregar al carrito
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FOOTER ═══════════════ -->
+  <footer class="v2-footer">
+    <div class="v2-footer-inner">
+      <img src="logo.png" alt="Casa Ahorro" width="36" height="36" loading="lazy" class="v2-footer-logo">
+      <div>
+        <p class="v2-footer-brand font-display">Casa Ahorro</p>
+        <p class="v2-footer-copy">© 2026 · Litueche, Chile · Todos los precios en CLP</p>
+        <p class="v2-footer-nexo">Desarrollado por Sistema y automatizaciones NEXO Spa</p>
+      </div>
+    </div>
   </footer>
 
+  <!-- Script principal (sin modificar) -->
   <script src="script.js"></script>
+
+  <!-- Modal de producto -->
+  <script>
+    (function() {
+      const overlay  = document.getElementById('pmodalOverlay');
+      const sheet    = document.getElementById('pmodalSheet');
+      const closeBtn = document.getElementById('pmodalClose');
+      const imgEl    = document.getElementById('pmodalImg');
+      const catEl    = document.getElementById('pmodalCategory');
+      const nameEl   = document.getElementById('pmodalName');
+      const fmtEl    = document.getElementById('pmodalFormat');
+      const priceEl  = document.getElementById('pmodalPrice');
+      const addBtn   = document.getElementById('pmodalBtnAdd');
+
+      let currentProductId = null;
+
+      // Abre el modal con los datos del producto
+      function openModal(prod) {
+        currentProductId = prod.id;
+        imgEl.src        = prod.imagen;
+        imgEl.alt        = prod.nombre;
+        catEl.textContent  = prod.categoria;
+        nameEl.textContent = prod.nombre;
+        fmtEl.textContent  = prod.formato;
+        priceEl.textContent = '$' + prod.precio.toLocaleString('es-CL');
+
+        if (prod.agotado) {
+          addBtn.disabled = true;
+          addBtn.textContent = 'Producto Agotado';
+          addBtn.style.cssText = 'background:#94a3b8;cursor:not-allowed;box-shadow:none;';
+        } else {
+          addBtn.disabled = false;
+          addBtn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg> Agregar al carrito`;
+          addBtn.style.cssText = '';
+        }
+
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        // Animación entrada sheet
+        sheet.style.transform = 'translateY(100%)';
+        requestAnimationFrame(() => {
+          sheet.style.transition = 'transform .35s cubic-bezier(.4,0,.2,1)';
+          sheet.style.transform  = 'translateY(0)';
+        });
+      }
+
+      function closeModal() {
+        sheet.style.transform = 'translateY(100%)';
+        setTimeout(() => {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+          currentProductId = null;
+        }, 320);
+      }
+
+      // Botón agregar dentro del modal
+      addBtn.addEventListener('click', () => {
+        if (!currentProductId) return;
+        addToCart(currentProductId);   // función global de script.js
+        showToast('Producto añadido ✓');
+        closeModal();
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+      // Delegación: click en la tarjeta (área imagen o nombre, NO en el botón Agregar)
+      document.getElementById('productsGrid').addEventListener('click', e => {
+        // Si hicieron click en el botón agregar de la card, no abrir modal
+        if (e.target.closest('.btn-add')) return;
+
+        const card = e.target.closest('.product-card');
+        if (!card) return;
+
+        // Obtener id del producto desde el botón de la card
+        const btn = card.querySelector('.btn-add');
+        if (!btn) return;
+        const id = btn.dataset.id;
+
+        // Buscar datos del producto (array global de script.js)
+        const prod = productos.find(p => p.id === id);
+        if (prod) openModal(prod);
+      });
+    })();
+  </script>
+
+  <!-- GSAP Animations — se inicializan tras cargar el DOM + script.js -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Esperar a que GSAP cargue (defer)
+      window.addEventListener('load', initGSAP);
+    });
+
+    function initGSAP() {
+      if (typeof gsap === 'undefined') return;
+
+      // ── Hero ────────────────────────────────────
+      gsap.from('#v2hero .v2-hero-eyebrow', {
+        opacity: 0, y: 20, duration: 0.6, ease: 'power2.out'
+      });
+      gsap.from('#v2hero .v2-hero-headline', {
+        opacity: 0, y: 30, duration: 0.7, delay: 0.15, ease: 'power3.out'
+      });
+      gsap.from('#v2hero .v2-hero-benefits', {
+        opacity: 0, y: 20, duration: 0.6, delay: 0.3, ease: 'power2.out'
+      });
+      gsap.from('#v2hero .v2-hero-cta', {
+        opacity: 0, scale: 0.92, duration: 0.5, delay: 0.45, ease: 'back.out(1.5)'
+      });
+
+      // ── Social proof ────────────────────────────
+      gsap.from('#v2proof .v2-proof-item', {
+        opacity: 0, y: 12, stagger: 0.12, duration: 0.5, delay: 0.6, ease: 'power2.out'
+      });
+
+      // ── Productos: observer-based (scroll) ──────
+      if (typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Carrusel promo
+        gsap.from('#promoCarouselSection', {
+          scrollTrigger: { trigger: '#promoCarouselSection', start: 'top 85%' },
+          opacity: 0, y: 24, duration: 0.6, ease: 'power2.out'
+        });
+
+        // Grid de productos: observar el contenedor y animar cards cuando aparecen
+        ScrollTrigger.create({
+          trigger: '#v2main',
+          start: 'top 80%',
+          onEnter: () => {
+            gsap.from('.product-card', {
+              opacity: 0,
+              y: 24,
+              stagger: 0.04,
+              duration: 0.45,
+              ease: 'power2.out',
+              clearProps: 'all'
+            });
+          },
+          once: true
+        });
+      }
+    }
+  </script>
 </body>
 </html>

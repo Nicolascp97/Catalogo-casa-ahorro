@@ -750,6 +750,73 @@
     }
     #status-banner a { color: inherit; font-weight: 700; }
 
+    /* ── Agotado toggle ────────────────────────────────────────── */
+    .btn-agotado-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .15s;
+      flex-shrink: 0;
+      title: attr(title);
+    }
+    .btn-agotado-toggle:hover {
+      border-color: var(--danger);
+      color: var(--danger);
+      background: var(--danger-light);
+    }
+    .btn-agotado-toggle.is-agotado {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+    .btn-agotado-toggle.is-agotado:hover {
+      background: #fca5a5;
+    }
+
+    /* ── Imagen upload ──────────────────────────────────────────── */
+    .img-field-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .img-field-wrap .td-input { flex: 1; min-width: 0; }
+    .btn-img-upload {
+      background: var(--brand-light);
+      border: none;
+      color: var(--brand);
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity .15s;
+      flex-shrink: 0;
+    }
+    .btn-img-upload:hover { opacity: .75; }
+    .btn-img-upload.uploading { opacity: .4; pointer-events: none; }
+
+    /* Promo card imagen wrap */
+    .promo-img-field-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .promo-img-field-wrap input[type="text"] { flex: 1; min-width: 0; }
+    .promo-img-field-wrap .btn-img-upload {
+      height: 48px;
+      width: 48px;
+      flex-shrink: 0;
+    }
+
     /* ── Spinner ────────────────────────────────────────────────── */
     .spinner {
       width: 16px;
@@ -823,7 +890,7 @@
         border: 1.5px solid var(--border);
         border-radius: var(--radius);
         padding: 16px;
-        padding-top: 44px; /* room for absolute delete button */
+        padding-top: 56px; /* room for agotado + delete buttons */
         box-shadow: var(--shadow-sm);
         position: relative;
       }
@@ -920,11 +987,12 @@
       /* ── td 8: Actions — absolute top-right, no grid column ── */
       #products-table tbody td:nth-child(8) {
         position: absolute;
-        top: 12px;
-        right: 12px;
+        top: 8px;
+        right: 10px;
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 6px;
         padding: 0;
         margin: 0;
       }
@@ -940,6 +1008,20 @@
         background: var(--bg);
         border-radius: var(--radius-sm);
         text-align: left;
+      }
+
+      /* img-field-wrap en mobile: flex row */
+      #products-table tbody td:nth-child(7) .img-field-wrap {
+        align-items: stretch;
+      }
+      #products-table tbody td:nth-child(7) .img-field-wrap .td-input {
+        flex: 1;
+        max-width: calc(100% - 52px);
+      }
+      #products-table tbody td:nth-child(7) .btn-img-upload {
+        height: 48px;
+        width: 48px;
+        border-radius: var(--radius-sm);
       }
       #products-table tbody .td-input:focus {
         border-color: var(--cta);
@@ -1169,8 +1251,8 @@
               <th>Formato</th>
               <th>Precio ($)</th>
               <th>Categoría</th>
-              <th>Imagen (path)</th>
-              <th>Acciones</th>
+              <th>Imagen (path / subir)</th>
+              <th>Estado / Acciones</th>
             </tr>
           </thead>
           <tbody id="products-tbody">
@@ -1415,9 +1497,25 @@
       <td><input class="td-input w-md" type="text" data-field="formato" value="${escAttr(p.formato || '')}" /></td>
       <td><input class="td-input w-sm" type="number" data-field="precio" value="${p.precio || ''}" min="0" step="10" /></td>
       <td><input class="td-input w-md" type="text" data-field="categoria" value="${escAttr(p.categoria || '')}" /></td>
-      <td><input class="td-input w-xl" type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" /></td>
+      <td>
+        <div class="img-field-wrap">
+          <input class="td-input w-xl" type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" />
+          <button class="btn-img-upload" data-upload="${escAttr(p.id)}" title="Subir foto desde el celular">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </button>
+          <input type="file" accept="image/*" class="img-file-input" data-upload-id="${escAttr(p.id)}" style="display:none">
+        </div>
+      </td>
       <td>
         <div class="actions-cell">
+          <button class="btn-agotado-toggle${p.agotado ? ' is-agotado' : ''}" data-agotado="${escAttr(p.id)}" title="${p.agotado ? 'Marcar disponible' : 'Marcar agotado'}">
+            ${p.agotado
+              ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/></svg>`
+              : `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`}
+          </button>
           ${deletedIds.has(p.id)
             ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
             : `<button class="btn-delete" title="Eliminar" data-del="${p.id}">
@@ -1459,6 +1557,33 @@
         deletedIds.delete(p.id);
         markDirty(p.id);
         renderProductsTable();
+      });
+    }
+
+    // Agotado toggle
+    const agotadoBtn = tr.querySelector('[data-agotado]');
+    if (agotadoBtn) {
+      agotadoBtn.addEventListener('click', () => {
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        productos[idx].agotado = !productos[idx].agotado;
+        markDirty(p.id);
+        renderProductsTable();
+      });
+    }
+
+    // Image upload
+    const uploadBtn = tr.querySelector(`[data-upload="${p.id}"]`);
+    const fileInput = tr.querySelector(`[data-upload-id="${p.id}"]`);
+    if (uploadBtn && fileInput) {
+      uploadBtn.addEventListener('click', () => fileInput.click());
+      fileInput.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const pathInput = tr.querySelector('[data-field="imagen"]');
+        if (!pathInput) return;
+        await handleImageUpload(file, p.id, pathInput, uploadBtn);
+        e.target.value = '';
       });
     }
 
@@ -1544,7 +1669,16 @@
       </div>
       <div class="promo-field">
         <label>Imagen (path)</label>
-        <input type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" placeholder="imagenes/PROMO-AHORRO/pack001.jpg" />
+        <div class="promo-img-field-wrap">
+          <input type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" placeholder="imagenes/PROMO-AHORRO/pack001.jpg" />
+          <button class="btn-img-upload" data-upload-promo="${escAttr(p.id)}" title="Subir foto desde el celular">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+              <circle cx="12" cy="13" r="4"/>
+            </svg>
+          </button>
+          <input type="file" accept="image/*" class="img-file-input-promo" data-upload-promo-id="${escAttr(p.id)}" style="display:none">
+        </div>
       </div>
 
       <div class="promo-field">
@@ -1635,6 +1769,21 @@
         deletedIds.delete(p.id);
         markDirty(p.id);
         renderPromosGrid();
+      });
+    }
+
+    // ── Subir imagen en promo ──
+    const uploadBtnPromo = card.querySelector(`[data-upload-promo="${p.id}"]`);
+    const fileInputPromo = card.querySelector(`[data-upload-promo-id="${p.id}"]`);
+    if (uploadBtnPromo && fileInputPromo) {
+      uploadBtnPromo.addEventListener('click', () => fileInputPromo.click());
+      fileInputPromo.addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const pathInput = card.querySelector('[data-field="imagen"]');
+        if (!pathInput) return;
+        await handleImageUpload(file, p.id, pathInput, uploadBtnPromo);
+        e.target.value = '';
       });
     }
 
@@ -1764,6 +1913,56 @@
       e.returnValue = '';
     }
   });
+
+  // ── Subida de imagen ─────────────────────────────────────────────
+  function compressImage(file, maxW, maxH, quality) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          let { width, height } = img;
+          if (width > maxW) { height = Math.round(height * maxW / width); width = maxW; }
+          if (height > maxH) { width = Math.round(width * maxH / height); height = maxH; }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          canvas.getContext('2d').drawImage(img, 0, 0, width, height);
+          canvas.toBlob((blob) => {
+            const r2 = new FileReader();
+            r2.onload = (ev) => resolve(ev.target.result.split(',')[1]);
+            r2.readAsDataURL(blob);
+          }, 'image/jpeg', quality);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  async function handleImageUpload(file, productId, pathInputEl, uploadBtn) {
+    uploadBtn.classList.add('uploading');
+    showBanner('Subiendo imagen…', 'info');
+    try {
+      const base64 = await compressImage(file, 800, 800, 0.82);
+      const ts = Date.now();
+      const filename = `prod_${String(productId).toLowerCase()}_${ts}.jpg`;
+      const result = await api({ action: 'upload-image', filename, content: base64 });
+      if (!result.ok) {
+        showBanner('Error al subir la imagen. Intentá de nuevo.', 'error');
+        return;
+      }
+      pathInputEl.value = result.path;
+      pathInputEl.dispatchEvent(new Event('change'));
+      showBanner('✅ Imagen subida correctamente', 'success');
+    } catch (err) {
+      showBanner('Error al procesar la imagen.', 'error');
+    } finally {
+      uploadBtn.classList.remove('uploading');
+    }
+  }
 
   // ── Utils ────────────────────────────────────────────────────────
   function escHtml(str) {

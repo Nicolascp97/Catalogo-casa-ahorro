@@ -103,5 +103,30 @@ module.exports = async function handler(req, res) {
     return res.status(200).json({ ok: true, commit: data.commit && data.commit.sha });
   }
 
+  // upload-image
+  if (action === 'upload-image') {
+    const { filename, content } = req.body || {};
+    if (!filename || !content) {
+      return res.status(400).json({ ok: false, error: 'filename y content requeridos' });
+    }
+    const safeName = String(filename).replace(/[^a-zA-Z0-9._-]/g, '_').toLowerCase();
+    const filePath = `imagenes/UPLOADS/${safeName}`;
+    const branch = process.env.GITHUB_BRANCH || 'master';
+
+    const { status, data } = await githubRequest(filePath, {
+      method: 'PUT',
+      body: JSON.stringify({
+        message: `admin: subir imagen ${safeName}`,
+        content,
+        branch,
+      }),
+    });
+
+    if (status !== 200 && status !== 201) {
+      return res.status(502).json({ ok: false, error: 'Error al subir imagen', detail: data.message });
+    }
+    return res.status(200).json({ ok: true, path: filePath });
+  }
+
   return res.status(400).json({ ok: false, error: 'Acción no reconocida' });
 };
