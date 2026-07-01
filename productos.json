@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Silicona en crema aromatizada ",
+    "marca": "Nikarr",
+    "formato": "900cc",
+    "precio": 1990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782932186124.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Toallitas para limpieza auto Siliconadas",
     "marca": "Winnex",
     "formato": "80 unidades ",
