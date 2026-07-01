@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Toallitas para limpieza auto Siliconadas",
+    "marca": "Winnex",
+    "formato": "80 unidades ",
+    "precio": 3990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782932033724.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Toalla industrial 190m",
     "marca": "Affecto",
     "formato": "190m",
