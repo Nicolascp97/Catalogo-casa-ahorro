@@ -1,5 +1,23 @@
 [
   {
+    "id": "NEW002",
+    "nombre": "Renovador neumáticos ",
+    "marca": "",
+    "formato": "600 cc",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782932293143.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "",
+    "marca": "",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": ""
+  },
+  {
     "id": "NEW001",
     "nombre": "Silicona en crema aromatizada ",
     "marca": "Nikarr",
