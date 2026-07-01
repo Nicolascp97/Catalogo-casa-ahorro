@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Detergente concentrado Arielo",
+    "marca": "Arielo",
+    "formato": "3 Litros ",
+    "precio": 2700,
+    "categoria": "Ropa ",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782931819617.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Toallitas antigrasa Brillex",
     "marca": "Brillex",
     "formato": "50 unidades ",
