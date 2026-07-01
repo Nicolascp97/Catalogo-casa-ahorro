@@ -1,5 +1,14 @@
 [
   {
+    "id": "NEW001",
+    "nombre": "Toallitas antigrasa Brillex",
+    "marca": "Brillex",
+    "formato": "50 unidades ",
+    "precio": 1690,
+    "categoria": "cocina",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782931606638.jpg"
+  },
+  {
     "id": "P001",
     "nombre": "Detergente Brik´s Azul",
     "marca": "Brik´s",
