@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Suavizante Soft ",
+    "marca": "Soft",
+    "formato": "1 Litro",
+    "precio": 2290,
+    "categoria": "Ropa ",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782931870660.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Detergente concentrado Arielo",
     "marca": "Arielo",
     "formato": "3 Litros ",
