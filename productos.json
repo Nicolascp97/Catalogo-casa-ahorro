@@ -10,12 +10,12 @@
   },
   {
     "id": "NEW001",
-    "nombre": "",
+    "nombre": "Chispero eléctrico ",
     "marca": "",
     "formato": "",
-    "precio": 0,
-    "categoria": "",
-    "imagen": ""
+    "precio": 2500,
+    "categoria": "Cocina",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782932439665.jpg"
   },
   {
     "id": "NEW001",
