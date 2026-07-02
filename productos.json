@@ -1,5 +1,14 @@
 [
   {
+    "id": "NEW001",
+    "nombre": "Aromatizantes ",
+    "marca": "Teddy",
+    "formato": "212g",
+    "precio": 1500,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782955177144.jpg"
+  },
+  {
     "id": "NEW002",
     "nombre": "Renovador neumáticos ",
     "marca": "",
