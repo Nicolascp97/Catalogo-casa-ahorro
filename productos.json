@@ -1,6 +1,42 @@
 [
   {
     "id": "NEW004",
+    "nombre": "Cinta tapa gotera ",
+    "marca": "IRM",
+    "formato": "100mm x 5m",
+    "precio": 0,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new004_1782956373824.jpg"
+  },
+  {
+    "id": "NEW003",
+    "nombre": "Shampoo limpieza renovadora 2 en 1",
+    "marca": "Head & shoulders",
+    "formato": "375ml",
+    "precio": 3990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1782956329303.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Toallitas humedas ",
+    "marca": "Brillex",
+    "formato": "50 unidades",
+    "precio": 1250,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782956264358.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Papel aluminio",
+    "marca": "Heavy duty",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782956172919.jpg"
+  },
+  {
+    "id": "NEW004",
     "nombre": "Toallitas humedas de bolsillo",
     "marca": "BabyCare",
     "formato": "21 toallitas",
