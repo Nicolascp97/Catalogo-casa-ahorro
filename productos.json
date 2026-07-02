@@ -1,5 +1,32 @@
 [
   {
+    "id": "NEW003",
+    "nombre": "Desodorante mujer sensitive care",
+    "marca": "Dove ",
+    "formato": "150ml- 87g",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1782955628237.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Jabon Protex",
+    "marca": "Protex ",
+    "formato": "",
+    "precio": 1000,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782955559866.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Desodorantes hombre ",
+    "marca": "Dove ",
+    "formato": "150ml",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782955515822.jpg"
+  },
+  {
     "id": "NEW001",
     "nombre": "Desodorantes hombre ",
     "marca": "Rexona ",
