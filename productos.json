@@ -1,5 +1,23 @@
 [
   {
+    "id": "NEW002",
+    "nombre": "Lustra muebles ",
+    "marca": "Virginia ",
+    "formato": "250ml",
+    "precio": 2300,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782955327205.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "",
+    "marca": "",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": ""
+  },
+  {
     "id": "NEW001",
     "nombre": "Aromatizantes ",
     "marca": "Teddy",
