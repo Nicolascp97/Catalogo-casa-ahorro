@@ -1,5 +1,14 @@
 [
   {
+    "id": "NEW001",
+    "nombre": "Desodorantes hombre ",
+    "marca": "Rexona ",
+    "formato": "150ml-89g",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782955445477.jpg"
+  },
+  {
     "id": "NEW002",
     "nombre": "Lustra muebles ",
     "marca": "Virginia ",
