@@ -1,5 +1,41 @@
 [
   {
+    "id": "NEW004",
+    "nombre": "Toallitas humedas de bolsillo",
+    "marca": "BabyCare",
+    "formato": "21 toallitas",
+    "precio": 990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new004_1782956072839.jpg"
+  },
+  {
+    "id": "NEW003",
+    "nombre": "Shampoo Men control caspa",
+    "marca": "Head & shoulders",
+    "formato": "375ml",
+    "precio": 3990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1782956013328.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Shampoo anticaspa+acondicionador ",
+    "marca": "Dove men+care",
+    "formato": "400ml",
+    "precio": 3390,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782955965824.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Shampoo mazana fresh ",
+    "marca": "Head & shoulders",
+    "formato": "375ml",
+    "precio": 3990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782955903717.jpg"
+  },
+  {
     "id": "NEW003",
     "nombre": "Shampoo+acondicionador +desodorante",
     "marca": "Dove men+care",
