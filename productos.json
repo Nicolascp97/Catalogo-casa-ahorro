@@ -1,6 +1,33 @@
 [
   {
     "id": "NEW003",
+    "nombre": "Shampoo+acondicionador +desodorante",
+    "marca": "Dove men+care",
+    "formato": "400ml",
+    "precio": 3390,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1782955791586.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Jabon en barra",
+    "marca": "Dove ",
+    "formato": "75g",
+    "precio": 1000,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1782955756200.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Desodorante pearl & beauty",
+    "marca": "Nivea ",
+    "formato": "",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1782955708355.jpg"
+  },
+  {
+    "id": "NEW003",
     "nombre": "Desodorante mujer sensitive care",
     "marca": "Dove ",
     "formato": "150ml- 87g",
