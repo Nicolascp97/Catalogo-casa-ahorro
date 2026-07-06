@@ -703,7 +703,8 @@
     "formato": "50 Unidades",
     "precio": 2500,
     "categoria": "Limpieza",
-    "imagen": "imagenes/LIMPIEZA/p057.jpg"
+    "imagen": "imagenes/LIMPIEZA/p057.jpg",
+    "agotado": true
   },
   {
     "id": "P058",
