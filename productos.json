@@ -1,6 +1,42 @@
 [
   {
     "id": "NEW004",
+    "nombre": "",
+    "marca": "",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": ""
+  },
+  {
+    "id": "NEW003",
+    "nombre": "",
+    "marca": "",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": ""
+  },
+  {
+    "id": "NEW002",
+    "nombre": "",
+    "marca": "",
+    "formato": "",
+    "precio": 0,
+    "categoria": "",
+    "imagen": ""
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Suavizante Comfort fresco intenso ",
+    "marca": "Comfort ",
+    "formato": "500ml",
+    "precio": 2950,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783380310847.jpg"
+  },
+  {
+    "id": "NEW004",
     "nombre": "Downy concentrado ",
     "marca": "Downy",
     "formato": "350ml",
