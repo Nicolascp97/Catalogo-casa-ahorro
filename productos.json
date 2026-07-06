@@ -540,7 +540,8 @@
     "formato": "1 Litro",
     "precio": 1600,
     "categoria": "Limpieza",
-    "imagen": "imagenes/LIMPIEZA/p039.jpg"
+    "imagen": "imagenes/LIMPIEZA/p039.jpg",
+    "agotado": true
   },
   {
     "id": "P040",
