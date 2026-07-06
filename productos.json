@@ -904,7 +904,8 @@
     "formato": "5 Litros",
     "precio": 4500,
     "categoria": "Cocina",
-    "imagen": "imagenes/COCINA/p079.jpg"
+    "imagen": "imagenes/COCINA/p079.jpg",
+    "agotado": true
   },
   {
     "id": "P080",
