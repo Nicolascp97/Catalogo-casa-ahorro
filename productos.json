@@ -849,7 +849,8 @@
     "formato": "250 ML",
     "precio": 2100,
     "categoria": "Limpieza",
-    "imagen": "imagenes/LIMPIEZA/p073.jpg"
+    "imagen": "imagenes/LIMPIEZA/p073.jpg",
+    "agotado": true
   },
   {
     "id": "P074",
