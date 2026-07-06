@@ -767,7 +767,8 @@
     "formato": "5 Litros",
     "precio": 4500,
     "categoria": "Limpieza",
-    "imagen": "imagenes/LIMPIEZA/p064.jpg"
+    "imagen": "imagenes/LIMPIEZA/p064.jpg",
+    "agotado": true
   },
   {
     "id": "P065",
