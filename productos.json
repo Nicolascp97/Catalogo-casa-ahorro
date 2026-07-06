@@ -1503,7 +1503,8 @@
     "formato": "1 Unidad",
     "precio": 3990,
     "categoria": "Baño",
-    "imagen": "imagenes/BAÑO/P145.jpg"
+    "imagen": "imagenes/BAÑO/P145.jpg",
+    "agotado": true
   },
   {
     "id": "P146",
