@@ -988,7 +988,8 @@
     "formato": "300 Unidades",
     "precio": 1100,
     "categoria": "Cocina",
-    "imagen": "imagenes/COCINA/p088.jpg"
+    "imagen": "imagenes/COCINA/p088.jpg",
+    "agotado": true
   },
   {
     "id": "P089",
