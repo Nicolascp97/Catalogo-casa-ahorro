@@ -4,7 +4,7 @@
 
 // ─── CONFIGURACIÓN ─────────────────────────
 // Solo edita estos dos valores si necesitas cambiarlos.
-const WHATSAPP_NUMBER = '56993682139'; // Sin +, sin espacios
+const WHATSAPP_NUMBER = '56983020963'; // Sin +, sin espacios
 const BUSINESS_NAME   = 'Casa Ahorro';
 
 // ─── ESTADO DEL CARRITO ────────────────────
