@@ -1,5 +1,41 @@
 [
   {
+    "id": "NEW004",
+    "nombre": "Downy concentrado ",
+    "marca": "Downy",
+    "formato": "350ml",
+    "precio": 2750,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new004_1783380264685.jpg"
+  },
+  {
+    "id": "NEW003",
+    "nombre": "Suavizante comfort energia floral ",
+    "marca": "Comfort ",
+    "formato": "500ml",
+    "precio": 2950,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1783380214465.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Downy concentrado ",
+    "marca": "Downy ",
+    "formato": "350ml",
+    "precio": 2750,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1783380173388.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Downy concentrado ",
+    "marca": "Downy ",
+    "formato": "450ml",
+    "precio": 2950,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783380133419.jpg"
+  },
+  {
     "id": "NEW002",
     "nombre": "Toalla Nova Tork ",
     "marca": "Tork ",
