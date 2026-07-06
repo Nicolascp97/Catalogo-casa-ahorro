@@ -941,7 +941,8 @@
     "formato": "2 Litros",
     "precio": 2000,
     "categoria": "Cocina",
-    "imagen": "imagenes/COCINA/p083.jpg"
+    "imagen": "imagenes/COCINA/p083.jpg",
+    "agotado": true
   },
   {
     "id": "P084",
