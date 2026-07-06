@@ -1,5 +1,23 @@
 [
   {
+    "id": "NEW002",
+    "nombre": "Toalla Nova Tork ",
+    "marca": "Tork ",
+    "formato": "24 metros ",
+    "precio": 2490,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1783380074873.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Toalla Nova Elite ",
+    "marca": "Elite ",
+    "formato": "20 metros ",
+    "precio": 2690,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783380023188.jpg"
+  },
+  {
     "id": "NEW004",
     "nombre": "Papel higiénico Elite",
     "marca": "Elite",
