@@ -1403,7 +1403,8 @@
     "formato": "180 ML",
     "precio": 1500,
     "categoria": "Baño",
-    "imagen": "imagenes/BAÑO/P134.jpg"
+    "imagen": "imagenes/BAÑO/P134.jpg",
+    "agotado": true
   },
   {
     "id": "P135",
