@@ -1,6 +1,42 @@
 [
   {
     "id": "NEW004",
+    "nombre": "Papel higiénico Elite",
+    "marca": "Elite",
+    "formato": "16 rollos",
+    "precio": 5990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new004_1783379396642.jpg"
+  },
+  {
+    "id": "NEW003",
+    "nombre": "Alusa ",
+    "marca": "Plastic wrap",
+    "formato": "30mx30cm",
+    "precio": 0,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new003_1783379342790.jpg"
+  },
+  {
+    "id": "NEW002",
+    "nombre": "Nova gigante clasica ",
+    "marca": "Nova",
+    "formato": "70 metros",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new002_1783379277934.jpg"
+  },
+  {
+    "id": "NEW001",
+    "nombre": "Guantes de nitrilo ",
+    "marca": "HealthTouch",
+    "formato": "100 unidades",
+    "precio": 4200,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783379193604.jpg"
+  },
+  {
+    "id": "NEW004",
     "nombre": "Cinta tapa gotera ",
     "marca": "IRM",
     "formato": "100mm x 5m",
