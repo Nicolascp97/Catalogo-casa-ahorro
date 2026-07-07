@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Desodorante sensitive",
+    "marca": "Dove",
+    "formato": "87g-150ml",
+    "precio": 2990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783390620347.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Shampoo head & shoulders 2 en 1 ",
     "marca": "Head & shoulders ",
     "formato": "375ml",
