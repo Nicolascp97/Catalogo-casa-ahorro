@@ -176,6 +176,34 @@ body {
   z-index: 1;
 }
 
+/* Imagen del hero */
+.v2-hero-img {
+  width: 100%;
+  display: block;
+  margin-top: 20px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  object-position: right center;
+  aspect-ratio: 16 / 10;
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+}
+
+@media (min-width: 768px) {
+  .v2-hero-inner {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    gap: 28px;
+  }
+  .v2-hero-img {
+    margin-top: 0;
+    height: 100%;
+    max-height: 300px;
+    aspect-ratio: auto;
+  }
+}
+
 .v2-hero-eyebrow {
   display: inline-flex;
   align-items: center;
