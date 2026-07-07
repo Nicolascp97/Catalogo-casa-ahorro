@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Toallitas húmedas ",
+    "marca": "Brillex",
+    "formato": "50 unidades ",
+    "precio": 1250,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783389837491.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Toallitas húmedas bolsillo ",
     "marca": "BabyCare",
     "formato": "21 unidades ",
