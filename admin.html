@@ -2397,6 +2397,8 @@
     const toSave = productos.filter(p => !deletedIds.has(p.id)).map(p => {
       const clean = { ...p };
       delete clean._isNew;
+      // Normalizar categoría: recortar espacios para evitar secciones duplicadas
+      if (typeof clean.categoria === 'string') clean.categoria = clean.categoria.trim();
       // Limpiar campos de promoción incompletos
       if (!clean.enPromocion || !clean.precioPromo) {
         delete clean.enPromocion;

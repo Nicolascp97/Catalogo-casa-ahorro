@@ -23,7 +23,7 @@
     "marca": "Head & shoulders ",
     "formato": "375ml",
     "precio": 3990,
-    "categoria": "Baño ",
+    "categoria": "Baño",
     "imagen": "imagenes/UPLOADS/prod_new001_1783390490772.jpg"
   },
   {
@@ -257,7 +257,7 @@
     "marca": "Soft",
     "formato": "1 Litro",
     "precio": 2290,
-    "categoria": "Ropa ",
+    "categoria": "Ropa",
     "imagen": "imagenes/UPLOADS/prod_new001_1782931870660.jpg"
   },
   {
@@ -266,7 +266,7 @@
     "marca": "Arielo",
     "formato": "3 Litros ",
     "precio": 2700,
-    "categoria": "Ropa ",
+    "categoria": "Ropa",
     "imagen": "imagenes/UPLOADS/prod_new001_1782931819617.jpg"
   },
   {
@@ -275,7 +275,7 @@
     "marca": "Brillex",
     "formato": "50 unidades ",
     "precio": 1690,
-    "categoria": "cocina",
+    "categoria": "Cocina",
     "imagen": "imagenes/UPLOADS/prod_new001_1782931606638.jpg"
   },
   {
