@@ -1,6 +1,6 @@
 [
   {
-    "id": "NEW001",
+    "id": "X001",
     "nombre": "Toalla Nova doble hoja ",
     "marca": "Tork",
     "formato": "24 metros ",
@@ -9,7 +9,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390832099.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X002",
     "nombre": "Desodorante sensitive",
     "marca": "Dove",
     "formato": "87g-150ml",
@@ -18,7 +18,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390620347.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X003",
     "nombre": "Shampoo head & shoulders 2 en 1 ",
     "marca": "Head & shoulders ",
     "formato": "375ml",
@@ -27,7 +27,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390490772.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X004",
     "nombre": "Shampoo head & shoulders MEN",
     "marca": "Head & shoulders",
     "formato": "375ml",
@@ -36,7 +36,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390420557.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X005",
     "nombre": "Tapa gotera ",
     "marca": "IRM",
     "formato": "100mm x 5m",
@@ -45,7 +45,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390086389.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X006",
     "nombre": "Jabón en barra",
     "marca": "Protex",
     "formato": "125g",
@@ -54,7 +54,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783390005865.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X007",
     "nombre": "Jabón en barra ",
     "marca": "Dove",
     "formato": "75g",
@@ -63,7 +63,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783389958186.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X008",
     "nombre": "Toallitas húmedas ",
     "marca": "Brillex",
     "formato": "50 unidades ",
@@ -72,7 +72,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783389837491.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X009",
     "nombre": "Toallitas húmedas bolsillo ",
     "marca": "BabyCare",
     "formato": "21 unidades ",
@@ -81,7 +81,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783389621603.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X010",
     "nombre": "Lustra muebles ",
     "marca": "Virginia ",
     "formato": "250ml",
@@ -108,7 +108,7 @@
     "imagen": "imagenes/UPLOADS/prod_new002_1783380716393.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X011",
     "nombre": "Downy concentrado ",
     "marca": "Downy",
     "formato": "350ml",
@@ -117,7 +117,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783380681697.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X012",
     "nombre": "Suavizante Comfort fresco intenso ",
     "marca": "Comfort ",
     "formato": "500ml",
@@ -126,7 +126,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783380310847.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X013",
     "nombre": "Downy concentrado ",
     "marca": "Downy ",
     "formato": "450ml",
@@ -135,7 +135,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783380133419.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X014",
     "nombre": "Toalla Nova Elite ",
     "marca": "Elite ",
     "formato": "20 metros ",
@@ -144,7 +144,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783380023188.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X015",
     "nombre": "Guantes de nitrilo ",
     "marca": "HealthTouch",
     "formato": "100 unidades",
@@ -153,7 +153,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1783379193604.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X016",
     "nombre": "Papel aluminio",
     "marca": "Heavy duty",
     "formato": "",
@@ -162,7 +162,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782956172919.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X017",
     "nombre": "Shampoo mazana fresh ",
     "marca": "Head & shoulders",
     "formato": "375ml",
@@ -171,7 +171,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955903717.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X018",
     "nombre": "Desodorante pearl & beauty",
     "marca": "Nivea ",
     "formato": "",
@@ -180,7 +180,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955708355.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X019",
     "nombre": "Desodorantes hombre ",
     "marca": "Dove ",
     "formato": "150ml",
@@ -189,7 +189,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955515822.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X020",
     "nombre": "Desodorantes hombre ",
     "marca": "Rexona ",
     "formato": "150ml-89g",
@@ -198,7 +198,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955445477.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X021",
     "nombre": "Aromatizantes colgantes ",
     "marca": "aer",
     "formato": "",
@@ -207,7 +207,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955392235.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X022",
     "nombre": "Aromatizantes ",
     "marca": "Teddy",
     "formato": "212g",
@@ -216,7 +216,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782955177144.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X023",
     "nombre": "Chispero eléctrico ",
     "marca": "",
     "formato": "",
@@ -225,7 +225,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782932439665.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X024",
     "nombre": "Silicona en crema aromatizada ",
     "marca": "Nikarr",
     "formato": "900cc",
@@ -234,7 +234,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782932186124.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X025",
     "nombre": "Toallitas para limpieza auto Siliconadas",
     "marca": "Winnex",
     "formato": "80 unidades ",
@@ -243,7 +243,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782932033724.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X026",
     "nombre": "Toalla industrial 190m",
     "marca": "Affecto",
     "formato": "190m",
@@ -252,7 +252,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782931952999.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X027",
     "nombre": "Suavizante Soft ",
     "marca": "Soft",
     "formato": "1 Litro",
@@ -261,7 +261,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782931870660.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X028",
     "nombre": "Detergente concentrado Arielo",
     "marca": "Arielo",
     "formato": "3 Litros ",
@@ -270,7 +270,7 @@
     "imagen": "imagenes/UPLOADS/prod_new001_1782931819617.jpg"
   },
   {
-    "id": "NEW001",
+    "id": "X029",
     "nombre": "Toallitas antigrasa Brillex",
     "marca": "Brillex",
     "formato": "50 unidades ",

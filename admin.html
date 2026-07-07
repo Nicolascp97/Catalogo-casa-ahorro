@@ -237,7 +237,7 @@
     /* ── Tabs — pill style, full-width ──────────────────────────── */
     .tabs {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       background: var(--border);
       border-radius: 999px;
       padding: 4px;
@@ -986,6 +986,115 @@
     .switch input:checked + .switch-slider { background: var(--success); }
     .switch input:checked + .switch-slider::before { transform: translateX(24px); }
 
+    /* ── Tab Ordenar (drag & drop) ─────────────────────────────── */
+    .order-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .order-toolbar label { font-size: .82rem; font-weight: 700; color: var(--text-muted); }
+    .order-toolbar select {
+      flex: 1;
+      min-width: 160px;
+      padding: 0 14px;
+      height: 48px;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 1rem;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      outline: none;
+    }
+    .order-toolbar select:focus { border-color: var(--cta); }
+    .order-hint {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--text-muted);
+      background: var(--info-light);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .sort-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      touch-action: pan-y;
+    }
+    .sort-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .15s, border-color .15s, opacity .15s;
+    }
+    .sort-item.dragging {
+      opacity: .92;
+      border-color: var(--cta);
+      box-shadow: var(--shadow-lg);
+      transform: scale(1.01);
+    }
+    .sort-handle {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      cursor: grab;
+      font-size: 1.3rem;
+      line-height: 1;
+      touch-action: none;
+      user-select: none;
+    }
+    .sort-handle:active { cursor: grabbing; background: var(--cta-glow); color: var(--cta); }
+    .sort-pos {
+      flex-shrink: 0;
+      min-width: 26px;
+      text-align: center;
+      font-size: .78rem;
+      font-weight: 800;
+      color: var(--brand);
+      font-family: monospace;
+    }
+    .sort-thumb {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .sort-meta { flex: 1; min-width: 0; }
+    .sort-name {
+      font-weight: 700;
+      font-size: .92rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .sort-sub { font-size: .78rem; color: var(--text-muted); }
+    .sort-empty { text-align: center; padding: 40px 20px; color: var(--text-muted); }
+
+    @media (max-width: 767px) {
+      .tab-btn { padding: 12px 6px; font-size: .9rem; }
+    }
+
     /* ── Imagen upload ──────────────────────────────────────────── */
     .img-field-wrap {
       display: flex;
@@ -1440,6 +1549,9 @@
       <button class="tab-btn" data-tab="promociones">
         📦 Packs
       </button>
+      <button class="tab-btn" data-tab="ordenar">
+        ↕️ Ordenar
+      </button>
     </div>
 
     <!-- ── Tab: Productos ──────────────────────────────────────── -->
@@ -1534,6 +1646,22 @@
         <div class="empty-state"><p>Cargando promociones…</p></div>
       </div>
     </div>
+
+    <!-- ── Tab: Ordenar (drag & drop) ─────────────────────────── -->
+    <div class="tab-panel" id="tab-ordenar">
+      <div class="order-toolbar">
+        <label for="order-cat">Sección:</label>
+        <select id="order-cat">
+          <option value="">Todas las categorías</option>
+        </select>
+      </div>
+      <div class="order-hint">
+        👆 Mantén presionado el asa <strong>≡</strong> y arrastra hacia arriba o abajo para cambiar el orden. Este orden es el que verán tus clientes en el catálogo.
+      </div>
+      <div class="sort-list" id="order-list">
+        <div class="sort-empty"><p>Cargando…</p></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1601,6 +1729,8 @@
   const btnBulkApply = document.getElementById('btn-bulk-apply');
   const packsToggle = document.getElementById('packs-toggle');
   const packsSwitchHint = document.getElementById('packs-switch-hint');
+  const orderCat = document.getElementById('order-cat');
+  const orderList = document.getElementById('order-list');
   const promosGrid = document.getElementById('promos-grid');
   const promosCount = document.getElementById('promos-count');
   const btnAddPromo = document.getElementById('btn-add-promo');
@@ -1695,6 +1825,7 @@
     renderStats();
     renderProductsTable();
     renderPromosGrid();
+    if (document.getElementById('tab-ordenar').classList.contains('active')) renderOrderList();
   }
 
   // ── Packs master switch ─────────────────────────────────────────
@@ -1760,6 +1891,18 @@
         bulkCat.appendChild(opt);
       });
     }
+    // Alimentar el selector de la pestaña Ordenar (preservando la selección)
+    if (orderCat) {
+      const prev = orderCat.value;
+      orderCat.innerHTML = '<option value="">Todas las categorías</option>';
+      cats.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        orderCat.appendChild(opt);
+      });
+      if ([...orderCat.options].some(o => o.value === prev)) orderCat.value = prev;
+    }
   }
 
   // Select de categoría reutilizable (filas + alta). Incluye "➕ Nueva categoría…".
@@ -1789,8 +1932,14 @@
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
       document.getElementById(`tab-${btn.dataset.tab}`).classList.add('active');
+      if (btn.dataset.tab === 'ordenar') renderOrderList();
     });
   });
+
+  // Cambio de sección en la pestaña Ordenar
+  if (orderCat) {
+    orderCat.addEventListener('change', renderOrderList);
+  }
 
   // ── Search & filter ─────────────────────────────────────────────
   searchInput.addEventListener('input', () => {
@@ -2062,8 +2211,7 @@
   function cloneProduct(id) {
     const idx = productos.findIndex(x => x.id === id);
     if (idx === -1) return;
-    newProductCounter++;
-    const newId = `NEW${String(newProductCounter).padStart(3, '0')}`;
+    const newId = nextUniqueId('NEW');
     const copy = { ...productos[idx], id: newId, _isNew: true };
     // Copiar array de productosIncluidos si existe (evitar referencia compartida)
     if (Array.isArray(copy.productosIncluidos)) copy.productosIncluidos = [...copy.productosIncluidos];
@@ -2100,10 +2248,19 @@
     renderProductsTable();
   }
 
+  // ── Generar id único (evita duplicados como NEW001 repetido) ────
+  function nextUniqueId(prefix) {
+    const existing = new Set(productos.map(x => x.id));
+    let n = newProductCounter;
+    let id;
+    do { n++; id = `${prefix}${String(n).padStart(3, '0')}`; } while (existing.has(id));
+    newProductCounter = n;
+    return id;
+  }
+
   // ── Add new product ─────────────────────────────────────────────
   btnAddProduct.addEventListener('click', () => {
-    newProductCounter++;
-    const newId = `NEW${String(newProductCounter).padStart(3, '0')}`;
+    const newId = nextUniqueId('NEW');
     // Si se está filtrando por una categoría (no "Promo Ahorro"), preseleccionarla
     const preCat = (categoryFilter && categoryFilter !== 'Promo Ahorro') ? categoryFilter : '';
     const newP = { id: newId, nombre: '', marca: '', formato: '', precio: 0, categoria: preCat, imagen: '', _isNew: true };
@@ -2141,6 +2298,109 @@
       renderProductsTable();
       renderPromosGrid();
       showBanner(`✅ Precios ajustados en ${objetivo.length} producto(s).`, 'success');
+    });
+  }
+
+  // ═══ ORDENAR (drag & drop) ══════════════════════════════════════
+  function renderOrderList() {
+    if (!orderList) return;
+    const cat = orderCat ? orderCat.value : '';
+    // Índices globales (en el array productos) de los items visibles, en orden actual
+    const items = [];
+    productos.forEach((p, idx) => {
+      if (deletedIds.has(p.id)) return;
+      if (cat && (p.categoria || '') !== cat) return;
+      items.push({ p, idx });
+    });
+
+    if (items.length === 0) {
+      orderList.innerHTML = `<div class="sort-empty"><p>No hay productos en esta sección.</p></div>`;
+      return;
+    }
+
+    orderList.innerHTML = '';
+    items.forEach(({ p, idx }, pos) => {
+      const row = document.createElement('div');
+      row.className = 'sort-item';
+      row.dataset.idx = idx;
+      row.innerHTML = `
+        <span class="sort-handle" data-drag-handle title="Arrastrar">≡</span>
+        <span class="sort-pos">${pos + 1}</span>
+        <img class="sort-thumb" src="${escAttr(p.imagen || '')}" alt="" onerror="this.style.visibility='hidden'" />
+        <div class="sort-meta">
+          <div class="sort-name">${escHtml(p.nombre || '(sin nombre)')}</div>
+          <div class="sort-sub">${escHtml(p.categoria || 'Sin categoría')} · $${Number(p.precio || 0).toLocaleString('es-CL')}</div>
+        </div>`;
+      orderList.appendChild(row);
+    });
+
+    enableDragSort(orderList, applyOrderFromDom);
+  }
+
+  // Aplica el orden visual del DOM al array global `productos`.
+  // Clave por índice de array (NO por id) porque los ids pueden repetirse.
+  function applyOrderFromDom() {
+    const rows = [...orderList.querySelectorAll('.sort-item')];
+    const newOrderIdx = rows.map(r => Number(r.dataset.idx));      // orden visual nuevo
+    const slots = newOrderIdx.slice().sort((a, b) => a - b);        // posiciones a rellenar
+    const objs = newOrderIdx.map(i => productos[i]);               // objetos en orden nuevo
+    if (slots.length !== objs.length) return;
+    slots.forEach((slotPos, k) => { productos[slotPos] = objs[k]; });
+    objs.forEach(o => o && markDirty(o.id));
+    renderStats();
+    renderProductsTable();
+    renderOrderList(); // refrescar índices y numeración
+  }
+
+  // Sortable táctil + mouse mediante Pointer Events.
+  function enableDragSort(listEl, onDrop) {
+    let dragging = null;
+    let autoScrollTimer = null;
+
+    function stopAutoScroll() { if (autoScrollTimer) { clearInterval(autoScrollTimer); autoScrollTimer = null; } }
+
+    listEl.querySelectorAll('[data-drag-handle]').forEach(handle => {
+      handle.addEventListener('pointerdown', (e) => {
+        e.preventDefault();
+        dragging = handle.closest('.sort-item');
+        if (!dragging) return;
+        dragging.classList.add('dragging');
+        try { handle.setPointerCapture(e.pointerId); } catch (_) {}
+        document.body.style.userSelect = 'none';
+      });
+
+      handle.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        e.preventDefault();
+        const y = e.clientY;
+
+        // Reordenar en vivo respecto a los hermanos
+        const siblings = [...listEl.querySelectorAll('.sort-item:not(.dragging)')];
+        let placed = false;
+        for (const sib of siblings) {
+          const r = sib.getBoundingClientRect();
+          if (y < r.top + r.height / 2) { listEl.insertBefore(dragging, sib); placed = true; break; }
+        }
+        if (!placed) listEl.appendChild(dragging);
+
+        // Auto-scroll cerca de los bordes de la ventana
+        stopAutoScroll();
+        const margin = 90;
+        if (y < margin) autoScrollTimer = setInterval(() => window.scrollBy(0, -12), 16);
+        else if (y > window.innerHeight - margin) autoScrollTimer = setInterval(() => window.scrollBy(0, 12), 16);
+      });
+
+      const finish = (e) => {
+        stopAutoScroll();
+        if (!dragging) return;
+        dragging.classList.remove('dragging');
+        try { handle.releasePointerCapture(e.pointerId); } catch (_) {}
+        document.body.style.userSelect = '';
+        dragging = null;
+        onDrop();
+      };
+      handle.addEventListener('pointerup', finish);
+      handle.addEventListener('pointercancel', finish);
     });
   }
 
@@ -2331,8 +2591,7 @@
 
   // ── Nueva promoción ─────────────────────────────────────────────
   btnAddPromo && btnAddPromo.addEventListener('click', () => {
-    newProductCounter++;
-    const newId = `PACK${String(newProductCounter).padStart(3, '0')}`;
+    const newId = nextUniqueId('PACK');
     const newP = {
       id: newId,
       nombre: '',
@@ -2385,6 +2644,7 @@
     renderStats();
     renderProductsTable();
     renderPromosGrid();
+    if (document.getElementById('tab-ordenar').classList.contains('active')) renderOrderList();
     updateSaveBar();
   });
 

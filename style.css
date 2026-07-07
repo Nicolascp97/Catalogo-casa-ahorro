@@ -1201,6 +1201,30 @@ body {
   opacity: .7;
 }
 
+/* Acceso admin — ícono de tuerca discreto a la derecha */
+.v2-admin-link {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color .18s, border-color .18s, transform .18s, background .18s;
+}
+.v2-admin-link:hover {
+  color: var(--cta);
+  border-color: var(--cta);
+  background: #fff7ed;
+  transform: rotate(45deg);
+}
+.v2-admin-link:active { transform: rotate(45deg) scale(.94); }
+
 .v2-footer-brand {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
