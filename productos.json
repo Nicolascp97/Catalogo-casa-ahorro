@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Jabón en barra",
+    "marca": "Protex",
+    "formato": "125g",
+    "precio": 1000,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783390005865.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Jabón en barra ",
     "marca": "Dove",
     "formato": "75g",
