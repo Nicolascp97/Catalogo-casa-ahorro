@@ -169,9 +169,10 @@ function bindEvents() {
   $cartClose.addEventListener('click', closeCart);
   $cartOverlay.addEventListener('click', closeCart);
 
-  // WhatsApp (botón en carrito y FAB flotante)
+  // WhatsApp: el botón dentro del carrito envía el pedido…
   $btnWhatsapp.addEventListener('click', sendWhatsApp);
-  $fabWhatsapp.addEventListener('click', sendWhatsApp);
+  // …pero el FAB flotante abre el carrito primero (para elegir Delivery/Retiro)
+  $fabWhatsapp.addEventListener('click', openCart);
 
   // Búsqueda
   $searchInput.addEventListener('input', e => {
