@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Jabón en barra ",
+    "marca": "Dove",
+    "formato": "75g",
+    "precio": 1000,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783389958186.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Toallitas húmedas ",
     "marca": "Brillex",
     "formato": "50 unidades ",
