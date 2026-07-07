@@ -505,7 +505,8 @@
     "formato": "2 Litros",
     "precio": 2000,
     "categoria": "Limpieza",
-    "imagen": "imagenes/LIMPIEZA/p035.jpg"
+    "imagen": "imagenes/LIMPIEZA/p035.jpg",
+    "agotado": true
   },
   {
     "id": "P036",
