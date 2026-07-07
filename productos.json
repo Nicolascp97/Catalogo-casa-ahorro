@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Shampoo head & shoulders MEN",
+    "marca": "Head & shoulders",
+    "formato": "375ml",
+    "precio": 3990,
+    "categoria": "Baño",
+    "imagen": ""
+  },
+  {
+    "id": "NEW001",
     "nombre": "Tapa gotera ",
     "marca": "IRM",
     "formato": "100mm x 5m",
