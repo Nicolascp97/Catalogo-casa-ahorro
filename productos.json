@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Tapa gotera ",
+    "marca": "IRM",
+    "formato": "100mm x 5m",
+    "precio": 9990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783390086389.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Jabón en barra",
     "marca": "Protex",
     "formato": "125g",
