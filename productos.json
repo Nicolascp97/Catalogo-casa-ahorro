@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Toallitas húmedas bolsillo ",
+    "marca": "BabyCare",
+    "formato": "21 unidades ",
+    "precio": 990,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783389621603.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Lustra muebles ",
     "marca": "Virginia ",
     "formato": "250ml",
