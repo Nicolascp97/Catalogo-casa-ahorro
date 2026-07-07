@@ -953,7 +953,7 @@
     "precio": 2690,
     "categoria": "Cocina",
     "imagen": "imagenes/COCINA/p084.jpg",
-    "agotado": true
+    "agotado": false
   },
   {
     "id": "P085",
