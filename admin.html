@@ -1731,6 +1731,7 @@
   const packsSwitchHint = document.getElementById('packs-switch-hint');
   const orderCat = document.getElementById('order-cat');
   const orderList = document.getElementById('order-list');
+  let orderCatInitialized = false;
   const promosGrid = document.getElementById('promos-grid');
   const promosCount = document.getElementById('promos-count');
   const btnAddPromo = document.getElementById('btn-add-promo');
@@ -1902,6 +1903,11 @@
         orderCat.appendChild(opt);
       });
       if ([...orderCat.options].some(o => o.value === prev)) orderCat.value = prev;
+      // Al cargar por primera vez, arrancar en la primera categoría (no "Todas")
+      if (!orderCatInitialized && cats.length) {
+        orderCat.value = cats[0];
+        orderCatInitialized = true;
+      }
     }
   }
 
