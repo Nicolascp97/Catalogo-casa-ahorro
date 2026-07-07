@@ -1,0 +1,26 @@
+{
+  "name": "Casa Ahorro — Catálogo de Limpieza",
+  "short_name": "Casa Ahorro",
+  "description": "Artículos de limpieza al mejor precio. Pide por WhatsApp con envío a domicilio en Litueche.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fafafa",
+  "theme_color": "#f97316",
+  "lang": "es-CL",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

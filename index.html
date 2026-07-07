@@ -6,6 +6,26 @@
   <meta name="description" content="Casa Ahorro - Artículos de limpieza al mejor precio. Pide por WhatsApp con envío a domicilio en Litueche.">
   <title>Casa Ahorro | Catálogo de Limpieza</title>
 
+  <!-- ═══ Open Graph / vista previa al compartir ═══ -->
+  <meta property="og:title" content="Casa Ahorro | Catálogo de Limpieza">
+  <meta property="og:description" content="Artículos de limpieza al mejor precio. Pide por WhatsApp con envío a domicilio en Litueche.">
+  <meta property="og:image" content="https://www.casaahorro.cl/logo.png">
+  <meta property="og:url" content="https://www.casaahorro.cl">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Casa Ahorro">
+  <meta property="og:locale" content="es_CL">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Casa Ahorro | Catálogo de Limpieza">
+  <meta name="twitter:description" content="Artículos de limpieza al mejor precio. Pide por WhatsApp con envío a domicilio en Litueche.">
+  <meta name="twitter:image" content="https://www.casaahorro.cl/logo.png">
+
+  <!-- ═══ PWA (app instalable) ═══ -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#f97316">
+  <link rel="apple-touch-icon" href="logo.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Casa Ahorro">
+
   <!-- Font: Plus Jakarta Sans (display + body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +90,7 @@
       </p>
       <!-- SOLUCIÓN -->
       <h1 class="v2-hero-headline font-display">
-        Todo lo que necesitás,<br>
+        Todo lo que necesitas,<br>
         <span class="v2-hero-accent">al precio justo.</span>
       </h1>
       <!-- AGITACIÓN → Beneficios que resuelven -->
@@ -128,7 +148,7 @@
     <div class="promo-carousel-wrapper">
       <div class="v2-section-label">
         <span class="v2-label-badge">🔥 Promo Ahorro</span>
-        <p class="v2-label-hint">Deslizá para ver más</p>
+        <p class="v2-label-hint">Desliza para ver más</p>
       </div>
       <div class="promo-carousel-track-outer">
         <div class="promo-carousel-track" id="promoTrack"></div>
@@ -141,6 +161,21 @@
   <section class="categories" id="categories">
     <div class="categories-scroll">
       <button class="cat-chip active" data-category="todos">Todos</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════ ORDEN Y FILTROS ═══════════════ -->
+  <section class="v2-controls">
+    <div class="v2-container v2-controls-inner">
+      <button class="chip-filter" id="chipDisponibles" aria-pressed="false">✅ Disponibles</button>
+      <div class="sort-wrap">
+        <label for="sortSelect">Ordenar:</label>
+        <select id="sortSelect">
+          <option value="default">Recomendado</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+        </select>
+      </div>
     </div>
   </section>
 
@@ -167,7 +202,7 @@
       <div class="cart-empty" id="cartEmpty">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <p>Tu carrito está vacío</p>
-        <span>Agregá productos para empezar</span>
+        <span>Agrega productos para empezar</span>
       </div>
       <ul class="cart-items" id="cartItems"></ul>
     </div>
@@ -183,7 +218,17 @@
           <span id="cartTotal">$0</span>
         </div>
       </div>
-      <textarea class="cart-notes" id="cartNotes" placeholder="Notas, dirección de entrega..." rows="3"></textarea>
+      <!-- Tipo de entrega -->
+      <div class="entrega-block">
+        <span class="entrega-label">¿Cómo quieres recibir tu pedido?</span>
+        <div class="entrega-segmented" id="entregaSegmented" role="radiogroup" aria-label="Tipo de entrega" data-selected="delivery">
+          <span class="entrega-highlight" aria-hidden="true"></span>
+          <button type="button" class="entrega-opt active" data-tipo="delivery" role="radio" aria-checked="true">🛵 Delivery</button>
+          <button type="button" class="entrega-opt" data-tipo="retiro" role="radio" aria-checked="false">🏪 Retiro en local</button>
+        </div>
+      </div>
+
+      <textarea class="cart-notes" id="cartNotes" placeholder="Dirección de entrega + referencias…" rows="3"></textarea>
       <button class="btn-whatsapp" id="btnWhatsapp">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -218,10 +263,15 @@
         <p class="pmodal-format" id="pmodalFormat"></p>
         <div class="pmodal-price-row">
           <span class="pmodal-price" id="pmodalPrice"></span>
+          <span class="pmodal-price-old" id="pmodalPriceOld" style="display:none"></span>
+          <span class="oferta-badge pmodal-oferta-badge" id="pmodalOfertaBadge" style="display:none">OFERTA</span>
         </div>
         <button class="pmodal-btn-add" id="pmodalBtnAdd">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           Agregar al carrito
+        </button>
+        <button class="pmodal-btn-consultar" id="pmodalBtnConsultar">
+          💬 Consultar por WhatsApp
         </button>
       </div>
     </div>
@@ -239,8 +289,17 @@
     </div>
   </footer>
 
-  <!-- Script principal (sin modificar) -->
+  <!-- Script principal -->
   <script src="script.js"></script>
+
+  <!-- ═══ Service Worker (PWA offline) ═══ -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').catch(() => { /* sin SW, el sitio igual funciona */ });
+      });
+    }
+  </script>
 
   <!-- Modal de producto -->
   <script>
@@ -253,19 +312,36 @@
       const nameEl   = document.getElementById('pmodalName');
       const fmtEl    = document.getElementById('pmodalFormat');
       const priceEl  = document.getElementById('pmodalPrice');
+      const priceOldEl = document.getElementById('pmodalPriceOld');
+      const ofertaBadge = document.getElementById('pmodalOfertaBadge');
       const addBtn   = document.getElementById('pmodalBtnAdd');
+      const consultarBtn = document.getElementById('pmodalBtnConsultar');
+      const WA_NUMBER = '56983020963';
 
       let currentProductId = null;
+      let currentProduct = null;
 
       // Abre el modal con los datos del producto
       function openModal(prod) {
         currentProductId = prod.id;
+        currentProduct = prod;
         imgEl.src        = prod.imagen;
         imgEl.alt        = prod.nombre;
         catEl.textContent  = prod.categoria;
         nameEl.textContent = prod.nombre;
         fmtEl.textContent  = prod.formato;
-        priceEl.textContent = '$' + prod.precio.toLocaleString('es-CL');
+
+        const enPromo = !!(prod.enPromocion && prod.precioPromo);
+        if (enPromo) {
+          priceEl.textContent = '$' + prod.precioPromo.toLocaleString('es-CL');
+          priceOldEl.textContent = '$' + prod.precio.toLocaleString('es-CL');
+          priceOldEl.style.display = '';
+          ofertaBadge.style.display = '';
+        } else {
+          priceEl.textContent = '$' + prod.precio.toLocaleString('es-CL');
+          priceOldEl.style.display = 'none';
+          ofertaBadge.style.display = 'none';
+        }
 
         if (prod.agotado) {
           addBtn.disabled = true;
@@ -302,6 +378,14 @@
         addToCart(currentProductId);   // función global de script.js
         showToast('Producto añadido ✓');
         closeModal();
+      });
+
+      // Consultar por WhatsApp (mensaje prellenado con el producto)
+      consultarBtn.addEventListener('click', () => {
+        if (!currentProduct) return;
+        const p = currentProduct;
+        const txt = `Hola, quiero info de: ${p.nombre}${p.formato ? ` (${p.formato})` : ''}`;
+        window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(txt)}`, '_blank');
       });
 
       closeBtn.addEventListener('click', closeModal);

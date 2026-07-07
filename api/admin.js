@@ -1,6 +1,9 @@
 const crypto = require('crypto');
 
-const ALLOWED_FILES = ['productos.json', 'promociones.json'];
+const ALLOWED_FILES = ['productos.json', 'promociones.json', 'config.json'];
+
+// Archivos cuyo contenido debe ser un objeto (no un array)
+const OBJECT_FILES = ['config.json'];
 
 function timingSafeEqual(a, b) {
   const bufA = Buffer.from(a);
@@ -72,7 +75,11 @@ module.exports = async function handler(req, res) {
     if (!ALLOWED_FILES.includes(file)) {
       return res.status(400).json({ ok: false, error: 'Archivo no permitido' });
     }
-    if (!Array.isArray(content)) {
+    if (OBJECT_FILES.includes(file)) {
+      if (typeof content !== 'object' || content === null || Array.isArray(content)) {
+        return res.status(400).json({ ok: false, error: 'El contenido debe ser un objeto JSON válido' });
+      }
+    } else if (!Array.isArray(content)) {
       return res.status(400).json({ ok: false, error: 'El contenido debe ser un array JSON válido' });
     }
     if (!sha) {
@@ -94,7 +101,7 @@ module.exports = async function handler(req, res) {
     });
 
     if (status === 409) {
-      return res.status(409).json({ ok: false, error: 'conflict', message: 'El archivo fue modificado externamente. Recargá la página.' });
+      return res.status(409).json({ ok: false, error: 'conflict', message: 'El archivo fue modificado externamente. Recarga la página.' });
     }
     if (status !== 200 && status !== 201) {
       return res.status(502).json({ ok: false, error: 'Error al guardar en GitHub', detail: data.message });

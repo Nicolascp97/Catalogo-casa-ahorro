@@ -11,6 +11,17 @@ const BUSINESS_NAME   = 'Casa Ahorro';
 let cart           = loadCart();
 let productos      = []; // Se carga desde productos.json
 let promoProductIds = []; // IDs de productos en promoción
+let packsActivos   = true; // Se lee de config.json
+let entregaTipo    = loadEntregaTipo(); // 'delivery' | 'retiro'
+
+// ─── ORDEN Y FILTROS ───────────────────────
+let sortMode     = 'default'; // 'default' | 'price-asc' | 'price-desc'
+let hideAgotados = false;
+
+// ─── PRECIO EFECTIVO (considera promoción) ──
+function precioEfectivo(prod) {
+  return (prod.enPromocion && prod.precioPromo) ? prod.precioPromo : prod.precio;
+}
 
 // ─── ELEMENTOS DEL DOM ─────────────────────
 const $grid = document.getElementById('productsGrid');
@@ -37,11 +48,14 @@ const $toast = document.getElementById('toast');
 let activeCategory = 'todos';
 let searchQuery    = '';
 
-// Carga productos.json y arranca la app
-fetch('productos.json')
-  .then(r => r.json())
-  .then(data => {
+// Carga productos.json + config.json y arranca la app
+Promise.all([
+  fetch('productos.json').then(r => r.json()),
+  fetch('config.json').then(r => r.ok ? r.json() : { packsActivos: true }).catch(() => ({ packsActivos: true })),
+])
+  .then(([data, config]) => {
     productos = data;
+    packsActivos = (config && config.packsActivos !== false);
     init();
   })
   .catch(() => {
@@ -54,15 +68,28 @@ function init() {
   renderCategories();
   renderProducts();
   updateCartUI();
+  syncEntregaUI();
   bindEvents();
   initCarousel();
 }
 
 // ─── CATEGORÍAS ────────────────────────────
 function renderCategories() {
-  // Excluir "Promo Ahorro" — se agrega como chip especial por buildPromoAhorro()
-  const cats = [...new Set(productos.map(p => p.categoria))].filter(c => c !== 'Promo Ahorro');
+  // Excluir "Promo Ahorro" y categorías vacías
+  const cats = [...new Set(productos.map(p => p.categoria))].filter(c => c && c !== 'Promo Ahorro');
   const scroll = $categories.querySelector('.categories-scroll');
+
+  // Chip "🔥 Ofertas" (solo si hay productos en promoción) — junto a "Todos"
+  const hayOfertas = productos.some(p => p.enPromocion && p.precioPromo);
+  const todosBtn = scroll.querySelector('.cat-chip');
+  if (hayOfertas && todosBtn && !scroll.querySelector('[data-category="ofertas"]')) {
+    const ofertasChip = document.createElement('button');
+    ofertasChip.className = 'cat-chip cat-chip-promo';
+    ofertasChip.dataset.category = 'ofertas';
+    ofertasChip.textContent = '🔥 Ofertas';
+    todosBtn.insertAdjacentElement('afterend', ofertasChip);
+  }
+
   cats.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = 'cat-chip';
@@ -74,34 +101,50 @@ function renderCategories() {
 
 // ─── RENDERIZAR PRODUCTOS ──────────────────
 function renderProducts() {
-  const filtered = productos.filter(p => {
+  let filtered = productos.filter(p => {
     let matchCat;
     if (activeCategory === 'todos')             matchCat = true;
     else if (activeCategory === 'promo-ahorro') matchCat = p.categoria === 'Promo Ahorro';
+    else if (activeCategory === 'ofertas')      matchCat = !!(p.enPromocion && p.precioPromo);
     else                                        matchCat = p.categoria === activeCategory;
     const matchSearch = p.nombre.toLowerCase().includes(searchQuery) ||
-                        p.formato.toLowerCase().includes(searchQuery);
-    return matchCat && matchSearch;
+                        (p.formato || '').toLowerCase().includes(searchQuery);
+    const matchDisp = hideAgotados ? !p.agotado : true;
+    return matchCat && matchSearch && matchDisp;
   });
+
+  // Orden
+  if (sortMode === 'price-asc')       filtered = filtered.slice().sort((a, b) => precioEfectivo(a) - precioEfectivo(b));
+  else if (sortMode === 'price-desc') filtered = filtered.slice().sort((a, b) => precioEfectivo(b) - precioEfectivo(a));
 
   $grid.innerHTML = '';
   $emptyState.style.display = filtered.length === 0 ? 'block' : 'none';
 
   filtered.forEach(p => {
     const agotado = !!p.agotado;
+    const enPromo = !!(p.enPromocion && p.precioPromo);
     const card = document.createElement('div');
     card.className = 'product-card';
+
+    const priceHtml = enPromo
+      ? `<span class="promo-ahorro-prices">
+           <span class="promo-ahorro-price-new">${formatPrice(p.precioPromo)}</span>
+           <span class="promo-ahorro-price-old">${formatPrice(p.precio)}</span>
+         </span>`
+      : `<span class="product-price">${formatPrice(p.precio)}</span>`;
+
     card.innerHTML = `
       <div class="product-img-wrap">
         <img src="${p.imagen}" alt="${p.nombre}" loading="lazy"
              onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><rect fill=%22%23f1f5f9%22 width=%22200%22 height=%22200%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%2394a3b8%22 font-family=%22sans-serif%22 font-size=%2214%22>Sin imagen</text></svg>'">
+        ${enPromo ? '<span class="oferta-badge">OFERTA</span>' : ''}
         ${agotado ? '<span class="agotado-badge">Agotado</span>' : ''}
       </div>
       <div class="product-info">
         <div class="product-name">${p.nombre}</div>
         <div class="product-format">${p.formato}</div>
         <div class="product-bottom">
-          <span class="product-price">${formatPrice(p.precio)}</span>
+          ${priceHtml}
           <button class="btn-add" data-id="${p.id}" ${agotado ? 'disabled' : ''} aria-label="Añadir ${p.nombre} al carrito"><span class="btn-add-icon">${agotado ? '' : '+'}</span><span class="btn-add-text">${agotado ? 'Agotado' : 'Agregar'}</span></button>
         </div>
       </div>
@@ -157,6 +200,36 @@ function bindEvents() {
     else if (action === 'delete') removeFromCart(id);
   });
 
+  // Orden (Precio ↑ / ↓ / catálogo)
+  const $sort = document.getElementById('sortSelect');
+  if ($sort) {
+    $sort.addEventListener('change', () => {
+      sortMode = $sort.value;
+      renderProducts();
+    });
+  }
+
+  // Filtro "Disponibles" (oculta agotados)
+  const $disp = document.getElementById('chipDisponibles');
+  if ($disp) {
+    $disp.addEventListener('click', () => {
+      hideAgotados = !hideAgotados;
+      $disp.classList.toggle('active', hideAgotados);
+      $disp.setAttribute('aria-pressed', hideAgotados ? 'true' : 'false');
+      renderProducts();
+    });
+  }
+
+  // Selector de entrega (Delivery / Retiro)
+  const $entrega = document.getElementById('entregaSegmented');
+  if ($entrega) {
+    $entrega.addEventListener('click', e => {
+      const btn = e.target.closest('.entrega-opt');
+      if (!btn) return;
+      setEntregaTipo(btn.dataset.tipo);
+    });
+  }
+
   // Teclado ESC
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeCart();
@@ -197,7 +270,7 @@ function removeFromCart(id) {
 function getTotal() {
   return cart.reduce((sum, item) => {
     const prod = productos.find(p => p.id === item.id);
-    return prod ? sum + prod.precio * item.qty : sum;
+    return prod ? sum + precioEfectivo(prod) * item.qty : sum;
   }, 0);
 }
 
@@ -217,6 +290,42 @@ function loadCart() {
     return parsed.filter(i => i.id != null && i.id !== 'NaN' && !Number.isNaN(i.id));
   } catch (e) {
     return [];
+  }
+}
+
+// ─── TIPO DE ENTREGA (Delivery / Retiro) ───
+function loadEntregaTipo() {
+  try {
+    const v = localStorage.getItem('casa_ahorro_entrega');
+    return v === 'retiro' ? 'retiro' : 'delivery';
+  } catch (e) { return 'delivery'; }
+}
+
+function saveEntregaTipo() {
+  try { localStorage.setItem('casa_ahorro_entrega', entregaTipo); } catch (e) { /* noop */ }
+}
+
+function setEntregaTipo(tipo) {
+  entregaTipo = (tipo === 'retiro') ? 'retiro' : 'delivery';
+  saveEntregaTipo();
+  syncEntregaUI();
+}
+
+function syncEntregaUI() {
+  const seg = document.getElementById('entregaSegmented');
+  if (!seg) return;
+  seg.querySelectorAll('.entrega-opt').forEach(btn => {
+    const active = btn.dataset.tipo === entregaTipo;
+    btn.classList.toggle('active', active);
+    btn.setAttribute('aria-checked', active ? 'true' : 'false');
+  });
+  seg.dataset.selected = entregaTipo;
+  // Placeholder contextual del textarea de notas
+  if ($cartNotes) {
+    $cartNotes.placeholder = entregaTipo === 'delivery'
+      ? 'Dirección de entrega + referencias…'
+      : 'Notas para tu pedido (opcional)…';
+    $cartNotes.classList.toggle('is-delivery', entregaTipo === 'delivery');
   }
 }
 
@@ -249,7 +358,7 @@ function updateCartUI() {
   $cartItems.innerHTML = cart.map(item => {
     const prod = productos.find(p => p.id === item.id);
     if (!prod) return '';
-    const lineTotal = prod.precio * item.qty;
+    const lineTotal = precioEfectivo(prod) * item.qty;
     return `
       <li class="cart-item">
         <img class="cart-item-img" src="${prod.imagen}" alt="${prod.nombre}"
@@ -323,20 +432,26 @@ function sendWhatsApp() {
   cart.forEach((item, idx) => {
     const prod = productos.find(p => p.id === item.id);
     if (!prod) return;
-    const lineTotal = prod.precio * item.qty;
-    msg += `\n*${idx + 1}. ${prod.nombre}*\n`;
+    const precio = precioEfectivo(prod);
+    const enPromo = !!(prod.enPromocion && prod.precioPromo);
+    const lineTotal = precio * item.qty;
+    msg += `\n*${idx + 1}. ${prod.nombre}*${enPromo ? ' 🔥' : ''}\n`;
     msg += `   📦 ${prod.formato}\n`;
-    msg += `   🔢 ${item.qty} unid. × ${formatPrice(prod.precio)}\n`;
+    msg += `   🔢 ${item.qty} unid. × ${formatPrice(precio)}${enPromo ? ' (oferta)' : ''}\n`;
     msg += `   💵 Subtotal: *${formatPrice(lineTotal)}*\n`;
   });
 
   msg += `\n━━━━━━━━━━━━━━━━━━━━━\n`;
   msg += `🛍️ Artículos: ${totalItems} producto${totalItems !== 1 ? 's' : ''}\n`;
   msg += `💰 *TOTAL A PAGAR: ${formatPrice(total)}*\n`;
+  msg += entregaTipo === 'retiro'
+    ? `🏪 *ENTREGA: RETIRO EN LOCAL*\n`
+    : `🛵 *ENTREGA: DELIVERY (despacho a domicilio)*\n`;
   msg += `━━━━━━━━━━━━━━━━━━━━━`;
 
   if (notes) {
-    msg += `\n\n📍 *Notas / Dirección:*\n${notes}`;
+    const notesLabel = entregaTipo === 'delivery' ? '📍 *Dirección / Notas:*' : '📍 *Notas:*';
+    msg += `\n\n${notesLabel}\n${notes}`;
   }
 
   msg += `\n\n¡Gracias por su pedido! 🙌`;
@@ -361,7 +476,9 @@ function initCarousel() {
 
   const promos = productos.filter(p => p.categoria === 'Promo Ahorro');
 
-  if (promos.length === 0) { section.style.display = 'none'; return; }
+  // Respeta el interruptor maestro de packs (config.json) + que existan packs
+  if (!packsActivos || promos.length === 0) { section.style.display = 'none'; return; }
+  section.style.display = '';
 
   // ── Chip en barra de categorías ──────────────
   const scroll   = $categories.querySelector('.categories-scroll');

@@ -1615,3 +1615,177 @@ body {
   margin-top: 3px;
   opacity: .6;
 }
+
+/* ══════════════════════════════════════
+   OFERTA (promos individuales)
+══════════════════════════════════════ */
+.oferta-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--cta);
+  color: #fff;
+  font-size: .62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 3px 9px;
+  border-radius: 999px;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 2px 8px var(--cta-glow);
+}
+.oferta-badge::before { content: '🔥 '; }
+
+/* Precio anterior en el modal */
+.pmodal-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pmodal-price-old {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.pmodal-oferta-badge {
+  position: static;
+  box-shadow: none;
+}
+
+/* Botón Consultar por WhatsApp en el modal */
+.pmodal-btn-consultar {
+  margin-top: 8px;
+  width: 100%;
+  padding: 13px;
+  border: 1.5px solid var(--whatsapp);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--whatsapp-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background .18s, transform .15s;
+}
+.pmodal-btn-consultar:hover { background: #f0fdf4; }
+.pmodal-btn-consultar:active { transform: scale(.98); }
+
+/* ══════════════════════════════════════
+   CONTROLES: ORDEN Y FILTROS
+══════════════════════════════════════ */
+.v2-controls { padding: 6px 0 2px; }
+.v2-controls-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 0 16px;
+}
+.chip-filter {
+  flex-shrink: 0;
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: all .18s;
+}
+.chip-filter:hover { border-color: var(--success); color: var(--success); }
+.chip-filter.active {
+  background: var(--success, #16a34a);
+  border-color: var(--success, #16a34a);
+  color: #fff;
+}
+.sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8rem;
+  color: var(--text-muted);
+}
+.sort-wrap label { font-weight: 600; white-space: nowrap; }
+.sort-wrap select {
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .18s;
+}
+.sort-wrap select:focus { border-color: var(--cta); }
+
+/* ══════════════════════════════════════
+   CARRITO: TIPO DE ENTREGA (segmented)
+══════════════════════════════════════ */
+.entrega-block { margin-bottom: 12px; }
+.entrega-label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+.entrega-segmented {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 4px;
+  overflow: hidden;
+}
+.entrega-highlight {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: var(--cta);
+  border-radius: 999px;
+  box-shadow: 0 2px 8px var(--cta-glow);
+  transition: transform .28s cubic-bezier(.4, 0, .2, 1);
+  z-index: 0;
+}
+.entrega-segmented[data-selected="retiro"] .entrega-highlight {
+  transform: translateX(100%);
+}
+.entrega-opt {
+  position: relative;
+  z-index: 1;
+  background: none;
+  border: none;
+  padding: 10px 8px;
+  border-radius: 999px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color .2s, transform .1s;
+  white-space: nowrap;
+}
+.entrega-opt.active { color: #fff; }
+.entrega-opt:active { transform: scale(.96); }
+
+/* Textarea resaltado cuando es Delivery */
+.cart-notes.is-delivery {
+  border-color: var(--cta);
+  background: #fff7ed;
+}

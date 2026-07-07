@@ -780,6 +780,212 @@
       background: #fca5a5;
     }
 
+    /* ── Promo toggle (🔥) ─────────────────────────────────────── */
+    .btn-promo-toggle {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      line-height: 1;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .btn-promo-toggle:hover { border-color: var(--cta); background: var(--cta-glow); }
+    .btn-promo-toggle.is-promo {
+      background: #fff7ed;
+      border-color: var(--cta);
+    }
+    .promo-price-input-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-top: 6px;
+    }
+    .promo-price-input-wrap label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--cta);
+    }
+    .promo-price-input-wrap input {
+      width: 100%;
+      max-width: 120px;
+      border: 1.5px solid var(--cta);
+      border-radius: var(--radius-sm);
+      padding: 6px 8px;
+      font-family: inherit;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--cta);
+      background: #fff7ed;
+      outline: none;
+      text-align: right;
+    }
+
+    /* ── Reorder / clone buttons ───────────────────────────────── */
+    .btn-mini {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .9rem;
+      transition: all .15s;
+      flex-shrink: 0;
+    }
+    .btn-mini:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-light); }
+    .reorder-cell { display: inline-flex; flex-direction: column; gap: 2px; }
+    .reorder-cell .btn-mini { width: 28px; height: 22px; border-radius: 6px; }
+
+    /* ── Section headers (tabla agrupada) ──────────────────────── */
+    tr.section-header td {
+      background: linear-gradient(135deg, #f8f9ff 0%, #fef3c7 100%);
+      padding: 10px 14px;
+      font-weight: 800;
+      font-size: .82rem;
+      color: var(--text);
+      border-top: 2px solid var(--border);
+      border-bottom: 1.5px solid var(--border);
+    }
+    .section-header-count {
+      font-weight: 600;
+      font-size: .72rem;
+      color: var(--text-muted);
+      margin-left: 6px;
+    }
+
+    /* ── Stats chips ───────────────────────────────────────────── */
+    .stats-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .stat-chip strong { color: var(--text); font-weight: 800; }
+
+    /* ── Bulk price tool ───────────────────────────────────────── */
+    .bulk-tool {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 12px 14px;
+      margin-bottom: 14px;
+    }
+    .bulk-tool label { font-size: .82rem; font-weight: 700; color: var(--text-muted); }
+    .bulk-tool select, .bulk-tool input {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: .95rem;
+      background: var(--bg);
+      color: var(--text);
+      outline: none;
+      min-height: 42px;
+    }
+    .bulk-tool input[type="number"] { width: 90px; text-align: right; }
+    .bulk-tool .btn-bulk {
+      background: var(--brand-light);
+      border: none;
+      color: var(--brand);
+      padding: 0 16px;
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: .875rem;
+      font-weight: 700;
+      cursor: pointer;
+      min-height: 42px;
+      transition: opacity .15s;
+    }
+    .btn-bulk:hover { opacity: .8; }
+
+    /* ── Cat select nuevo (input inline) ───────────────────────── */
+    .cat-new-input {
+      margin-top: 4px;
+      width: 100%;
+      border: 1.5px solid var(--cta);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      font-family: inherit;
+      font-size: .95rem;
+      background: #fff7ed;
+      outline: none;
+    }
+
+    /* ── Packs master switch ───────────────────────────────────── */
+    .packs-switch-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .packs-switch-info strong { display: block; font-size: .95rem; }
+    .packs-switch-info span { font-size: .8rem; color: var(--text-muted); }
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 54px;
+      height: 30px;
+      flex-shrink: 0;
+    }
+    .switch input { opacity: 0; width: 0; height: 0; }
+    .switch-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background: var(--border-hover);
+      border-radius: 999px;
+      transition: background .2s;
+    }
+    .switch-slider::before {
+      content: '';
+      position: absolute;
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform .2s;
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    }
+    .switch input:checked + .switch-slider { background: var(--success); }
+    .switch input:checked + .switch-slider::before { transform: translateX(24px); }
+
     /* ── Imagen upload ──────────────────────────────────────────── */
     .img-field-wrap {
       display: flex;
@@ -911,6 +1117,22 @@
         border-color: var(--success);
         background: #f0fdf4;
       }
+
+      /* Section header en mobile: banda completa, no tarjeta */
+      #products-table tbody tr.section-header {
+        display: block;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        grid-template-columns: none;
+      }
+      #products-table tbody tr.section-header td {
+        display: block;
+        padding: 10px 12px;
+        border-radius: var(--radius-sm);
+      }
+      #products-table tbody tr.section-header td::before { display: none; }
 
       /* All tds: flex column with label */
       #products-table tbody td {
@@ -1198,7 +1420,7 @@
           autocomplete="current-password"
         />
       </div>
-      <div class="login-error" id="login-error">Contraseña incorrecta. Intentá de nuevo.</div>
+      <div class="login-error" id="login-error">Contraseña incorrecta. Intenta de nuevo.</div>
       <button type="submit" class="btn-primary" id="login-btn">Entrar</button>
     </form>
   </div>
@@ -1216,12 +1438,26 @@
         🛒 Productos
       </button>
       <button class="tab-btn" data-tab="promociones">
-        ⭐ Promociones
+        📦 Packs
       </button>
     </div>
 
     <!-- ── Tab: Productos ──────────────────────────────────────── -->
     <div class="tab-panel active" id="tab-productos">
+      <!-- Estadísticas rápidas -->
+      <div class="stats-row" id="stats-row"></div>
+
+      <!-- Ajuste masivo de precios -->
+      <div class="bulk-tool">
+        <label for="bulk-cat">Ajustar precios:</label>
+        <select id="bulk-cat">
+          <option value="">Todas las categorías</option>
+        </select>
+        <input type="number" id="bulk-pct" placeholder="%" step="1" />
+        <span style="font-size:.8rem;color:var(--text-muted)">% (ej: 10 sube, -5 baja)</span>
+        <button class="btn-bulk" id="btn-bulk-apply">Aplicar</button>
+      </div>
+
       <div class="toolbar">
         <div class="toolbar-search">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -1268,18 +1504,30 @@
       </div>
     </div>
 
-    <!-- ── Tab: Promociones ───────────────────────────────────── -->
+    <!-- ── Tab: Packs ─────────────────────────────────────────── -->
     <div class="tab-panel" id="tab-promociones">
+      <!-- Interruptor maestro de la sección de packs -->
+      <div class="packs-switch-bar">
+        <div class="packs-switch-info">
+          <strong>Mostrar sección de Packs en el sitio</strong>
+          <span id="packs-switch-hint">Prende o apaga el carrusel de packs en el catálogo público.</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="packs-toggle" checked />
+          <span class="switch-slider"></span>
+        </label>
+      </div>
+
       <div class="promos-toolbar">
         <div>
-          <p style="font-weight:700;font-size:.95rem;margin-bottom:2px">Packs y Promociones</p>
+          <p style="font-weight:700;font-size:.95rem;margin-bottom:2px">Packs</p>
           <p class="promos-info" id="promos-count">Productos con categoría "Promo Ahorro"</p>
         </div>
         <button class="btn-add" id="btn-add-promo">
           <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path d="M12 5v14M5 12h14"/>
           </svg>
-          Nueva Promoción
+          Nuevo Pack
         </button>
       </div>
       <div class="promos-grid" id="promos-grid">
@@ -1318,6 +1566,12 @@
   let productosOriginal = '';
   let productosSha = '';
 
+  // Config (packs on/off)
+  let configData = { packsActivos: true };
+  let configOriginal = '';
+  let configSha = '';
+  let configDirty = false;
+
   let searchQuery = '';
   let categoryFilter = '';
   let debounceTimer = null;
@@ -1341,6 +1595,12 @@
   const countBadge = document.getElementById('count-badge');
   const btnAddProduct = document.getElementById('btn-add-product');
   const productsTbody = document.getElementById('products-tbody');
+  const statsRow = document.getElementById('stats-row');
+  const bulkCat = document.getElementById('bulk-cat');
+  const bulkPct = document.getElementById('bulk-pct');
+  const btnBulkApply = document.getElementById('btn-bulk-apply');
+  const packsToggle = document.getElementById('packs-toggle');
+  const packsSwitchHint = document.getElementById('packs-switch-hint');
   const promosGrid = document.getElementById('promos-grid');
   const promosCount = document.getElementById('promos-count');
   const btnAddPromo = document.getElementById('btn-add-promo');
@@ -1407,7 +1667,7 @@
     const pRes = await api({ action: 'get-file', file: 'productos.json' });
 
     if (!pRes.ok) {
-      dashSub.textContent = 'Error al cargar los datos. Verificá la configuración.';
+      dashSub.textContent = 'Error al cargar los datos. Verifica la configuración.';
       return;
     }
 
@@ -1415,15 +1675,72 @@
     productosSha = pRes.sha;
     productosOriginal = JSON.stringify(productos);
 
+    // Cargar config.json (packs on/off). Si no existe, usar default.
+    const cRes = await api({ action: 'get-file', file: 'config.json' }).catch(() => ({ ok: false }));
+    if (cRes.ok && cRes.data && typeof cRes.data === 'object') {
+      configData = { packsActivos: cRes.data.packsActivos !== false };
+      configSha = cRes.sha;
+    } else {
+      configData = { packsActivos: true };
+      configSha = '';
+    }
+    configOriginal = JSON.stringify(configData);
+    configDirty = false;
+    syncPacksToggle();
+
     const promoCount = productos.filter(p => p.categoria === 'Promo Ahorro').length;
-    dashSub.textContent = `${productos.length} productos · ${promoCount} promociones`;
+    dashSub.textContent = `${productos.length} productos · ${promoCount} packs`;
 
     buildCategoryFilter();
+    renderStats();
     renderProductsTable();
     renderPromosGrid();
   }
 
+  // ── Packs master switch ─────────────────────────────────────────
+  function syncPacksToggle() {
+    if (!packsToggle) return;
+    packsToggle.checked = configData.packsActivos !== false;
+    if (packsSwitchHint) {
+      packsSwitchHint.textContent = packsToggle.checked
+        ? 'La sección de packs está VISIBLE en el catálogo público.'
+        : 'La sección de packs está OCULTA en el catálogo público.';
+    }
+  }
+
+  if (packsToggle) {
+    packsToggle.addEventListener('change', () => {
+      configData.packsActivos = packsToggle.checked;
+      configDirty = JSON.stringify(configData) !== configOriginal;
+      syncPacksToggle();
+      updateSaveBar();
+    });
+  }
+
+  // ── Estadísticas rápidas ────────────────────────────────────────
+  function renderStats() {
+    if (!statsRow) return;
+    const activos = productos.filter(p => !deletedIds.has(p.id));
+    const total = activos.length;
+    const agotados = activos.filter(p => p.agotado).length;
+    const enOferta = activos.filter(p => p.enPromocion && p.precioPromo).length;
+    const packs = activos.filter(p => p.categoria === 'Promo Ahorro').length;
+    statsRow.innerHTML = `
+      <span class="stat-chip">📦 <strong>${total}</strong> productos</span>
+      <span class="stat-chip">🚫 <strong>${agotados}</strong> agotados</span>
+      <span class="stat-chip">🔥 <strong>${enOferta}</strong> en oferta</span>
+      <span class="stat-chip">🎁 <strong>${packs}</strong> packs</span>
+    `;
+  }
+
   // ── Category filter ─────────────────────────────────────────────
+  // Categorías reales (sin "Promo Ahorro", que se gestiona en el tab Packs)
+  function getCategorias() {
+    return [...new Set(productos.map(p => p.categoria))]
+      .filter(c => c && c !== 'Promo Ahorro')
+      .sort((a, b) => a.localeCompare(b, 'es'));
+  }
+
   function buildCategoryFilter() {
     const cats = [...new Set(productos.map(p => p.categoria))].filter(Boolean).sort();
     catFilter.innerHTML = '<option value="">Todas las categorías</option>';
@@ -1433,6 +1750,36 @@
       opt.textContent = cat;
       catFilter.appendChild(opt);
     });
+    // Alimentar también el selector del ajuste masivo de precios
+    if (bulkCat) {
+      bulkCat.innerHTML = '<option value="">Todas las categorías</option>';
+      cats.forEach(cat => {
+        const opt = document.createElement('option');
+        opt.value = cat;
+        opt.textContent = cat;
+        bulkCat.appendChild(opt);
+      });
+    }
+  }
+
+  // Select de categoría reutilizable (filas + alta). Incluye "➕ Nueva categoría…".
+  function buildCategorySelect(valorActual) {
+    const cats = getCategorias();
+    const actual = valorActual || '';
+    const known = cats.includes(actual);
+    let html = '<select class="td-input w-md" data-field="categoria">';
+    html += `<option value=""${actual === '' ? ' selected' : ''}>— Sin categoría —</option>`;
+    cats.forEach(c => {
+      html += `<option value="${escAttr(c)}"${c === actual ? ' selected' : ''}>${escHtml(c)}</option>`;
+    });
+    // Si la categoría actual no está en la lista (nueva recién creada), agregarla
+    if (actual && !known) {
+      html += `<option value="${escAttr(actual)}" selected>${escHtml(actual)}</option>`;
+    }
+    html += '<option value="__new__">➕ Nueva categoría…</option>';
+    html += '</select>';
+    html += '<input type="text" class="cat-new-input" data-cat-new placeholder="Nombre de la nueva categoría" style="display:none" />';
+    return html;
   }
 
   // ── Tabs ────────────────────────────────────────────────────────
@@ -1480,8 +1827,40 @@
       return;
     }
 
+    // Agrupar por categoría. Orden de secciones: las existentes (según el
+    // orden original) primero, las nuevas al final.
+    const originalOrder = [];
+    try {
+      JSON.parse(productosOriginal).forEach(p => {
+        const c = p.categoria || '';
+        if (!originalOrder.includes(c)) originalOrder.push(c);
+      });
+    } catch (e) { /* noop */ }
+
+    const groups = {};
+    list.forEach(p => {
+      const c = p.categoria || '';
+      (groups[c] = groups[c] || []).push(p);
+    });
+
+    const cats = Object.keys(groups).sort((a, b) => {
+      const ia = originalOrder.indexOf(a);
+      const ib = originalOrder.indexOf(b);
+      const ra = ia === -1 ? Infinity : ia;
+      const rb = ib === -1 ? Infinity : ib;
+      if (ra !== rb) return ra - rb;
+      return a.localeCompare(b, 'es');
+    });
+
     productsTbody.innerHTML = '';
-    list.forEach(p => productsTbody.appendChild(buildProductRow(p)));
+    cats.forEach(cat => {
+      const header = document.createElement('tr');
+      header.className = 'section-header';
+      const label = cat === '' ? 'Sin categoría' : (cat === 'Promo Ahorro' ? '🎁 Packs (Promo Ahorro)' : cat);
+      header.innerHTML = `<td colspan="8">${escHtml(label)}<span class="section-header-count">${groups[cat].length} producto${groups[cat].length !== 1 ? 's' : ''}</span></td>`;
+      productsTbody.appendChild(header);
+      groups[cat].forEach(p => productsTbody.appendChild(buildProductRow(p)));
+    });
   }
 
   function buildProductRow(p) {
@@ -1490,13 +1869,29 @@
     if (p._isNew) tr.classList.add('is-new');
     if (deletedIds.has(p.id)) tr.classList.add('is-deleted');
 
+    const enPromo = !!p.enPromocion;
+
     tr.innerHTML = `
-      <td><span class="td-id">${escHtml(p.id)}</span></td>
+      <td>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span class="reorder-cell">
+            <button class="btn-mini" data-move="up" title="Subir">▲</button>
+            <button class="btn-mini" data-move="down" title="Bajar">▼</button>
+          </span>
+          <span class="td-id">${escHtml(p.id)}</span>
+        </div>
+      </td>
       <td><input class="td-input w-lg" type="text" data-field="nombre" value="${escAttr(p.nombre)}" /></td>
       <td><input class="td-input w-md" type="text" data-field="marca" value="${escAttr(p.marca || '')}" /></td>
       <td><input class="td-input w-md" type="text" data-field="formato" value="${escAttr(p.formato || '')}" /></td>
-      <td><input class="td-input w-sm" type="number" data-field="precio" value="${p.precio || ''}" min="0" step="10" /></td>
-      <td><input class="td-input w-md" type="text" data-field="categoria" value="${escAttr(p.categoria || '')}" /></td>
+      <td>
+        <input class="td-input w-sm" type="number" data-field="precio" value="${p.precio || ''}" min="0" step="10" />
+        <div class="promo-price-input-wrap" data-promo-wrap style="${enPromo ? '' : 'display:none'}">
+          <label>🔥 Precio oferta</label>
+          <input type="number" data-field="precioPromo" value="${p.precioPromo || ''}" min="0" step="10" placeholder="Ej: 2990" />
+        </div>
+      </td>
+      <td>${buildCategorySelect(p.categoria)}</td>
       <td>
         <div class="img-field-wrap">
           <input class="td-input w-xl" type="text" data-field="imagen" value="${escAttr(p.imagen || '')}" />
@@ -1511,11 +1906,13 @@
       </td>
       <td>
         <div class="actions-cell">
+          <button class="btn-promo-toggle${enPromo ? ' is-promo' : ''}" data-promo="${escAttr(p.id)}" title="${enPromo ? 'Quitar de promoción' : 'Poner en promoción'}">🔥</button>
           <button class="btn-agotado-toggle${p.agotado ? ' is-agotado' : ''}" data-agotado="${escAttr(p.id)}" title="${p.agotado ? 'Marcar disponible' : 'Marcar agotado'}">
             ${p.agotado
               ? `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11H7v-2h10v2z"/></svg>`
               : `<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="8" y1="12" x2="16" y2="12"/></svg>`}
           </button>
+          <button class="btn-mini" data-clone="${escAttr(p.id)}" title="Duplicar producto">⧉</button>
           ${deletedIds.has(p.id)
             ? `<button class="btn-undo" data-undo="${p.id}">Deshacer</button>`
             : `<button class="btn-delete" title="Eliminar" data-del="${p.id}">
@@ -1528,17 +1925,56 @@
       </td>
     `;
 
-    // Input change tracking
-    tr.querySelectorAll('.td-input').forEach(input => {
+    // Input / select change tracking
+    tr.querySelectorAll('[data-field]').forEach(input => {
       input.addEventListener('change', () => {
         const field = input.dataset.field;
         const idx = productos.findIndex(x => x.id === p.id);
         if (idx === -1) return;
-        const val = field === 'precio' ? Number(input.value) : input.value;
-        productos[idx][field] = val;
+
+        // Categoría: manejo del "➕ Nueva categoría…"
+        if (field === 'categoria') {
+          if (input.value === '__new__') {
+            const newInput = tr.querySelector('[data-cat-new]');
+            if (newInput) {
+              newInput.style.display = 'block';
+              newInput.focus();
+            }
+            return; // esperar a que se confirme la nueva categoría
+          }
+          productos[idx].categoria = input.value;
+          markDirty(p.id);
+          renderStats();
+          renderProductsTable();
+          return;
+        }
+
+        const numeric = (field === 'precio' || field === 'precioPromo');
+        productos[idx][field] = numeric ? Number(input.value) : input.value;
         markDirty(p.id);
       });
     });
+
+    // Nueva categoría inline
+    const catNewInput = tr.querySelector('[data-cat-new]');
+    if (catNewInput) {
+      const commitNewCat = () => {
+        const val = catNewInput.value.trim();
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        if (val) {
+          productos[idx].categoria = val;
+          markDirty(p.id);
+        }
+        buildCategoryFilter();
+        renderStats();
+        renderProductsTable();
+      };
+      catNewInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); commitNewCat(); }
+      });
+      catNewInput.addEventListener('blur', commitNewCat);
+    }
 
     // Delete
     const delBtn = tr.querySelector('[data-del]');
@@ -1546,6 +1982,7 @@
       delBtn.addEventListener('click', () => {
         deletedIds.add(p.id);
         markDirty(p.id);
+        renderStats();
         renderProductsTable();
       });
     }
@@ -1556,6 +1993,25 @@
       undoBtn.addEventListener('click', () => {
         deletedIds.delete(p.id);
         markDirty(p.id);
+        renderStats();
+        renderProductsTable();
+      });
+    }
+
+    // Promo toggle 🔥
+    const promoBtn = tr.querySelector('[data-promo]');
+    if (promoBtn) {
+      promoBtn.addEventListener('click', () => {
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        if (productos[idx].enPromocion) {
+          productos[idx].enPromocion = false;
+          delete productos[idx].precioPromo;
+        } else {
+          productos[idx].enPromocion = true;
+        }
+        markDirty(p.id);
+        renderStats();
         renderProductsTable();
       });
     }
@@ -1568,9 +2024,21 @@
         if (idx === -1) return;
         productos[idx].agotado = !productos[idx].agotado;
         markDirty(p.id);
+        renderStats();
         renderProductsTable();
       });
     }
+
+    // Duplicar producto
+    const cloneBtn = tr.querySelector('[data-clone]');
+    if (cloneBtn) {
+      cloneBtn.addEventListener('click', () => cloneProduct(p.id));
+    }
+
+    // Reordenar ▲▼
+    tr.querySelectorAll('[data-move]').forEach(btn => {
+      btn.addEventListener('click', () => moveProduct(p.id, btn.dataset.move));
+    });
 
     // Image upload
     const uploadBtn = tr.querySelector(`[data-upload="${p.id}"]`);
@@ -1590,20 +2058,91 @@
     return tr;
   }
 
+  // ── Duplicar producto ───────────────────────────────────────────
+  function cloneProduct(id) {
+    const idx = productos.findIndex(x => x.id === id);
+    if (idx === -1) return;
+    newProductCounter++;
+    const newId = `NEW${String(newProductCounter).padStart(3, '0')}`;
+    const copy = { ...productos[idx], id: newId, _isNew: true };
+    // Copiar array de productosIncluidos si existe (evitar referencia compartida)
+    if (Array.isArray(copy.productosIncluidos)) copy.productosIncluidos = [...copy.productosIncluidos];
+    productos.splice(idx + 1, 0, copy);
+    markDirty(newId);
+    renderStats();
+    if (copy.categoria === 'Promo Ahorro') renderPromosGrid();
+    renderProductsTable();
+    showBanner('Producto duplicado. Edita el nuevo y guarda.', 'info');
+  }
+
+  // ── Reordenar producto dentro de su sección ─────────────────────
+  function moveProduct(id, dir) {
+    const i = productos.findIndex(x => x.id === id);
+    if (i === -1) return;
+    const cat = productos[i].categoria || '';
+    // Buscar el vecino más cercano de la MISMA categoría en la dirección dada
+    let j = -1;
+    if (dir === 'up') {
+      for (let k = i - 1; k >= 0; k--) {
+        if ((productos[k].categoria || '') === cat) { j = k; break; }
+      }
+    } else {
+      for (let k = i + 1; k < productos.length; k++) {
+        if ((productos[k].categoria || '') === cat) { j = k; break; }
+      }
+    }
+    if (j === -1) return; // ya está en el borde de su sección
+    const tmp = productos[i];
+    productos[i] = productos[j];
+    productos[j] = tmp;
+    markDirty(productos[i].id);
+    markDirty(productos[j].id);
+    renderProductsTable();
+  }
+
   // ── Add new product ─────────────────────────────────────────────
   btnAddProduct.addEventListener('click', () => {
     newProductCounter++;
     const newId = `NEW${String(newProductCounter).padStart(3, '0')}`;
-    const newP = { id: newId, nombre: '', marca: '', formato: '', precio: 0, categoria: '', imagen: '', _isNew: true };
+    // Si se está filtrando por una categoría (no "Promo Ahorro"), preseleccionarla
+    const preCat = (categoryFilter && categoryFilter !== 'Promo Ahorro') ? categoryFilter : '';
+    const newP = { id: newId, nombre: '', marca: '', formato: '', precio: 0, categoria: preCat, imagen: '', _isNew: true };
     productos.unshift(newP);
     markDirty(newId);
     searchInput.value = '';
     searchQuery = '';
-    catFilter.value = '';
-    categoryFilter = '';
+    // Asegurar que el producto nuevo sea visible
+    if (!preCat) { catFilter.value = ''; categoryFilter = ''; }
+    renderStats();
     renderProductsTable();
     productsTbody.querySelector('input')?.focus();
   });
+
+  // ── Ajuste masivo de precios ────────────────────────────────────
+  if (btnBulkApply) {
+    btnBulkApply.addEventListener('click', () => {
+      const pct = Number(bulkPct.value);
+      if (!pct || isNaN(pct)) { showBanner('Ingresa un porcentaje válido (ej: 10 o -5).', 'error'); return; }
+      const cat = bulkCat.value;
+      const factor = 1 + pct / 100;
+      const objetivo = productos.filter(p => !deletedIds.has(p.id) && (!cat || p.categoria === cat));
+      if (objetivo.length === 0) { showBanner('No hay productos para ajustar.', 'error'); return; }
+      const catLabel = cat || 'TODAS las categorías';
+      if (!confirm(`¿Ajustar ${pct > 0 ? '+' : ''}${pct}% el precio de ${objetivo.length} producto(s) en ${catLabel}?`)) return;
+      objetivo.forEach(p => {
+        const idx = productos.findIndex(x => x.id === p.id);
+        if (idx === -1) return;
+        if (productos[idx].precio) productos[idx].precio = Math.round(productos[idx].precio * factor);
+        if (productos[idx].precioPromo) productos[idx].precioPromo = Math.round(productos[idx].precioPromo * factor);
+        markDirty(p.id);
+      });
+      bulkPct.value = '';
+      renderStats();
+      renderProductsTable();
+      renderPromosGrid();
+      showBanner(`✅ Precios ajustados en ${objetivo.length} producto(s).`, 'success');
+    });
+  }
 
   // ── Render promos ───────────────────────────────────────────────
   function renderPromosGrid() {
@@ -1612,7 +2151,7 @@
 
     promosGrid.innerHTML = '';
     if (promos.length === 0) {
-      promosGrid.innerHTML = `<div class="empty-state"><p>No hay promociones todavía. Creá la primera.</p></div>`;
+      promosGrid.innerHTML = `<div class="empty-state"><p>No hay packs todavía. Crea el primero.</p></div>`;
       return;
     }
     promos.forEach(p => promosGrid.appendChild(buildPromoCard(p)));
@@ -1682,10 +2221,10 @@
       </div>
 
       <div class="promo-field">
-        <label>Productos del pack</label>
+        <label>Productos del pack (opcional)</label>
         <div class="promo-products-list" data-pack-list="${p.id}">
           ${packItems.length === 0
-            ? `<p style="font-size:.875rem;color:var(--text-muted);padding:4px 0">Sin productos vinculados</p>`
+            ? `<p style="font-size:.875rem;color:var(--text-muted);padding:4px 0">Sin productos vinculados (no es obligatorio)</p>`
             : packItems.map(item => `
               <div class="promo-product-item">
                 <strong>${escHtml(item.id)}</strong>
@@ -1819,12 +2358,13 @@
   }
 
   function hasChanges() {
-    return modifiedIds.size > 0;
+    return modifiedIds.size > 0 || configDirty;
   }
 
   function updateSaveBar() {
-    if (modifiedIds.size > 0) {
-      changesLabel.textContent = `${modifiedIds.size} cambio${modifiedIds.size !== 1 ? 's' : ''} sin guardar`;
+    const n = modifiedIds.size + (configDirty ? 1 : 0);
+    if (n > 0) {
+      changesLabel.textContent = `${n} cambio${n !== 1 ? 's' : ''} sin guardar`;
       saveBar.classList.add('visible');
     } else {
       saveBar.classList.remove('visible');
@@ -1835,10 +2375,14 @@
   btnDiscard.addEventListener('click', () => {
     if (!confirm('¿Descartar todos los cambios sin guardar?')) return;
     productos = JSON.parse(productosOriginal);
+    configData = JSON.parse(configOriginal);
+    configDirty = false;
+    syncPacksToggle();
     modifiedIds.clear();
     deletedIds.clear();
     newProductCounter = 0;
     buildCategoryFilter();
+    renderStats();
     renderProductsTable();
     renderPromosGrid();
     updateSaveBar();
@@ -1853,15 +2397,35 @@
     const toSave = productos.filter(p => !deletedIds.has(p.id)).map(p => {
       const clean = { ...p };
       delete clean._isNew;
+      // Limpiar campos de promoción incompletos
+      if (!clean.enPromocion || !clean.precioPromo) {
+        delete clean.enPromocion;
+        delete clean.precioPromo;
+      }
       return clean;
     });
 
     const result = await api({ action: 'save-file', file: 'productos.json', content: toSave, sha: productosSha });
 
     if (!result.ok) {
-      showBanner(result.message || 'Error al guardar. Intentá de nuevo.', 'error');
+      showBanner(result.message || 'Error al guardar. Intenta de nuevo.', 'error');
       resetSaveBtn();
       return;
+    }
+    if (result.commit) productosSha = ''; // se recargará el sha al recargar datos
+
+    // Guardar config.json si cambió (packs on/off)
+    if (configDirty) {
+      const cRes = await api({ action: 'save-file', file: 'config.json', content: configData, sha: configSha });
+      if (!cRes.ok) {
+        showBanner(cRes.message || 'Productos guardados, pero falló guardar la configuración de packs.', 'error');
+        resetSaveBtn();
+        // Recargar para re-sincronizar shas
+        await loadAllData();
+        return;
+      }
+      configOriginal = JSON.stringify(configData);
+      configDirty = false;
     }
 
     // Success
@@ -1872,9 +2436,8 @@
     newProductCounter = 0;
     updateSaveBar();
     resetSaveBtn();
-    buildCategoryFilter();
-    renderProductsTable();
-    renderPromosGrid();
+    // Recargar datos para obtener los SHA actualizados de GitHub
+    await loadAllData();
 
     showBanner('✅ Guardado en GitHub. El sitio se actualizará en ~30 segundos…', 'info');
     setTimeout(() => {
@@ -1951,7 +2514,7 @@
       const filename = `prod_${String(productId).toLowerCase()}_${ts}.jpg`;
       const result = await api({ action: 'upload-image', filename, content: base64 });
       if (!result.ok) {
-        showBanner('Error al subir la imagen. Intentá de nuevo.', 'error');
+        showBanner('Error al subir la imagen. Intenta de nuevo.', 'error');
         return;
       }
       pathInputEl.value = result.path;
