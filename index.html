@@ -84,6 +84,9 @@
 
   <!-- ═══════════════ PAS HERO BANNER ═══════════════ -->
   <section class="v2-hero" id="v2hero">
+    <!-- Imagen de fondo del hero -->
+    <img src="imagenes/hero/hero-casa-ahorro.jpg" alt="Productos de limpieza Casa Ahorro"
+         class="v2-hero-img" width="1800" height="1005" fetchpriority="high">
     <div class="v2-hero-inner">
      <div class="v2-hero-copy">
       <!-- PROBLEMA -->
@@ -109,9 +112,6 @@
         <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
       </a>
      </div>
-      <!-- Imagen del hero -->
-      <img src="imagenes/hero/hero-casa-ahorro.jpg" alt="Productos de limpieza Casa Ahorro"
-           class="v2-hero-img" width="1800" height="1005" fetchpriority="high">
     </div>
     <!-- Decoración geométrica -->
     <div class="v2-hero-deco" aria-hidden="true">
@@ -448,6 +448,15 @@
       gsap.from('#v2hero .v2-hero-cta', {
         opacity: 0, scale: 0.92, duration: 0.5, delay: 0.45, ease: 'back.out(1.5)'
       });
+
+      // Imagen de fondo: entrada suave (zoom-out) + leve movimiento continuo
+      const heroImg = document.querySelector('#v2hero .v2-hero-img');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (heroImg && !reduceMotion) {
+        gsap.timeline()
+          .from(heroImg, { opacity: 0, scale: 1.15, duration: 1.4, ease: 'power2.out' })
+          .to(heroImg, { scale: 1.05, duration: 10, ease: 'sine.inOut', yoyo: true, repeat: -1 });
+      }
 
       // ── Social proof ────────────────────────────
       gsap.from('#v2proof .v2-proof-item', {
