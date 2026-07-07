@@ -924,7 +924,8 @@
     "formato": "1 Litro",
     "precio": 1500,
     "categoria": "Cocina",
-    "imagen": "imagenes/COCINA/p081.jpg"
+    "imagen": "imagenes/COCINA/p081.jpg",
+    "agotado": true
   },
   {
     "id": "P082",
