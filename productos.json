@@ -1,6 +1,15 @@
 [
   {
     "id": "NEW001",
+    "nombre": "Toalla Nova doble hoja ",
+    "marca": "Tork",
+    "formato": "24 metros ",
+    "precio": 2490,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783390832099.jpg"
+  },
+  {
+    "id": "NEW001",
     "nombre": "Desodorante sensitive",
     "marca": "Dove",
     "formato": "87g-150ml",
