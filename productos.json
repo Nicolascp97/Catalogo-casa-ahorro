@@ -223,7 +223,8 @@
     "formato": "5 Litros",
     "precio": 3590,
     "categoria": "Ropa",
-    "imagen": "imagenes/ROPA/p004.jpg"
+    "imagen": "imagenes/ROPA/p004.jpg",
+    "agotado": true
   },
   {
     "id": "P005",
