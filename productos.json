@@ -1,5 +1,14 @@
 [
   {
+    "id": "NEW001",
+    "nombre": "Lustra muebles ",
+    "marca": "Virginia ",
+    "formato": "250ml",
+    "precio": 2300,
+    "categoria": "",
+    "imagen": "imagenes/UPLOADS/prod_new001_1783389371920.jpg"
+  },
+  {
     "id": "NEW003",
     "nombre": "Downy concentrado ",
     "marca": "Downy",
