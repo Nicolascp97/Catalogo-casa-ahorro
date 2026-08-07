@@ -304,7 +304,7 @@
     "precio": 3590,
     "categoria": "Ropa",
     "imagen": "imagenes/ROPA/p003.jpg",
-    "agotado": true
+    "agotado": false
   },
   {
     "id": "P004",
@@ -314,7 +314,7 @@
     "precio": 3590,
     "categoria": "Ropa",
     "imagen": "imagenes/ROPA/p004.jpg",
-    "agotado": true
+    "agotado": false
   },
   {
     "id": "P005",
